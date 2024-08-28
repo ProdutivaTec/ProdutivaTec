@@ -1,0 +1,33 @@
+.sobreP{
+    font-family: "Paytone One", sans-serif;
+    color: #245293;
+    text-align: center;
+}
+
+.sobreH1{
+    font-family: "Paytone One", sans-serif;
+    color: #245293;
+    text-align: center;
+    font-size:32px;
+}
+
+.p{
+    text-align: center;
+
+}
+
+.buttonSobre{
+    text-align: center;
+    background-color: #245293;
+    color: #FFFF;
+    border-radius: 16px;
+    width: 15%;
+    height: 60px;
+    font-family: "Paytone One", sans-serif;
+    border: solid 1px #245293;
+}
+
+.areaButtonSobre{
+    display: flex;
+    justify-content: center;
+}

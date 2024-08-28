@@ -18,6 +18,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
+
   }
   .example-2 .icon-content {
     margin: 0 10px;
@@ -109,7 +110,6 @@ ul {
 
 
 .contatoText{
-    display: flex;
     justify-content: center;
     font-size: 25px;
 }
