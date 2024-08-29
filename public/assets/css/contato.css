@@ -102,10 +102,12 @@ ul {
       #fd1f1f
     );
   }
-  .example-2 .icon-content a[data-social="youtube"] .filled,
-  .example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
-    background-color: #ff0000;
-  }
+  .example-2 .icon-content a[data-social="whatsapp"] .filled,
+.example-2 .icon-content a[data-social="whatsapp"] ~ .tooltip {
+  background-color: #25D366; /* Cor verde do WhatsApp */
+  opacity: 1;
+}
+
   
 
 

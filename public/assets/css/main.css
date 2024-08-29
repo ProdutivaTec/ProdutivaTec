@@ -1,34 +1,61 @@
 html, body {
-    overflow-x: hidden; /* Força a remoção do scroll lateral */
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Inclui padding e borda nas dimensões */
+    box-sizing: border-box; 
 }
 
 header{
-    position: relative;
+    position: absolute;
+    top: -22px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    z-index: 2;
     width: 100%;
 
 }
 
+.logo {
+    display: flex;
+}
+
 .imgLogoMain{
     display: flex;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    justify-content: center;
-    margin-left: 45%;
-    width: 150px;
-    aspect-ratio: 4 / 3;
+    width: 160px;
     height: 50px;
     border-radius: 6px;
-    text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     margin: 0;
-    z-index: 2;
-    margin-bottom: 90%;
-    
+    margin-left: 140px;
 }
 
 
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    height: 35px;
+    gap: 20px;
+    background-color: #295490;
+    font-family: "Paytone One", sans-serif;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px; 
+    margin: 0; 
+    margin-right: 140px;
+    border-radius: 16px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 6px;
+}
 
 
 
