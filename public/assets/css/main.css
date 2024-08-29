@@ -79,6 +79,7 @@ header{
     display: block;
     position: relative;
     filter: brightness(0.5);
+    clip-path: inset(0 0 150px 0);
 }
 
 .textMain {
@@ -99,19 +100,19 @@ header{
     display: flex;
     justify-content: space-between;
     justify-content: center;
-    margin-top: -50px;
+    margin-top: -140px;
     position: relative;
     z-index: 2;
     height: 200px;
     padding: 10px;
     align-items: center;
-    gap: 200px;
+    gap: 150px;
 }
 
 .boxMain {
     background-color: #FF6700;
     height: 400px;
-    width: 250px;
+    width: 300px;
     border-radius: 16px;
     display: flex;
     justify-content: center;
