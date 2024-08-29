@@ -1,0 +1,112 @@
+html, body {
+    overflow-x: hidden; /* Força a remoção do scroll lateral */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e borda nas dimensões */
+}
+
+header{
+    position: relative;
+    width: 100%;
+
+}
+
+.imgLogoMain{
+    display: flex;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    margin-left: 45%;
+    width: 150px;
+    aspect-ratio: 4 / 3;
+    height: 50px;
+    border-radius: 6px;
+    text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    z-index: 2;
+    margin-bottom: 90%;
+    
+}
+
+
+
+
+
+
+
+.imgMain, .areaImg {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; 
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.imgMain {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; 
+    display: block;
+    position: relative;
+    filter: brightness(0.5);
+}
+
+.textMain {
+    position: absolute;
+    top: 50%;
+    left: 70%; 
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 2; 
+    font-family: "Paytone One", sans-serif;
+    font-size: 70px;
+    width: 700px;
+}
+
+.entreSessoes {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    height: 200px;
+    padding: 10px;
+    align-items: center;
+    gap: 200px;
+}
+
+.boxMain {
+    background-color: #FF6700;
+    height: 400px;
+    width: 250px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 5px;
+    
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+.areaImg {
+    max-width: 100%; 
+    height: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
