@@ -1,3 +1,17 @@
+.paytone-one-regular {
+    font-family: "Paytone One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.asap {
+  font-family: "Asap", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
 html, body {
     overflow-x: hidden;
     margin: 0;
@@ -7,7 +21,7 @@ html, body {
 
 header{
     position: absolute;
-    top: -22px;
+    top: -25px;
     left: 0;
     display: flex;
     justify-content: space-between;
@@ -15,20 +29,26 @@ header{
     padding: 10px 50px;
     z-index: 2;
     width: 100%;
-
 }
+
+
 
 .logo {
     display: flex;
+    justify-content: center;
+    background-color: #295490;
+    height: 80px;
+    width: 230px;
+    border-radius: 25px;
+    position: relative;
+    bottom: 5px;
 }
 
 .imgLogoMain{
-    display: flex;
-    width: 160px;
-    height: 50px;
-    border-radius: 6px;
-    margin: 0;
-    margin-left: 140px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    bottom: 50px;
 }
 
 
@@ -57,9 +77,10 @@ header{
     border-radius: 6px;
 }
 
-
-
-
+.menu ul li a:hover {
+    color: #FF6700;
+    transition: 0.8s;
+}
 
 .imgMain, .areaImg {
     max-width: 100%;
@@ -79,7 +100,6 @@ header{
     display: block;
     position: relative;
     filter: brightness(0.5);
-    clip-path: inset(0 0 150px 0);
 }
 
 .textMain {
@@ -100,25 +120,26 @@ header{
     display: flex;
     justify-content: space-between;
     justify-content: center;
-    margin-top: -140px;
+    margin-top: -50px;
     position: relative;
     z-index: 2;
     height: 200px;
     padding: 10px;
     align-items: center;
-    gap: 150px;
+    gap: 200px;
 }
 
 .boxMain {
     background-color: #FF6700;
-    height: 400px;
-    width: 300px;
+    height: 300px;
+    width: 250px;
     border-radius: 16px;
     display: flex;
     justify-content: center;
     text-align: center;
     box-sizing: border-box;
     margin: 0 5px;
+    box-shadow: 2px 3px 3px 3px rgba(0, 0, 0.3, 0.3);
     
 }
 

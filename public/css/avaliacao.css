@@ -1,3 +1,17 @@
+.paytone-one-regular {
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.asap {
+font-family: "Asap", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-variation-settings:
+  "wdth" 100;
+}
+
 .section-avaliacao {
     margin: 0;
     padding: 20px 0;

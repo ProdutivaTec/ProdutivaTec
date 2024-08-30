@@ -1,13 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
+.paytone-one-regular {
+    font-family: "Paytone One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.asap {
+  font-family: "Asap", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
 body{
     margin: 0;
     padding: 0;
 }
 
+.section-footer {
+    height: 430 px;
+}
+
 .footer{
-    background-color: #245293; /* Azul */
+    background-color: #245293;
     color: #FFFFFF;
     text-align: center;
 }
@@ -62,4 +79,8 @@ body{
     margin: 0;
     padding-bottom: 10px ; /*Espaço entre título e paragrafo */
     text-align: center;
+}
+
+.box p {
+    font-family: "Asap", sans-serif;
 }

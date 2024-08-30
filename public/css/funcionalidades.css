@@ -1,8 +1,17 @@
 
+.paytone-one-regular {
+    font-family: "Paytone One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
-
-
-
+.asap {
+  font-family: "Asap", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
 
 .section-funcionalidades {
@@ -60,20 +69,20 @@
 .box-content p {
     margin-top: 10px;
     font-size: 16px;
+    font-family: "Asap", sans-serif;
+    color: #666666;
 }
 
 
 .box-content p {
     margin-top: 10px;
     font-size: 16px;
+    font-family: "Asap", sans-serif;
+    color: #666666;
 }
 
 .h2Funcionalidades{
  font-family: "Paytone One", sans-serif;
  color: #245293;
  font-size: 18px;
-}
-
-.pFuncionalidades{
-    font-size: 10px;
 }
