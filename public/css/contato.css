@@ -153,4 +153,13 @@ ul {
     font-family: "Paytone One", sans-serif;
     font-size: 14px;
     border: solid #FFFF;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.botaoContato:hover{
+  background-color: #FF6700;
+  color: #FFFF;
+  border-color: #FF6700;
+  transition: 0.8s;
 }

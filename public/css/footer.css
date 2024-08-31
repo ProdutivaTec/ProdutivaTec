@@ -14,6 +14,11 @@
     "wdth" 100;
 }
 
+.LinkDoc{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 body{
     margin: 0;
     padding: 0;
