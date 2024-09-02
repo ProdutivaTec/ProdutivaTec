@@ -34,6 +34,16 @@
     color: #666666;
 }
 
+.areaP{
+    display: flex;
+    width: 1000px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
 .buttonSobre{
     text-align: center;
     background-color: #245293;
