@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .paytone-one-regular {
     font-family: "Paytone One", sans-serif;
     font-weight: 400;
