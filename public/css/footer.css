@@ -89,3 +89,9 @@ body{
 .box p {
     font-family: "Asap", sans-serif;
 }
+
+.contatoEmail{
+    text-decoration: none;
+    cursor: pointer;
+    color: #FFFF;
+}
