@@ -55,8 +55,6 @@ header{
     bottom: 50px;
 }
 
-
-
 .menu ul {
     list-style: none;
     display: flex;
@@ -134,7 +132,7 @@ header{
 }
 
 .boxMain {
-    background-color: #FF6700;
+  
     height: 300px;
     width: 250px;
     border-radius: 16px;
@@ -143,8 +141,8 @@ header{
     text-align: center;
     box-sizing: border-box;
     margin: 0 5px;
-    box-shadow: 2px 3px 3px 3px rgba(0, 0, 0.3, 0.3);
-    
+    overflow: hidden;
+    position: relative;   
 }
 
 main {
@@ -161,5 +159,65 @@ main {
     top: 0;
     margin: 0;
     padding: 0;
+    
 }
 
+.imgWrapper {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    
+  }
+  
+  .imgSessao {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: 2px 3px 3px rgba(17, 12, 61, 0.3);
+    transition: transform 0.4s ease;
+  }
+  
+  .textOverlay {
+    position: absolute;
+    top: 70%;
+    font-family: "Paytone One", sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+
+    font-size: 15px;
+    z-index: 2;
+  }
+  
+
+
+  .imgWrapper:hover .imgSessao {
+    transform: scale(1.1); 
+    filter: brightness(100%); 
+    
+  }
+  
+  .imgWrapper:hover .textOverlay {
+    opacity: 0; 
+  }
+
+  .imgWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px; 
+  background: linear-gradient(to top, #295490 10%, rgba(3, 5, 105, 0.01) 90%);
+  transition: opacity 0.3s ease;
+  z-index: 1; 
+  color: #FFFF;
+
+}
+
+.imgWrapper:hover::before {
+    opacity: 0; /* Some com o gradiente */
+  }
