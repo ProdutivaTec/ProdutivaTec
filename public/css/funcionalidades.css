@@ -1,19 +1,3 @@
-
-.paytone-one-regular {
-    font-family: "Paytone One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-.asap {
-  font-family: "Asap", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-
-
 .section-funcionalidades {
     padding: 20px;
 }
@@ -22,30 +6,14 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap; 
 }
 
 .box-funcionalidades {
     text-align: center;
     width: 30%;
     position: relative;
-}
-
-.section-funcionalidades {
-    padding: 20px;
-}
-
-.container-funcionalidades {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.box-funcionalidades {
-    text-align: left;
-    width: 30%;
-    position: relative;
-    display: flex;
-    margin-left: 5%;
+    margin-bottom: 20px; 
 }
 
 .box-funcionalidades:not(:last-child)::after {
@@ -53,12 +21,10 @@
     position: absolute;
     top: 0;
     border: 1px solid #E8E8E8;
-    ;
     right: -10px;
     width: 1px;
     height: 100%;
-    background-color:#E8E8E8;
-    ;
+    background-color: #E8E8E8;
 }
 
 .imgFuncionalidades img {
@@ -73,16 +39,59 @@
     color: #666666;
 }
 
-
-.box-content p {
-    margin-top: 10px;
-    font-size: 16px;
-    font-family: "Asap", sans-serif;
-    color: #666666;
+.h2Funcionalidades {
+    font-family: "Paytone One", sans-serif;
+    color: #245293;
+    font-size: 18px;
 }
 
-.h2Funcionalidades{
- font-family: "Paytone One", sans-serif;
- color: #245293;
- font-size: 18px;
+/* Responsividade */
+@media (max-width: 1024px) {
+    .box-funcionalidades {
+        width: 45%; 
+        margin-left: 0; 
+    }
+
+    .box-funcionalidades:not(:last-child)::after {
+        right: -5px; 
+}
+
+@media (max-width: 768px) {
+    .box-funcionalidades {
+        width: 100%; 
+        margin-left: 0; 
+    }
+
+    .box-funcionalidades:not(:last-child)::after {
+        display: none; 
+    }
+
+    .imgFuncionalidades img {
+        height: 40px;
+        width: 40px; 
+    }
+
+    .h2Funcionalidades {
+        font-size: 16px; 
+    }
+
+    .box-content p {
+        font-size: 14px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .imgFuncionalidades img {
+        height: 35px;
+        width: 35px; 
+    }
+
+    .h2Funcionalidades {
+        font-size: 14px;
+    }
+
+    .box-content p {
+        font-size: 12px;
+    }
+}
 }
