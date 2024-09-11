@@ -1,113 +1,112 @@
-.paytone-one-regular {
-    font-family: "Paytone One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-.asap {
-  font-family: "Asap", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-
 body {
-    background-color: #3A6EA5;
+    background-color: #245293;
     display: flex;
     justify-content: center;
-    flex-direction: row;
     align-items: center;
-    height: 1250px;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
 .container-principal {
-    width: 1100px;
-    height: 1100px;
+    width: 90%;
+    max-width: 700px;
+    height: 650px;
     background-color: white;
     border-radius: 50px;
-    display: flex;
-    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
 }
 
 .inside1 {
-    width: 100%;
-    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
-.container-principal img {
+.logo {
+    width: 300px; 
+    border-radius: 24px;
+    height: 90px;
     position: relative;
-    bottom: 100px;
-    width: 550px;
-    height: 550px;
+    z-index: 10;
+    margin-top: -38px;
 }
 
-.container-principal h1 {
+.h1Cadastro {
     font-family: "Paytone One", sans-serif;
-    font-size: 40px;
+    font-size: 32px;
     color: #3A6EA5;
-    position: relative;
-    bottom: 150px;
+    margin-bottom: 20px;
 }
 
 .inside2 {
-    width: 100%;
-    height: 900px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    text-align: start;
+    align-items: center;
 }
 
-.inside2 p {
-    font-size: 30px;
+.inside2 label {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
     font-family: "Asap", sans-serif;
     color: #3A6EA5;
     font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: -470px;
+}
+
+.input-container {
+    width: 550px;
+    max-width: 800px;
+    position: relative;
+}
+
+/* Input com ícone como imagem de fundo */
+.inside2 input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    box-shadow: 2px 3px 20px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 16px;
+    font-size: 20px;
+    padding-left: 50px; /* Espaço para o ícone */
+    background-image: url('../assets/icon/o-email.png'); /* Caminho do ícone */
+    background-repeat: no-repeat;
+    background-position: 15px center; /* Posição do ícone dentro do input */
+    background-size: 24px 24px; /* Tamanho do ícone */
+}
+
+.inside2 input[type="password"] {
+    background-image: url('../assets/icon/padlock.png'); 
 }
 
 .inside2 span {
-    font-size: 25px;
-    font-family: "Asap", sans-serif;
+    font-size: 18px;
+    font-family: "Paytone One", sans-serif;
     color: #878787;
 }
 
-.inside2 small {
-    font-size: 25px;
-    font-family: "Asap", sans-serif;
-    color: #878787;
-}
-
-.inside2 input {
-    width: 700px;
-    height: 100px;
-    box-shadow: 2px 3px 3px 3px rgba(0, 0, 0.3, 0.3);
-    border: none;
-    border-radius: 35px;
-    font-size: 25px;
-    padding-inline-start: 80px;
+.inside2 small{
+    font-size: 18px;
+    font-family: "Paytone One", sans-serif;
+    color: #245293;
 }
 
 .inside2 button {
-    width: 700px;
-    height: 100px;
+    width: 90%;
+    max-width: 500px;
+    height: 60px;
     border-radius: 35px;
     border: none;
     background-color: #3A6EA5;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     transition: 0.5s;
     color: white;
-    font-size: 35px;
-    font-family: asa;
+    font-size: 24px;
     font-family: "Asap", sans-serif;
-}
-
-.inside2 img {
-    width: 10px;
-    height: 10px;
+    margin-top: 20px;
 }
