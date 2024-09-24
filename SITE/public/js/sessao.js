@@ -22,11 +22,11 @@ function limparSessao() {
 // carregamento (loading)
 function aguardar() {
     var loading = document.getElementById("loading-gif");
-    loading.style.display = "inline";
+
 }
 
 function finalizarAguardar() {
     var loading = document.getElementById("loading-gif");
-    loading.style.display = "none";
+
 
 }
