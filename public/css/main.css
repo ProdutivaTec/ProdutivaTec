@@ -1,0 +1,329 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.paytone-one-regular {
+    font-family: "Paytone One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.asap {
+    font-family: "Asap", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+header {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    z-index: 2;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    background-color: #295490;
+    height: 80px;
+    width: 230px;
+    border-radius: 25px;
+    position: relative;
+    bottom: 5px;
+}
+
+.imgLogoMain {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    bottom: 50px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    height: 35px;
+    gap: 20px;
+    background-color: #295490;
+    font-family: "Paytone One", sans-serif;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px; 
+    margin: 0; 
+    margin-right: 140px;
+    border-radius: 16px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.menu ul li a:hover {
+    color: #FF6700;
+    transition: 0.8s;
+}
+
+.imgMain, .areaImg {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; 
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.imgMain {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; 
+    display: block;
+    position: relative;
+    filter: brightness(0.5);
+}
+
+.textMain {
+    position: absolute;
+    top: 50%;
+    left: 70%; 
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 2; 
+    font-family: "Paytone One", sans-serif;
+    font-size: 70px;
+    width: 700px;
+}
+
+/* Media Queries para o Main */
+@media (max-width: 1200px) {
+    .textMain {
+        font-size: 60px;
+        width: 600px;
+        left: 60%;
+    }
+
+    .imgLogoMain {
+        width: 180px;
+        height: 180px;
+    }
+
+    .menu ul {
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    .textMain {
+        font-size: 50px;
+        width: 500px;
+        left: 50%;
+    }
+
+    .imgLogoMain {
+        width: 150px;
+        height: 150px;
+    }
+
+    .menu ul {
+        margin-right: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .textMain {
+        font-size: 40px;
+        width: 400px;
+        left: 40%;
+    }
+
+    .imgLogoMain {
+        width: 120px;
+        height: 120px;
+    }
+
+    .menu ul {
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        height: 60px;
+        width: 200px;
+    }
+
+    .imgLogoMain {
+        width: 100px;
+        height: 100px;
+        bottom: 30px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-right: 0;
+    }
+
+    .menu ul li a {
+        font-size: 16px;
+    }
+
+    .textMain {
+        font-size: 30px;
+        width: 300px;
+        left: 30%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.entreSessoes {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.boxMain {
+    height: 330px;
+    width: 250px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 80px;
+    overflow: hidden;
+    position: relative;   
+}
+
+.imgWrapper {
+    position: relative;
+    width: 100%; 
+    height: 100%; 
+}
+
+.imgSessao {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: 2px 3px 3px rgba(17, 12, 61, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.textOverlay {
+    position: absolute;
+    top: 80%;
+    font-family: "Paytone One", sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.imgWrapper:hover .imgSessao {
+    transform: scale(1.1); 
+    filter: brightness(100%); 
+}
+
+.imgWrapper:hover .textOverlay {
+    opacity: 0; 
+}
+
+.imgWrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px; 
+    background: linear-gradient(to top, #295490 10%, rgba(3, 5, 105, 0.01) 90%);
+    transition: opacity 0.3s ease;
+    z-index: 1; 
+    color: #FFFF;
+}
+
+.imgWrapper:hover::before {
+    opacity: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .boxMain {
+        height: 250px;
+        width: 200px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .boxMain {
+        height: 200px;
+        width: 150px; 
+    }
+
+    .textOverlay {
+        font-size: 12px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .boxMain {
+        height: 180px; 
+        width: 100%; 
+        margin: 0; 
+    }
+
+    .textOverlay {
+        font-size: 10px; 
+        top: 60%; 
+    }
+}

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>TIVAT - IA</title>
     <link rel="stylesheet" href="./css/dashboard.css">
-    
+    <link rel="stylesheet" href="./css/ia.css">
 </head>
-
-<body onload="validarSessao()">
+<body>
     <section class="container">
         <aside class="sidebar">
             <div class="imgDash" id="theme-dash">
@@ -65,30 +63,17 @@
             </div>
         </header>
 
-        <section class="graficosDash">
-            <p class="pDash">Dashboards</p>
-            <div class="dashTop">
-                <div class="KPI1"></div>
-                <div class="KPI2"></div>
-                <div class="KPI3"></div>
+        <div class="content">
+            <h1 class="h1Tivat">TIVAT</h1>
+            <p class="pTivat">Saiba como nossa inteligência artificial pode te ajudar</p>
+            <div class="inputQuestion">
+                <input type="text" placeholder="Digite a sua dúvida...">
             </div>
-            <div class="graficosDash2">
-                <div class="dashBottom">
-                    <div class="graph1"></div>
-                    <div class="graph2"></div>
-                </div>
-            </div>
-
-            <div class="dashBottom">
-                <div class="KPI4"></div>
-                <div class="KPI5"></div>
-            </div>
-        </section>
+            <div class="Respostas"></div>
+        </div>
 
     </section>
+
+    <script src="./js/dashboard.js"></script>
 </body>
-
 </html>
-
-
-<script src="../public/js/dashboard.js"></script>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="icon" type="imagex/png" href="./assets/ABA.ico">
+    <title>Produtiva: Cadastre-se</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+
+<body>
+    <span id="alert_msg"></span>
+    <section class="container-principal">
+        <div class="inside1">
+            <div><img class="logo" src="./assets/img/LOGO.png" alt="Logo"></div>
+            <br>
+        </div>
+        <div class="inside2">
+            <h1 class="h1Cadastro">Bem-vindo!</h1>
+            <form class="form-container" action="">
+                <input id="nome" type="text" placeholder="Nome Completo">
+
+                <input id="email" type="text" placeholder="Email" onblur="validarEmail()">
+                <span id="error-email" class="msg-error">Insira um email válido</span>
+
+                <span class="container-senha">
+                    <i onclick="showPassword(eye_icon, password)" id="eye_icon" class="fa-solid fa-eye"></i>
+                    <input id="password" type="password" placeholder="Senha" onkeyup="validarSenha()" onblur="validarSenha()">
+                </span>
+                <ul class="validacaoList" style="display: none;">
+                    <li id="validacao1">Deve conter 10 caracteres</li>
+                    <li id="validacao2">Deve conter um caracter especial (@ ou #)</li>
+                    <li id="validacao3">Deve conter um número</li>
+                </ul>
+
+                <span class="container-senha">
+                    <i onclick="showPassword(eye_icon_confirm, confirmPassword)" id="eye_icon_confirm" class="fa-solid fa-eye"></i>
+                    <input id="confirmPassword" type="password" placeholder="Confirmar Senha" onblur="validarConfirmacaoSenha()">
+                </span>
+                <span id="error-confSenha" class="msg-error">As senhas devem ser iguais</span>
+
+                <div id="btn_content" class="btn-container">
+                    <button id="bntCadastro" type="submit"  onclick="validarCampos()">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div id="erroTela"></div>
+
+    <script>
+        function validarEmail() {
+            const email = document.getElementById('email');
+            const errorEmail = document.getElementById('error-email');
+            if (email.value.indexOf('@') < 0 || email.value.indexOf('.com') < 0) {
+                email.style.borderColor = 'red';
+                errorEmail.style.display = 'block';
+                return false;
+            } else {
+                email.style.borderColor = 'green';
+                errorEmail.style.display = 'none';
+                return true;
+            }
+        }
+    
+        function validarSenha() {
+            const password = document.getElementById('password').value;
+            const validacao1 = document.getElementById('validacao1');
+            const validacao2 = document.getElementById('validacao2');
+            const validacao3 = document.getElementById('validacao3');
+            const listaValidacao = document.querySelector('.validacaoList');
+            let failedValidation = 0;
+    
+            listaValidacao.style.display = 'block';
+    
+            if (password.length >= 10) {
+                validacao1.style.color = 'green';
+            } else {
+                validacao1.style.color = 'red';
+                failedValidation++;
+            }
+    
+            if (password.indexOf('@') >= 0 || password.indexOf('#') >= 0) {
+                validacao2.style.color = 'green';
+            } else {
+                validacao2.style.color = 'red';
+                failedValidation++;
+            }
+    
+            if (/\d/.test(password)) {
+                validacao3.style.color = 'green';
+            } else {
+                validacao3.style.color = 'red';
+                failedValidation++;
+            }
+    
+            const inputSenha = document.getElementById('password');
+            inputSenha.style.borderColor = failedValidation > 0 ? 'red' : 'green';
+    
+            return failedValidation === 0;
+        }
+    
+        function validarConfirmacaoSenha() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorConfSenha = document.getElementById('error-confSenha');
+    
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPassword').style.borderColor = 'red';
+                errorConfSenha.style.display = 'block';
+                return false;
+            } else {
+                document.getElementById('confirmPassword').style.borderColor = 'green';
+                errorConfSenha.style.display = 'none';
+                return true;
+            }
+        }
+    
+        function validarCampos(event) {
+            event.preventDefault();  // Evita o recarregamento da página
+    
+            const emailValido = validarEmail();
+            const senhaValida = validarSenha();
+            const confirmacaoSenhaValida = validarConfirmacaoSenha();
+    
+            if (emailValido && senhaValida && confirmacaoSenhaValida) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Cadastro realizado com sucesso!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    
+        function showPassword(idIcon, idInput) {
+            if (idInput.type === 'password') {
+                idIcon.classList.remove('fa-eye');
+                idIcon.classList.add('fa-eye-slash');
+                idInput.type = 'text';
+            } else {
+                idInput.type = 'password';
+                idIcon.classList.remove('fa-eye-slash');
+                idIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+.container {
+    display: flex; /* Usar flexbox para o layout */
+}
+
+.sidebar {
+    width: 250px; /* Ajuste a largura conforme necessário */
+}
+
+.headerDash {
+    width: calc(100% - 250px); /* Para garantir que o header não sobreponha a sidebar */
+}
+
+.content {
+    flex: 1; /* Permite que a área de conteúdo ocupe o restante do espaço */
+    display: flex; /* Usar flexbox para alinhar os itens */
+    flex-direction: column; /* Alinhar os itens verticalmente */
+    align-items: center; /* Centralizar horizontalmente */
+    justify-content: center; /* Centralizar verticalmente */
+    margin-left: 15%;
+    padding: 20px; /* Adicionar algum preenchimento, se necessário */
+}
+
+.h1Tivat, .pTivat, .inputQuestion {
+    margin: 10px; /* Usar margens uniformes para todos os elementos */
+    color: #333; 
+}
+
+.h1Tivat {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 2%;
+    font-family: "Paytone One", sans-serif;
+    color: #4AAAB0;
+}
+
+.pTivat {
+    font-size: 1.2rem;
+}
+
+.inputQuestion input {
+    width: 800px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.Respostas {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #FFFF;
+    border-radius: 16px;
+    height: 300px;
+    width: 800px;
+}

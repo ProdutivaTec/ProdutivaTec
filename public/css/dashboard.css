@@ -6,8 +6,6 @@
     overflow-x: hidden;
 }
 
-
-
 body {
     font-family: "Asap", sans-serif;
     background-color: #bfbfbf;
@@ -51,14 +49,8 @@ body {
     flex-grow: 1;
 }
 
-.linkPag{
-    text-decoration: none;
-    color: #FFFF ;
-}
-
 .menu-item {
     display: flex;
-    text-decoration: none;
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;

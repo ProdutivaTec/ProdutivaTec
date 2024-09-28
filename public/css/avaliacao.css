@@ -1,0 +1,86 @@
+.section-avaliacao {
+  margin: 0;
+  padding: 20px 0;
+  width: 100%;
+  background-color: #FF6700;
+}
+
+.container-avaliacao {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FF6700;
+}
+
+.avaliacaoText {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.avaliacaoH1 {
+  font-family: "Paytone One", sans-serif;
+  text-align: center;
+  color: #FFFF;
+}
+
+.box-avaliacao {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px; 
+  height: auto;
+}
+
+.card-avaliacao {
+  background-color: #FFFFFF;
+  width: 30%; 
+  height: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.star-rating {
+  font-size: 24px;
+  color: #FFCC00;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.avaliacao-data {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: "Paytone One", sans-serif;
+  color: #245293;
+  font-size: 18px;
+}
+
+.avaliacao-texto {
+  font-size: 16px;
+  color: #333333;
+  font-family: "Asap", sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .card-avaliacao {
+      width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .box-avaliacao {
+      flex-wrap: wrap; 
+  }
+
+  .card-avaliacao {
+      width: 100%; 
+  }
+}

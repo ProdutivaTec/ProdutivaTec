@@ -18,37 +18,39 @@
 <body>
     <div class="container-principal">
         <div class="inside1">
-            <div><img class="logo" src="./assets/img/LOGO.png" alt="Logo"></div>
-            <br>
+            <img class="logo" src="./assets/img/LOGO.png" alt="Logo">
         </div>
         <h1 class="h1Cadastro">Bem-vindo!</h1>
         <div class="inside2">
-
-            <br><br>
             <div class="input-container">
                 <input placeholder="Nome" type="text" id="input_nome">
             </div>
-            <br><br>
             <div class="input-container">
-                <input placeholder="Email" type="text" id="input_email">
+                <input placeholder="Email" type="email" id="input_email">
             </div>
-            <br><br>
+            <div class="input-container">
+                <input placeholder="Telefone" type="text" id="input_telefone">
+            </div>
+            <div class="parteEmpresa">
+                <div class="input-container">
+                    <input placeholder="Nome da Empresa" type="text" id="input_empresa">
+                </div>
+                <div class="input-container">
+                    <input placeholder="Cargo" type="text" id="input_cargo">
+                </div>
+            </div>
             <div class="input-container">
                 <input placeholder="Senha" type="password" id="input_senha">
             </div>
-            <br><br>
             <div class="input-container">
-                <input placeholder="Confirmação de senha" type="Cpassword" id="input_senhaConfirmar">
+                <input placeholder="Confirmação de senha" type="password" id="input_senhaConfirmar">
             </div>
-            <br>
-            <br>
             <button onclick="entrar()">Cadastrar</button>
-            <br>
-            <div id="loading"></div>
-            <div id="alertas"></div>
+            <p>Você já possui uma conta? <a href="login.html">Login</a></p>
         </div>
     </div>
 </body>
+
 </html>
 
 <script src="js/cadastro.js"></script>

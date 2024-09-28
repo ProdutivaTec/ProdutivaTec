@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Equipes</title>
     <link rel="stylesheet" href="./css/dashboard.css">
-    
+    <link rel="stylesheet" href="./css/equipes.css">
 </head>
 
 <body onload="validarSessao()">
@@ -65,30 +65,25 @@
             </div>
         </header>
 
-        <section class="graficosDash">
-            <p class="pDash">Dashboards</p>
-            <div class="dashTop">
-                <div class="KPI1"></div>
-                <div class="KPI2"></div>
-                <div class="KPI3"></div>
+        <div class="textE">
+            <div class="textEquipe">
+                <p>Equipes</p>
             </div>
-            <div class="graficosDash2">
-                <div class="dashBottom">
-                    <div class="graph1"></div>
-                    <div class="graph2"></div>
-                </div>
+            <div class="buttonEquipes">
+                <p>Deseja cadastrar mais equipes?</p>
+                <button class="add-button">+</button>
             </div>
-
-            <div class="dashBottom">
-                <div class="KPI4"></div>
-                <div class="KPI5"></div>
-            </div>
-        </section>
-
+        </div>
+        
+        <section class="containerEquipes">
+            <div class="blocsEquipes"></div>
+            <div class="blocsEquipes"></div>
+            <div class="blocsEquipes"></div>
+        
     </section>
 </body>
 
 </html>
 
 
-<script src="../public/js/dashboard.js"></script>
+<script src="./js/dashboard.js"></script>

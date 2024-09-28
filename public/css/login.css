@@ -1,0 +1,128 @@
+body {
+    background-color: #245293;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.container-principal {
+    width: 90%;
+    max-width: 700px;
+    height: 650px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.inside1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 300px; 
+    border-radius: 24px;
+    height: 90px;
+    position: relative;
+    z-index: 10;
+    margin-top: -38px;
+}
+
+.h1Cadastro {
+    font-family: "Paytone One", sans-serif;
+    font-size: 32px;
+    color: #3A6EA5;
+    margin-bottom: 20px;
+}
+
+.inside2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inside2 label {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-family: "Asap", sans-serif;
+    color: #3A6EA5;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: -470px;
+}
+
+.input-container {
+    width: 550px;
+    max-width: 800px;
+    position: relative;
+}
+
+/* Input com ícone como imagem de fundo */
+.inside2 input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    box-shadow: 2px 3px 20px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 16px;
+    font-size: 20px;
+    padding-left: 50px; /* Espaço para o ícone */
+    background-image: url('../assets/icon/o-email.png'); /* Caminho do ícone */
+    background-repeat: no-repeat;
+    background-position: 15px center; /* Posição do ícone dentro do input */
+    background-size: 24px 24px; /* Tamanho do ícone */
+}
+
+.inside2 input[type="password"] {
+    background-image: url('../assets/icon/padlock.png'); 
+}
+
+.inside2 span {
+    font-size: 18px;
+    font-family: "Paytone One", sans-serif;
+    color: #878787;
+}
+
+.inside2 small{
+    font-size: 18px;
+    font-family: "Paytone One", sans-serif;
+    color: #245293;
+}
+
+input::placeholder, input{
+    color: #245293;
+    font-family: "Asap", sans-serif;
+    opacity: 1;
+}
+
+input:focus{ 
+    outline: none; /*Para tirar essa borda preta */
+}
+
+.inside2 button {
+    width: 90%;
+    max-width: 500px;
+    height: 60px;
+    border-radius: 35px;
+    border: none;
+    background-color: #3A6EA5;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+    color: white;
+    font-size: 24px;
+    font-family: "Asap", sans-serif;
+    margin-top: 20px;
+    
+}
+
+.linkCadastro{
+    text-decoration: none;
+    padding: 10px;
+}
