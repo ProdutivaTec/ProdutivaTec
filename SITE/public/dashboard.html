@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/dashboard.css">
-    
+    <link rel="stylesheet" href="./css/notificações.css">
 </head>
 
 <body onload="validarSessao()">
     <section class="container">
         <aside class="sidebar">
             <div class="imgDash" id="theme-dash">
-                <img src="./assets/img/LOGO.png" id="theme-logo" alt="">
+                <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
             </div>
             <br>
             <div class="divMenu">
@@ -22,19 +22,24 @@
                     Dashboards
                 </div>
                 <a class="linkPag" href="./equipes.html">
-                <div class="menu-item">
-                    <img class="icon" src="./assets/icon/Equipes.png" alt="Equipes Icon">
-                    Equipes
-                </div>
-            </a>
-                <div class="menu-item">
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/Equipes.png" alt="Equipes Icon">
+                        Equipes
+                    </div>
+                </a>
+                <div class="menu-item" id="openModalBtn">
                     <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
                     Notificações
+                </div>
+                <div class="menu-item">
+                    <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
+                    Eventos
                 </div>
                 <div class="menu-item">
                     <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
                     Suporte - IA
                 </div>
+                
                 <div class="menu-item">
                     <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
                     Configurações
@@ -59,9 +64,6 @@
                     <img src="./assets/icon/image 34.png" id="theme-confg" alt="">
                 </div>
                 <div class="vertical"></div>
-                <div class="funcionalidadesHeader">
-                    <img src="" alt="">
-                </div>
             </div>
         </header>
 
@@ -86,9 +88,85 @@
         </section>
 
     </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Notificações</h2>
+            <table>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Evento</th>
+                    <th>+Notificações</th>
+                </tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                    <td>18623</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+
+                    <!-- Mais notificações aqui -->
+            </table>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
 
-
 <script src="../public/js/dashboard.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("myModal");
+        const btn = document.getElementById("openModalBtn");
+        const span = document.getElementsByClassName("close")[0];
+
+        // Abre o modal ao clicar no botão de notificações
+        btn.addEventListener("click", function () {
+            modal.style.display = "flex"; // Mostra o modal
+        });
+
+        // Fecha o modal ao clicar no "X"
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Fecha o modal ao clicar fora dele
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+
+</script>

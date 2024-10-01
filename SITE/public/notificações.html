@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Exemplo</title>
+    <link rel="stylesheet" href="./css/notificações.css">
+</head>
+<body>
+    <div class="menu-item">
+        <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
+        <button id="openModalBtn" type="button">Notificações</button>
+    </div>
+    
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Notificações</h2>
+            <!-- Conteúdo das notificações aqui -->
+            <table>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Evento</th>
+                    <th>Meio</th>
+                </tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                    <td>18623</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <!-- Mais notificações aqui -->
+            </table>
+        </div>
+    </div>
+    
+
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("myModal");
+    const btn = document.getElementById("openModalBtn");
+    const span = document.getElementsByClassName("close")[0];
+
+    // Abre o modal ao clicar no botão de notificações
+    btn.addEventListener("click", function() {
+        modal.style.display = "flex"; // Mostra o modal
+    });
+
+    // Fecha o modal ao clicar no "X"
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Fecha o modal ao clicar fora dele
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+
+
+
+    </script>
+</body>
+</html>
