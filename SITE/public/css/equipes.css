@@ -1,33 +1,29 @@
 .headerEquipes {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinha verticalmente ao centro */
+    align-items: center; 
     margin-left: 300px;
-    margin-top: 20px; /* Espaço acima dos blocos */
+    margin-top: 20px;
     width: calc(100% - 250px);
 }
 
-.textEquipe p {
-    margin-left: 20px; /* Espaço à esquerda da frase */
-    font-weight: bold; /* Opção para destacar o título */
-    font-size: 24px; /* Ajuste o tamanho conforme necessário */
-}
+
 
 .buttonEquipes {
     display: flex;
-    align-items: center; /* Alinha verticalmente ao centro */
-    margin-right: 20px; /* Espaço à direita */
+    align-items: center; 
+    margin-right: 20px; 
 }
 
 .add-button {
     width: 30px;
     height: 30px;
-    border-radius: 50%; /* Faz o botão ser redondo */
-    background-color: #245293; /* Cor do botão */
-    color: white; /* Cor do texto */
-    border: none; /* Remove bordas */
+    border-radius: 50%; 
+    background-color: #245293; 
+    color: white; 
+    border: none; 
     cursor: pointer;
-    margin-left: 10px; /* Espaço entre a frase e o botão */
+    margin-left: 10px;
 }
 
 
@@ -42,7 +38,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 300px;
-    margin-top: 65px; /* Espaço para a div acima */
+    margin-top: 65px; 
     padding: 20px;
     height: calc(100vh - 60px);
     width: calc(100% - 250px);
@@ -51,28 +47,51 @@
 
 .blocsEquipes {
     background-color: #ffffff;
-    width: 30%; 
+    width: 30%;
     height: 400px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.imageEquipes1{
+    width: 200px;
+    height: auto;
+}
+
+.imageEquipes2{
+    width: 425px;
+    height: auto;
+}
+
+.imageEquipes {
+    width: 350px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+}
+
+
+span{
+    font-family: "Asap", sans-serif;
+    font-style: inherit;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .textE {
     display: flex;
-    justify-content: space-between; /* Alinha os elementos nas extremidades */
-    align-items: center; /* Alinha verticalmente ao centro */
-    position: absolute; /* Coloca a div sobre os blocos */
-    width: calc(100% - 300px); /* A mesma largura do container */
-    top: 20px; /* Posição acima dos blocos */
-    left: 300px; /* Alinha com os blocos */
+    justify-content: space-between; 
+    align-items: center; 
+    position: absolute; 
+    width: calc(100% - 300px); 
+    top: 20px;
+    left: 300px; 
     padding: 10px 20px;
-}
-
-.textEquipe p {
-    font-weight: bold;
-    font-size: 24px;
-    margin-top: 120px;
 }
 
 .buttonEquipes {
@@ -95,4 +114,21 @@
 a{
     text-decoration: none;
     color: white    ;
+}
+
+.pDash{
+    margin-left: 0.5%;
+    font-family: "Asap", sans-serif;
+    font-size: 16px;
+    margin-top: 120px;
+}
+
+.linkEquipe{
+    text-decoration: none;
+    color: #000; /* Defina a cor do texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
