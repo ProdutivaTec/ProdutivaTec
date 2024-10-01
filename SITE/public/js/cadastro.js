@@ -4,6 +4,10 @@ function entrar() {
     const senha = input_senha.value
     const email = input_email.value
     const senhaConfirmada = input_senhaConfirmar.value
+    const telefone = input_telefone.value;
+    const empresa = input_email.value;
+    const nomeEmpresa = input_empresa.value;
+    const cargo = select_cargo.value;
 
     let erro = "";
     let verificarCaracterEspecial = false;
@@ -14,7 +18,7 @@ function entrar() {
     const letrasMaiusculas = /[A-Z]/
 
     // Verificações
-    if (email == "" || senha == "" || senhaConfirmada == "" || nome == "") {
+    if ( email == "" || senha == "" || senhaConfirmada == "" || nome == "" || telefone == "" || empresa == "" ||nomeEmpresa == "" || cargo == "#" ) {
         erro = "camposVazios";
     } else if (senha != senhaConfirmada) {
         erro = "senhaDiferente";
@@ -22,7 +26,9 @@ function entrar() {
         erro = "emailInvalido";
     } else if (senha.length < 8) {
         erro = "senhaCurta";
-    } 
+    } else if (telefone <= 11) {
+        erro = "telefoneErrado"
+    }
     
     else { 
         // Verifica caracteres especiais e letras maiúsculas
@@ -61,6 +67,10 @@ function entrar() {
             finalizarAguardar();
             return false;
         case "senhaInvalida":
+            alertas.innerHTML += "AAA";
+            finalizarAguardar();
+            return false;
+        case "telefoneErrado":
             alertas.innerHTML += "AAA";
             finalizarAguardar();
             return false;
