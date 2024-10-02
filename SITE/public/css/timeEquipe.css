@@ -282,15 +282,3 @@ body.dark-mode .itemExit:hover {
 
 /*---------------------------------------------------- */
 
-.progress-2 {
-    width:120px;
-    height:20px;
-    border-radius: 20px;
-    background:
-     linear-gradient(orange 0 0) 0/0% no-repeat
-     lightblue;
-    animation:p2 2s infinite steps(10);
-  }
-  @keyframes p2 {
-      100% {background-size:110%}
-  }

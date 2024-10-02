@@ -7,6 +7,8 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/notificações.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body onload="validarSessao()">
@@ -71,21 +73,29 @@
         </header>
 
         <section class="graficosDash">
-            <p class="pDash">Dashboards</p>
+            <div class="textEmpresa">
+            <Span class="tittleEmpresa">FINANCEIRO</Span>
+            <p class="subtittleEmpresa">GRANDE PORTE - acima de 400 colaboradores</p>
+        </div>
             <div class="dashTop">
-                <div class="KPI1"></div>
+                <div class="KPI1" id="KPI1">
+                    <p class="subtittleEmpresa">GENÊRO</p>
+                    <canvas id="myChart"></canvas>
+                </div>
                 <div class="KPI2"></div>
-                <div class="KPI3"></div>
-            </div>
-            <div class="graficosDash2">
-                <div class="dashBottom">
-                    <div class="graph1"></div>
-                    <div class="graph2"></div>
+                <div class="KPI2"></div>
+                <div class="KPI2">
+                    <p class="subtittleEmpresa">TEMPO MÉDIO DE <br> PRODUTIVIDADE</p>
+                    <Span class="tittleEmpresa">7.5 HRS</Span>
                 </div>
             </div>
 
+
             <div class="dashBottom">
-                <div class="KPI4"></div>
+                <div class="KPI4">
+                    <p class="subtittleEmpresa">Selecione o PIOR aspecto do trabalho remoto <br> para você </p>
+                    <canvas id="GraficoPiorAspecto"></canvas>
+                </div>
                 <div class="KPI5"></div>
             </div>
         </section>
@@ -150,3 +160,87 @@
 <script src="../public/js/dashboard.js"></script>
 <script src="./js/modal.js"></script>
     
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Mulheres', 'Homens'],
+            datasets: [{
+                label: 'Genêros na Empresa',
+                data: [57, 43],
+                backgroundColor: [
+                    'rgb(32, 165, 223)',
+                    'rgb(10, 130, 176)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            maintainAspectRatio: false, // Permite ajustar o gráfico no CSS
+            plugins: {
+                legend: {
+                    position: 'right',
+                    labels: {
+                        boxWidth: 10,
+                        padding: 10
+                    }
+                }
+            }
+        }
+    });
+});
+
+</script>
+
+<script>
+    const labels = ['Minhas oportunidades de socialização', 'Minhas despesas diárias', 'Minha satisfação no trabalho', 'Meu bem-estar mental', 'Gerenciando meus compromissos pessoais'];
+    const data = {
+        labels: labels,
+        datasets: [{
+            axis: 'y',
+            label: '',
+            data: [560, 69, 119, 175, 77],
+            fill: false,
+            backgroundColor: [
+                'rgb(32, 165, 223)',
+                'rgb(32, 165, 223)',
+                'rgb(32, 165, 223)',
+                'rgb(32, 165, 223)',
+                'rgb(32, 165, 223)',
+                'rgb(32, 165, 223)',
+                'rgb(32, 165, 223)'
+            ],
+            borderWidth: 1
+        }]
+    };
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                legend: {
+                    display: false // Remove a legenda do gráfico
+                }
+            }, 
+            elements: {
+                bar: {
+                    borderRadius: 4
+                }
+            }
+        }
+    });
+});
+    </script>
