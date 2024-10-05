@@ -23,28 +23,22 @@
                     <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
                     Dashboards
                 </div>
-                <a class="linkPag" href="./equipes.html">
-                    <div class="menu-item">
-                        <img class="icon" src="./assets/icon/Equipes.png" alt="Equipes Icon">
-                        Equipes
-                    </div>
-                </a>
                 <div class="menu-item" id="openModalBtn">
                     <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
                     Notificações
                 </div>
                 <a href="./calendario.html">
-                <div class="menu-item">
-                    <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
-                    Eventos
-                </div>
-            </a>
-            <a href="http://localhost:8080">
-                <div class="menu-item">
-                    <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
-                    Suporte - IA
-                </div>
-            </a>
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
+                        Eventos
+                    </div>
+                </a>
+                <a href="http://localhost:8080">
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
+                        Suporte - IA
+                    </div>
+                </a>
                 <div class="menu-item">
                     <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
                     Configurações
@@ -74,29 +68,66 @@
 
         <section class="graficosDash">
             <div class="textEmpresa">
-            <Span class="tittleEmpresa">FINANCEIRO</Span>
-            <p class="subtittleEmpresa">GRANDE PORTE - acima de 400 colaboradores</p>
-        </div>
+                <Span class="tittleEmpresa">FINANCEIRO</Span>
+                <p class="subtittleEmpresa">GRANDE PORTE - acima de 400 colaboradores</p>
+            </div>
             <div class="dashTop">
                 <div class="KPI1" id="KPI1">
                     <p class="subtittleEmpresa">GENÊRO</p>
-                    <canvas id="myChart"></canvas>
+                    <div class="infoKPI1">
+                        <div class="qtdPessoas">
+                            <Span class="tittleEmpresa"> 4.588</Span>
+                            <p>MASCULINO</p>
+                        </div>
+                        <img src="./assets/icon/banheiro 1.png" alt="">
+                        <hr>
+                        <img src="./assets/icon/banheiro 2.png" alt="">
+                        <div class="qtdPessoas">
+                            <Span class="tittleEmpresa"> 2.475</Span>
+                            <p>FEMININO</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="KPI2"></div>
-                <div class="KPI2"></div>
                 <div class="KPI2">
-                    <p class="subtittleEmpresa">TEMPO MÉDIO DE <br> PRODUTIVIDADE</p>
-                    <Span class="tittleEmpresa">7.5 HRS</Span>
+                    <Span class="tittleEmpresa"> 90%</Span>
+                    <p>RESPONDERAM SUA <br> PESQUISA</p>
+                </div>
+
+                <div class="area2Kpis">
+                    <div class="KPI3">
+                        <img src="./assets/icon/felicidade (1) 1.png" alt="">
+
+                        <div class="satisfacao">
+                            <Span class="tittleEmpresa"> 75%</Span>
+                            <p>SATISFEITOS</p>
+                        </div>
+                    </div>
+                    <div class="KPI3">
+                        <img src="./assets/icon/triste (1) 1.png" alt="">
+                        <div class="satisfacao">
+                            <Span class="tittleEmpresa"> 25%</Span>
+                            <p>INSATISFEITOS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="KPI22">
+                    <Span class="tittleEmpresa">48%</Span>
+                    <p class="subtittleEmpresa">RECOMENDARIAM SUA <br>EMPRESA</p>
                 </div>
             </div>
 
 
             <div class="dashBottom">
-                <div class="KPI4">
-                    <p class="subtittleEmpresa">Selecione o PIOR aspecto do trabalho remoto <br> para você </p>
-                    <canvas id="GraficoPiorAspecto"></canvas>
+                <div class="KPI6">
+
                 </div>
-                <div class="KPI5"></div>
+                <div class="KPI4">
+                </div>
+                <div class="KPI5">
+                    <!-- <p class="tittleEmpresa">Selecione o PIOR aspecto do trabalho</p> -->
+                    <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
+
+                </div>
             </div>
         </section>
 
@@ -159,88 +190,68 @@
 
 <script src="../public/js/dashboard.js"></script>
 <script src="./js/modal.js"></script>
-    
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Mulheres', 'Homens'],
-            datasets: [{
-                label: 'Genêros na Empresa',
-                data: [57, 43],
-                backgroundColor: [
-                    'rgb(32, 165, 223)',
-                    'rgb(10, 130, 176)'
-                ],
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            maintainAspectRatio: false, // Permite ajustar o gráfico no CSS
-            plugins: {
-                legend: {
-                    position: 'right',
-                    labels: {
-                        boxWidth: 10,
-                        padding: 10
-                    }
-                }
-            }
-        }
-    });
-});
 
-</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
 
 <script>
-    const labels = ['Minhas oportunidades de socialização', 'Minhas despesas diárias', 'Minha satisfação no trabalho', 'Meu bem-estar mental', 'Gerenciando meus compromissos pessoais'];
+    const labels = ['Managers', 'Sales', 'Chief Executives', 'Education Professionals', 'Construction Trades', 'Hospitality'];
     const data = {
         labels: labels,
         datasets: [{
-            axis: 'y',
-            label: '',
-            data: [560, 69, 119, 175, 77],
-            fill: false,
+            data: [3, 8, 16, 20, 12, 17],
             backgroundColor: [
-                'rgb(32, 165, 223)',
-                'rgb(32, 165, 223)',
-                'rgb(32, 165, 223)',
-                'rgb(32, 165, 223)',
-                'rgb(32, 165, 223)',
-                'rgb(32, 165, 223)',
-                'rgb(32, 165, 223)'
+                'rgb(54, 162, 235)',
+                'rgb(75, 192, 192)',
+                'rgb(153, 102, 255)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 99, 132)',
+                'rgb(255, 205, 86)'
             ],
             borderWidth: 1
         }]
     };
-    
+
     document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
         const myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'pie',
             data: data,
             options: {
-                indexAxis: 'y',
                 responsive: true,
                 maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                },
                 plugins: {
-                legend: {
-                    display: false // Remove a legenda do gráfico
+                    legend: {
+                        display: false // Remove a legenda fora do gráfico
+                    },
+                    datalabels: {
+                        color: '#000', // Cor do texto
+                        formatter: (value, ctx) => {
+                            let label = ctx.chart.data.labels[ctx.dataIndex];
+                            return label + ' ' + value; // Exibe o rótulo e o valor
+                        },
+                        anchor: 'end', // Alinha fora do gráfico
+                        align: 'end', // Alinha os rótulos ao final da linha
+                        clamp: true, // Garante que o rótulo não ultrapasse os limites do gráfico
+                        offset: 10, // Afasta do centro para posicionar fora
+                        textAlign: 'center',
+                        font: {
+                            weight: 'normal',
+                            size: 10 // Tamanho menor do texto
+                        },
+                        padding: 0, // Remove o preenchimento
+                        labels: {
+                            outside: {
+                                textAlign: 'left'
+                            }
+                        }
+                    }
                 }
-            }, 
-            elements: {
-                bar: {
-                    borderRadius: 4
-                }
-            }
-        }
+            },
+            plugins: [ChartDataLabels] // Ativando o plugin de rótulos
+        });
     });
-});
-    </script>
+</script>
