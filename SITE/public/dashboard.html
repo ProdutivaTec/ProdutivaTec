@@ -69,28 +69,28 @@
         <section class="graficosDash">
             <div class="textEmpresa">
                 <Span class="tittleEmpresa">FINANCEIRO</Span>
-                <p class="subtittleEmpresa">GRANDE PORTE - acima de 400 colaboradores</p>
+                <p class="subtittleEmpresa">GRANDE PORTE - acima de 5.000 colaboradores</p>
             </div>
             <div class="dashTop">
                 <div class="KPI1" id="KPI1">
                     <p class="subtittleEmpresa">GENÊRO</p>
                     <div class="infoKPI1">
-                        <div class="qtdPessoas">
-                            <Span class="tittleEmpresa"> 4.588</Span>
-                            <p>MASCULINO</p>
+                        <div class="qtdPessoasM">
+                            <Span class="textDados"> 4.588</Span>
+                            <p class="textTitulosKpis">MASCULINO</p>
                         </div>
-                        <img src="./assets/icon/banheiro 1.png" alt="">
+                        <img class="imgSexo" src="./assets/icon/banheiro 1.png" alt="">
                         <hr>
-                        <img src="./assets/icon/banheiro 2.png" alt="">
+                        <img class="imgSexo" src="./assets/icon/banheiro 2.png" alt="">
                         <div class="qtdPessoas">
-                            <Span class="tittleEmpresa"> 2.475</Span>
-                            <p>FEMININO</p>
+                            <Span class="textDados"> 2.475</Span>
+                            <p class="textTitulosKpis">FEMININO</p>
                         </div>
                     </div>
                 </div>
                 <div class="KPI2">
-                    <Span class="tittleEmpresa"> 90%</Span>
-                    <p>RESPONDERAM SUA <br> PESQUISA</p>
+                    <Span class="textDadosG"> 90%</Span>
+                    <p class="textTitulosKpis">RESPONDERAM SUA <br> PESQUISA</p>
                 </div>
 
                 <div class="area2Kpis">
@@ -98,34 +98,52 @@
                         <img src="./assets/icon/felicidade (1) 1.png" alt="">
 
                         <div class="satisfacao">
-                            <Span class="tittleEmpresa"> 75%</Span>
-                            <p>SATISFEITOS</p>
+                            <Span class="textDados"> 75%</Span>
+                            <p class="textTitulosKpis">SATISFEITOS</p>
                         </div>
                     </div>
                     <div class="KPI3">
                         <img src="./assets/icon/triste (1) 1.png" alt="">
                         <div class="satisfacao">
-                            <Span class="tittleEmpresa"> 25%</Span>
-                            <p>INSATISFEITOS</p>
+                            <Span class="textDados"> 25%</Span>
+                            <p class="textTitulosKpis">INSATISFEITOS</p>
                         </div>
                     </div>
                 </div>
                 <div class="KPI22">
-                    <Span class="tittleEmpresa">48%</Span>
-                    <p class="subtittleEmpresa">RECOMENDARIAM SUA <br>EMPRESA</p>
+                    <Span class="textDadosG">48%</Span>
+                    <p class="textTitulosKpis">RECOMENDARIAM SUA <br>EMPRESA</p>
                 </div>
             </div>
 
 
             <div class="dashBottom">
                 <div class="KPI6">
+                    <div class="tituloKpi1">
+                        <span class="tittleEmpresa"> Feedback </span>
+                        <select name="" id="">
+                            <option value="">produtividade</option>
+                            <option value="">desempenho</option>
+                        </select>
+                    </div>
+                        <p class="subtittleEmpresaG1">por equipe</p>
+                        <canvas id="feedbackEquipes"></canvas>
+                </div>
 
-                </div>
                 <div class="KPI4">
+                    <span class="tittleEmpresa"> Comparação por equipes</span>
+                    <canvas id="comparacaoEquipes"></canvas>
                 </div>
+
                 <div class="KPI5">
-                    <!-- <p class="tittleEmpresa">Selecione o PIOR aspecto do trabalho</p> -->
-                    <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
+                    <div class="tituloKpi3">
+                        <span class="tittleEmpresaG3"> Piores aspectos <br> do trabalho </span>
+                        <select name="" id="">
+                            <option value="">produtividade</option>
+                            <option value="">desempenho</option>
+                        </select>
+                    </div>
+                     <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
 
                 </div>
             </div>
@@ -197,61 +215,191 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 
-<script>
-    const labels = ['Managers', 'Sales', 'Chief Executives', 'Education Professionals', 'Construction Trades', 'Hospitality'];
-    const data = {
-        labels: labels,
-        datasets: [{
-            data: [3, 8, 16, 20, 12, 17],
-            backgroundColor: [
-                'rgb(54, 162, 235)',
-                'rgb(75, 192, 192)',
-                'rgb(153, 102, 255)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 99, 132)',
-                'rgb(255, 205, 86)'
-            ],
-            borderWidth: 1
-        }]
-    };
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'pie',
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false // Remove a legenda fora do gráfico
-                    },
-                    datalabels: {
-                        color: '#000', // Cor do texto
-                        formatter: (value, ctx) => {
-                            let label = ctx.chart.data.labels[ctx.dataIndex];
-                            return label + ' ' + value; // Exibe o rótulo e o valor
-                        },
-                        anchor: 'end', // Alinha fora do gráfico
-                        align: 'end', // Alinha os rótulos ao final da linha
-                        clamp: true, // Garante que o rótulo não ultrapasse os limites do gráfico
-                        offset: 10, // Afasta do centro para posicionar fora
-                        textAlign: 'center',
-                        font: {
-                            weight: 'normal',
-                            size: 10 // Tamanho menor do texto
-                        },
-                        padding: 0, // Remove o preenchimento
-                        labels: {
-                            outside: {
-                                textAlign: 'left'
-                            }
-                        }
+<script>
+   const labels = [
+    'Oportunidades de socialização', 
+    'Bem-estar mental', 
+    'Satisfação no trabalho', 
+    'Vida pessoal', 
+    'Despesas diárias'
+];
+
+const data = {
+    labels: labels, // Mantido, mas não será exibido
+    datasets: [{
+        label: 'Pior Aspecto do Trabalho Remoto',
+        data: [56, 17.5, 11.9, 7.7, 6.9],
+        backgroundColor: [
+            '#007bff', 
+            '#0056b3', 
+            '#6f42c1', 
+            '#c71585', 
+            '#dc3545'  
+        ],
+        borderColor: '#fff',
+        borderWidth: 2
+    }]
+};
+
+const config = {
+    type: 'pie',
+    data: data,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true, // Exibe a legenda
+                position: 'top',
+                labels: {
+                    usePointStyle: true,
+                    pointStyle: 'rect',
+                    padding: 10
+                }
+            },
+            tooltip: {
+                enabled: true // Habilita os tooltips quando o usuário passa o mouse
+            },
+            // datalabels: {
+            //     display: true, // Desabilitado, mas comentado para que você possa ativar se precisar
+            //     color: '#fff',
+            //     formatter: (value, context) => {
+            //         let label = context.chart.data.labels[context.dataIndex];
+            //         return `${label}: ${value}%`;
+            //     }
+            // }
+        }
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
+    const myChart = new Chart(ctx, config);
+});
+
+
+
+
+
+    // Gráfico de comparação por equipes
+    const ctx2 = document.getElementById('comparacaoEquipes').getContext('2d');
+    const myBarChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: [
+                'Managers',
+                'Sales',
+                'Chief Executives',
+                'Education Professionals',
+                'Construction Trades',
+                'Hospitality'
+            ],
+            datasets: [{
+                label: 'Produtividade',
+                data: [5, 10, 15, 20, 12, 10],
+                backgroundColor: '#0A82B0', // Cor azul mais escura
+                borderWidth: 1,
+                borderRadius: 5,
+                barPercentage: 1.5, // Controla a largura da barra em relação à categoria
+                categoryPercentage: 0.5
+            }, {
+                label: 'Satisfação',
+                data: [7, 12, 18, 25, 15, 20],
+                backgroundColor: '#00bfff', // Cor azul clara
+                borderWidth: 1,
+                borderRadius: 5,
+                barPercentage: 1.5, // Controla a largura da barra em relação à categoria
+                categoryPercentage: 0.5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y', // Inverter o gráfico para barras horizontais
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Remove as linhas de grade verticais
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Remove as linhas de grade horizontais
                     }
                 }
             },
-            plugins: [ChartDataLabels] // Ativando o plugin de rótulos
-        });
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom', // Legenda na parte inferior
+                },
+                title: {
+                    display: true,
+                    font: {
+                        size: 20
+                    }
+                }
+            }
+        }
     });
+
+    // Gráfico de feedback por equipes
+    const ctx3 = document.getElementById('feedbackEquipes').getContext('2d');
+    const myFeedbackChart = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: [
+                'Managers',
+                'Sales',
+                'Chief Executives',
+                'Education Professionals',
+                'Construction Trades',
+                'Hospitality'
+            ],
+            datasets: [{
+                label: 'Feedback Positivo',
+                data: [3, 8, 16, 20, 12, 17],
+                backgroundColor: '#0A82B0',
+                borderWidth: 1,
+                borderRadius: 7,
+                barPercentage: 1.3,
+                categoryPercentage: 0.66
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y', // Muda o eixo para horizontal
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Remove as linhas de grade verticais
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Remove as linhas de grade horizontais
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Remove a legenda
+                },
+                title: {
+                    display: true,
+                    font: {
+                        size: 20
+                    }
+                }
+            }
+        }
+    });
+
 </script>
