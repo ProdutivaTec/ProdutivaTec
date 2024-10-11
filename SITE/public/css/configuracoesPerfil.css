@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #BFBFBF;
+    color: #1f1f1f;
+}
+
+.testeLadoSidebar {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    width: calc(100% - 250px); /* Ajuste da largura do main, subtraindo a sidebar */
+    margin-top: 100px; /* Espaço para compensar a altura da header */
+    margin-left: 19%;
+}
+.linkAba{
+    text-decoration: none;
+    font-family: "Asap", sans-serif;
+    color: #000;
+}
+
+.areaAbas {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 30px;
+    gap: 20px;
+    margin-left: -2.5%;
+}
+
+hr {
+    width: 90%;
+}
+
+.aba {
+    margin-right: 20px;
+    cursor: pointer;
+    display: flex;
+}
+
+.ativo {
+    font-weight: bold;
+    border-bottom: 2px solid #295490;
+}
+
+.conteudoConfiguracao {
+    display: flex;
+    margin: 20px;
+    gap: 50px;
+}
+
+.fotoPerfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    background-color: #FFFF;
+    height: 350px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 300px;
+}
+
+.fotoUsuario {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.botoesFoto {
+    margin-top: 10px;
+    margin-bottom: -50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnFoto {
+    background-color: #E6EEF5;
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+    height: 45px;
+    width: 110px;
+    border-radius: 7px;
+}
+
+.iconBnt {
+    height: 20px;
+    width: auto;
+}
+
+.dadosPessoais {
+    width: 60%;
+}
+
+.dadosPessoais h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    height: 45px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%; /* Certifica que o input preencha corretamente */
+    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho */
+}
+
+.inputNome {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Corrige a aplicação de border-radius */
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho */
+}
+
+.inputNome:focus, .inputDados:focus, textarea {
+    outline: none;
+}
+
+.form-group .inputDados,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Certifique-se que o border-radius está aplicado uniformemente */
+    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho */
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.areaNome {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}

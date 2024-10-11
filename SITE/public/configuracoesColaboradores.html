@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/notificações.css">
+    <link rel="stylesheet" href="./css/configuracoesColaboradores.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="testeLadoSidebar">
+        <section class="container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="imgDash" id="theme-dash">
+                    <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
+                </div>
+                <br>
+                <div class="divMenu">
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
+                        Dashboards
+                    </div>
+                    <div class="menu-item" id="openModalBtn">
+                        <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
+                        Notificações
+                    </div>
+                    <a href="./calendario.html">
+                        <div class="menu-item">
+                            <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Eventos Icon">
+                            Eventos
+                        </div>
+                    </a>
+                    <a href="http://localhost:8080">
+                        <div class="menu-item">
+                            <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte Icon">
+                            Suporte - IA
+                        </div>
+                    </a>
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
+                        Configurações
+                    </div>
+                </div>
+                <div class="itemExit">
+                    <p class="pSidebar">Sair</p>
+                    <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
+                </div>
+            </aside>
+
+            <!-- Header -->
+            <header class="headerDash">
+                <div class="headerRight">
+                    <div class="funcionalidadesHeader" id="theme-toggle">
+                        <img src="./assets/icon/Light.png" alt="Tema Claro" id="theme-icon">
+                    </div>
+                    <div class="vertical"></div>
+                    <div class="funcionalidadesHeader" id="theme-header1">
+                        <img src="./assets/icon/image35.png" id="theme-noti" alt="">
+                    </div>
+                    <div class="funcionalidadesHeader" id="theme-header2">
+                        <img src="./assets/icon/image34.png" id="theme-confg" alt="">
+                    </div>
+                    <div class="vertical"></div>
+                </div>
+            </header>
+        </section>
+
+        <!-- Main -->
+        <main>
+            <div class="areaAbas">
+                <a class="linkAba" href="./configuracoesPerfil.html">
+                <p class="aba">Perfil</p>
+            </a>
+                <p class="aba ativo">Genenciamento de Usuários</p>
+            </div>
+            <hr>
+            <br>
+            <p>Procure pelo nome do Colaborador</p>
+           <div class="areaBotaoDuvida">
+            <button class="bntDuvida" id="openHelpModal"><img src="./assets/icon/ajuda 1.png" alt=""></button>           </div> 
+            <div class="areaBusca">
+                <div class="search">
+                    <input type="text" class="search__input" id="searchInput" placeholder="Pesquisar funcionário">
+                    <button class="search__button" id="searchBtn">
+                        <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+                            <g>
+                                <path
+                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                                </path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="areaBotoesCadastro">
+                    <button class="bntCadastro">Cadastrar Funcionário</button>
+                </div>
+            </div>
+            
+
+           
+
+            <div class="resultadoBusca" id="resultadoBusca"></div>
+        </main>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Notificações</h2>
+                <table>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Evento</th>
+                        <th>+Notificações</th>
+                    </tr>
+                    <tr>
+                        <td>15155</td>
+                        <td>Lorem ipsum</td>
+                        <td>email</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <br>
+            <h2 class="tittleModal">Entendendo a Criação de Novos Usuários e a Configuração de Acesso</h2>
+            <br>
+            <p>Quando você precisa adicionar um novo usuário ao sistema, é essencial considerar o tipo de acesso que ele terá. A forma como configuramos esses acessos pode impactar tanto a segurança quanto a eficiência do trabalho realizado.</p>
+            
+            <h3>Tipos de Acesso</h3>
+            <p><strong>1. Acesso Total:</strong><br>
+                ° Este tipo de acesso permite que o usuário gerencie todos os aspectos do sistema. Com acesso total, ele pode criar, editar e excluir dados, além de realizar configurações administrativas.
+              <br>  ° É importante limitar esse nível de acesso apenas a usuários que realmente precisam dessas permissões, como administradores ou gerentes. Isso ajuda a proteger informações sensíveis e a evitar mudanças indevidas no sistema.</p>
+
+            <p><strong>2. Acesso Normal:</strong><br>
+                ° O acesso normal é mais restrito e permite que o usuário execute tarefas específicas, como visualizar e editar certas informações. No entanto, ele não terá a capacidade de fazer alterações críticas, como deletar dados ou gerenciar outros usuários. 
+               <br> ° Este nível de acesso é ideal para colaboradores que precisam realizar seu trabalho sem a necessidade de ter controle total sobre o sistema.</p>
+        </div>
+    </div>
+</div>
+
+</html>
+<script src="./js/modalDuvida.js"></script>
+<script src="../public/js/dashboard.js"></script>
+<script src="./js/modal.js"></script>
+<script src="./js/dashboard.js"></script>
+<script src="./js/search.js"></script>

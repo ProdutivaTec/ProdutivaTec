@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/notificações.css">
+    <link rel="stylesheet" href="./css/configuracoesPerfil.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="validarSessao()">
+    <div class="testeLadoSidebar">
+    <section class="container">
+        <aside class="sidebar">
+            <div class="imgDash" id="theme-dash">
+                <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
+            </div>
+            <br>
+            <div class="divMenu">
+                <div class="menu-item">
+                    <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
+                    Dashboards
+                </div>
+                <div class="menu-item" id="openModalBtn">
+                    <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
+                    Notificações
+                </div>
+                <a href="./calendario.html">
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
+                        Eventos
+                    </div>
+                </a>
+                <a href="http://localhost:8080">
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
+                        Suporte - IA
+                    </div>
+                </a>
+                <div class="menu-item">
+                    <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
+                    Configurações
+                </div>
+            </div>
+            <div class="itemExit">
+                <p class="pSidebar">Sair</p>
+                <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
+            </div>
+        </aside>
+        <header class="headerDash">
+            <div class="headerRight">
+                <div class="funcionalidadesHeader" id="theme-toggle">
+                    <img src="./assets/icon/Light.png" alt="Tema Claro" id="theme-icon">
+                </div>
+                <div class="vertical"></div>
+                <div class="funcionalidadesHeader" id="theme-header1">
+                    <img src="./assets/icon/image 35.png" id="theme-noti" alt="">
+                </div>
+                <div class="funcionalidadesHeader" id="theme-header2">
+                    <img src="./assets/icon/image 34.png" id="theme-confg" alt="">
+                </div>
+                <div class="vertical"></div>
+            </div>
+        </header>
+    </section>
+
+    <main>
+        <div class="areaAbas">
+            <p class="aba ativo">Perfil</p>
+            <a class="linkAba" href="./configuracoesColaboradores.html">
+            <p class="aba">Genenciamento de Usuários</p>
+        </a>
+        </div>
+        <hr>
+        <div class="conteudoConfiguracao">
+            <div class="fotoPerfil">
+                <img class="fotoUsuario" src="./assets/img/image 56.png" alt="Foto de Perfil">
+                <div class="botoesFoto">
+                    <button class="btnFoto"><img class="iconBnt" src="./assets/icon/Vector.png" alt=""> Carregar</button>
+                    <button class="btnFoto"> <img class="iconBnt"src="./assets/icon/Vector (1).png" alt=""> Excluir</button>
+                </div>
+            </div>
+            <div class="dadosPessoais">
+                <h2>Dados Pessoais</h2>
+                <form>
+                    <div class="areaNome">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input class="inputNome" type="text" id="nome" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input class="inputNome" type="text" id="sobrenome" placeholder="Sobrenome">
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="inputDados" type="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="funcao">Função</label>
+                        <input class="inputDados" type="text" id="funcao" placeholder="Função">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Biografia</label>
+                        <textarea id="bio" placeholder="Fale sobre você..."></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Notificações</h2>
+            <table>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Evento</th>
+                    <th>+Notificações</th>
+                </tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                    <td>18623</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+
+                    <!-- Mais notificações aqui -->
+            </table>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script src="../public/js/dashboard.js"></script>
+<script src="./js/modal.js"></script>
+

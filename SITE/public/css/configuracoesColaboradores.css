@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #BFBFBF;
+    color: #1f1f1f;
+}
+
+.testeLadoSidebar {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    width: calc(100% - 250px);
+    /* Ajuste da largura do main, subtraindo a sidebar */
+    margin-top: 100px;
+    /* Espaço para compensar a altura da header */
+    margin-left: 19%;
+}
+
+.areaAbas {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    gap: 20px;
+margin-left: -1.5%;
+}
+
+
+hr {
+    width: 90%;
+}
+
+.aba {
+    margin-right: 20px;
+    cursor: pointer;
+    display: flex;
+    margin-left: -1.5%;
+}
+
+.ativo {
+    font-weight: bold;
+    border-bottom: 2px solid #295490;
+}
+
+p {
+    font-family: "Asap", sans-serif;
+}
+
+.areaBusca {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* From Uiverse.io by joe-watson-sbf */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.search__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #f4f2f2;
+    border: none;
+    color: #646464;
+    padding: 0.7rem 1rem;
+    border-radius: 7px;
+    width: 810px;
+    transition: all ease-in-out .5s;
+    margin-right: -2rem;
+}
+
+.search__input:hover,
+.search__input:focus {
+    box-shadow: 0 0 1em #00000013;
+}
+
+.search__input:focus {
+    outline: none;
+    background-color: #f0eeee;
+}
+
+.search__input::-webkit-input-placeholder {
+    font-weight: 100;
+    color: #ccc;
+}
+
+.search__input:focus+.search__button {
+    background-color: #f0eeee;
+}
+
+.search__button {
+    border: none;
+    background-color: #f4f2f2;
+    margin-top: .1em;
+}
+
+.search__button:hover {
+    cursor: pointer;
+}
+
+.search__icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #b4b4b4;
+}
+
+.bntCadastro {
+    background-color: #0A82B0;
+    border: none;
+    border-radius: 6px;
+    font-family: "Paytone One", sans-serif;
+    color: #FFFF;
+    margin-left: -5%;
+    width: 200px;
+    height: 40px;
+}
+
+.areaBotoesCadastro{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin-left: 10%;
+    padding: 10px;
+}
+
+.areaBotaoDuvida{
+    margin-left: 15%;
+}
+
+.bntDuvida {
+    font-family: "Paytone One", sans-serif;
+    color: #FFFF;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #0A82B0;
+    margin-left: 87%;
+}
+
+.resultadoBusca {
+    margin-top: 20px;
+}
+
+
+.funcionario {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 800px;
+}
+
+.funcionario-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nome-sobrenome {
+    display: flex;
+    gap: 20px;
+    /* Espaçamento entre nome e sobrenome */
+}
+
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* Espaçamento entre o label e o conteúdo */
+    width: 100%;
+}
+
+.inputNome {
+    background-color: #FFFF;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-radius: 7px;
+}
+
+.botoes {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    /* Espaçamento entre os botões */
+}
+
+.botoes button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.editar {
+    height: 50px;
+    width: 405px;
+    background-color: #0A82B0;
+    border-radius: 7px;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
+    font-family: "Paytone One", sans-serif;
+}
+
+.deletar {
+    height: 50px;
+    width: 405px;
+    background-color: #B00A0D;
+    border-radius: 7px;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
+    font-family: "Paytone One", sans-serif;
+}
+
+.imgEditar {
+    width: 50px;
+    height: auto;
+}
+
+.linkAba{
+    text-decoration: none;
+    font-family: "Asap", sans-serif;
+    color: #000;
+}
+
+/*------------------------------------------------------------------------------------ */
+
+/* Estilos para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+   width: 100%;
+   height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin-top: 70px;
+    margin-left: 30%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 1800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.tittleModal{
+    font-family: "Asap", sans-serif;
+    color: #0A82B0 ;
+    font-size: 20px;
+}
+
+.modal-content h3 {
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-family: "Asap", sans-serif;
+    color: #0A82B0 ;
+}
+
+.modal-content p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-family: "Asap", sans-serif;
+}
+
+/* Botão de fechar (X) */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+/* Botão de Dúvida */
+.bntDuvida {
+    background-color: #0A82B0;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.bntDuvida:hover {
+    background-color: #0A82B0;
+}
+
