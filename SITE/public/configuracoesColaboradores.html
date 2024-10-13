@@ -75,15 +75,16 @@
         <main>
             <div class="areaAbas">
                 <a class="linkAba" href="./configuracoesPerfil.html">
-                <p class="aba">Perfil</p>
-            </a>
+                    <p class="aba">Perfil</p>
+                </a>
                 <p class="aba ativo">Genenciamento de Usuários</p>
             </div>
             <hr>
             <br>
             <p>Procure pelo nome do Colaborador</p>
-           <div class="areaBotaoDuvida">
-            <button class="bntDuvida" id="openHelpModal"><img src="./assets/icon/ajuda 1.png" alt=""></button>           </div> 
+            <div class="areaBotaoDuvida">
+                <button class="bntDuvida" id="openHelpModal"><img src="./assets/icon/ajuda 1.png" alt=""></button>
+            </div>
             <div class="areaBusca">
                 <div class="search">
                     <input type="text" class="search__input" id="searchInput" placeholder="Pesquisar funcionário">
@@ -98,17 +99,17 @@
                     </button>
                 </div>
                 <div class="areaBotoesCadastro">
-                    <button class="bntCadastro">Cadastrar Funcionário</button>
+                    <button id="btnCadastro" class="bntCadastro">Cadastrar Funcionário</button>
                 </div>
             </div>
-            
 
-           
+
+
 
             <div class="resultadoBusca" id="resultadoBusca"></div>
         </main>
 
-        <!-- Modal -->
+        <!-- Modal Notificações ---------------------------------------------------------------->
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -129,29 +130,93 @@
         </div>
     </div>
 
+    <!-- Modal Dúvidas ---------------------------------------------------------------->
     <div id="helpModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <br>
             <h2 class="tittleModal">Entendendo a Criação de Novos Usuários e a Configuração de Acesso</h2>
             <br>
-            <p>Quando você precisa adicionar um novo usuário ao sistema, é essencial considerar o tipo de acesso que ele terá. A forma como configuramos esses acessos pode impactar tanto a segurança quanto a eficiência do trabalho realizado.</p>
-            
+            <p>Quando você precisa adicionar um novo usuário ao sistema, é essencial considerar o tipo de acesso que ele
+                terá. A forma como configuramos esses acessos pode impactar tanto a segurança quanto a eficiência do
+                trabalho realizado.</p>
+
             <h3>Tipos de Acesso</h3>
             <p><strong>1. Acesso Total:</strong><br>
-                ° Este tipo de acesso permite que o usuário gerencie todos os aspectos do sistema. Com acesso total, ele pode criar, editar e excluir dados, além de realizar configurações administrativas.
-              <br>  ° É importante limitar esse nível de acesso apenas a usuários que realmente precisam dessas permissões, como administradores ou gerentes. Isso ajuda a proteger informações sensíveis e a evitar mudanças indevidas no sistema.</p>
+                ° Este tipo de acesso permite que o usuário gerencie todos os aspectos do sistema. Com acesso total, ele
+                pode criar, editar e excluir dados, além de realizar configurações administrativas.
+                <br> ° É importante limitar esse nível de acesso apenas a usuários que realmente precisam dessas
+                permissões, como administradores ou gerentes. Isso ajuda a proteger informações sensíveis e a evitar
+                mudanças indevidas no sistema.
+            </p>
 
             <p><strong>2. Acesso Normal:</strong><br>
-                ° O acesso normal é mais restrito e permite que o usuário execute tarefas específicas, como visualizar e editar certas informações. No entanto, ele não terá a capacidade de fazer alterações críticas, como deletar dados ou gerenciar outros usuários. 
-               <br> ° Este nível de acesso é ideal para colaboradores que precisam realizar seu trabalho sem a necessidade de ter controle total sobre o sistema.</p>
+                ° O acesso normal é mais restrito e permite que o usuário execute tarefas específicas, como visualizar e
+                editar certas informações. No entanto, ele não terá a capacidade de fazer alterações críticas, como
+                deletar dados ou gerenciar outros usuários.
+                <br> ° Este nível de acesso é ideal para colaboradores que precisam realizar seu trabalho sem a
+                necessidade de ter controle total sobre o sistema.
+            </p>
         </div>
     </div>
-</div>
+    </div>
+
+    <!-- Modal Cadastro Funcionários ---------------------------------------------------------------->
+    <div id="modalCadastro" class="modal-containerCadastro">
+        <div class="modalCadastro">
+            <div class="modal-headerCadastro">
+                <h2>SEJA BEM-VINDO AO CADASTRO DE FUNCIONÁRIOS</h2>
+                <span id="closeCadastro" class="closeCadastro">&times;</span>
+            </div>
+            <form class="modal-bodyCadastro">
+                <fieldset>
+                    <legend>Dados pessoais</legend>
+                    <br>
+                    <div class="areaInputs">
+                        <div class="input-groupCadastro">
+                            <div>
+                                <span class="input-label">Nome</span>
+                                <input class="inputCadastro" type="text">
+                            </div>
+                            <div>
+                                <span class="input-label">Sobrenome</span>
+                                <input class="inputCadastro" type="text">
+                            </div>
+                        </div>
+                        <div>
+                            <span class="input-label">Email</span>
+                            <input class="inputCadastro" type="email">
+                        </div>
+                        <div>
+                            <span class="input-label">Função</span>
+                            <input class="inputCadastro" type="text">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="access-typeCadastro">
+                    <label><input type="checkbox"> Acesso total</label>
+                    <label><input type="checkbox"> Acesso limitado</label>
+                    <span class="error" id="checkboxError"></span>
+                </div>
+                <button type="submit">CADASTRAR FUNCIONÁRIO</button>
+            </form>
+        </div>
+    </div>
+    
+
 
 </html>
+<!-- <script src="./js/modalCadastro.js"></script> -->
 <script src="./js/modalDuvida.js"></script>
 <script src="../public/js/dashboard.js"></script>
 <script src="./js/modal.js"></script>
 <script src="./js/dashboard.js"></script>
 <script src="./js/search.js"></script>
+
+<script>
+    btnCadastro.onclick = function() {
+    console.log("Botão de cadastro clicado");
+    modalCadastro.style.display = 'block';
+}
+
+</script>
