@@ -1,19 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    overflow-y: hidden;
-}
 
-body {
-    background-color: #dfdfdf;
-}
 
-.container {
+.containerContato {
     display: flex;
     width: 80%;
     margin: 50px auto;
@@ -35,6 +26,7 @@ body {
     margin-bottom: 40px;
     height: 100px;
     margin-top: -20px;
+    margin-left: 80%;
 }
 
 .logo{
@@ -97,24 +89,51 @@ form {
 }
 
 input{
-    height: 50px;
+    height: 30px;
+    
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-    width: 100%;
+input:focus{
+  outline: none;
+}
+
+textarea:focus{
+  outline: none;
+}
+
+
+
+
+input[type="text"] {
+    width: 289px;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    font-family: "Arial", sans-serif;
+}
+
+.inputET{
+  width: 610px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
 }
 
 textarea {
     height: 100px;
     resize: none;
+    width: 610px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Arial", sans-serif;
 }
 
 button {
@@ -148,7 +167,7 @@ button:hover {
 }
 
 /* From Uiverse.io by abrahamcalsin */ 
-button {
+.bntEntrarContato {
     position: relative;
     display: flex;
     justify-content: center;
@@ -163,7 +182,7 @@ button {
     height: 50px;
   }
   
-  button:after {
+  .bntEntrarContato:after {
     content: " ";
     width: 0%;
     height: 100%;
@@ -173,13 +192,13 @@ button {
     right: 0;
   }
   
-  button:hover::after {
+ .bntEntrarContato:hover::after {
     right: auto;
     left: 0;
     width: 100%;
   }
   
-  button span {
+ .bntEntrarContato span {
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -192,7 +211,7 @@ button {
     transition: all 0.3s ease-in-out;
   }
   
-  button:hover span {
+ .bntEntrarContato:hover span {
     color: #183153;
     animation: scaleUp 0.3s ease-in-out;
   }
@@ -213,6 +232,10 @@ button {
 
   .areaLinks{
     margin-top: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -8%;
   }
   
 
