@@ -12,6 +12,14 @@ email varchar(45),
 senha varchar(45)
 );
 
+CREATE TABLE leads (
+idLeads int primary key,
+nome varchar(45),
+email varchar(45),
+telefone varchar(45),
+comentario varchar(365)
+);
+
 CREATE TABLE endereco (
 idEndereco int primary key,
 estado char(2),
@@ -23,16 +31,6 @@ fkEnderecoEmpresa int,
 constraint fkEmpresaEndereco foreign key (fkEnderecoEmpresa) references empresa(idEmpresa)
 );
 
-CREATE TABLE contato (
-idContato int primary key,
-nome varchar(45),
-email varchar(45),
-comentario varchar(365),
-fkContatoEmpresa int,
-
-constraint fkEmpresaContato foreign key (fkContatoEmpresa) references empresa (idEmpresa)
-);
-
 CREATE TABLE funcionario (
 idFuncionario int primary key,
 nome varchar(45),
@@ -42,16 +40,6 @@ cargo varchar(45),
 fkEmpresa int,
 
 constraint fkEmpresaFuncionario foreign key (fkEmpresa) references empresa(idEmpresa)
-);
-
-CREATE TABLE cargo (
-idCargo int primary key,
-cargo varchar(45),
-fkFuncionario int,
-fkDashboard int,
-
-constraint fkCargoFuncionario foreign key (fkFuncionario) references funcionario(idFuncionario),
-constraint fkCargoDashboard foreign key (fkDashboard) references dashboard(idDashboard)
 );
 
 CREATE TABLE dashboard (
@@ -70,5 +58,14 @@ remotoTrabalhando int,
 remotoPessoal int
 );
 
+CREATE TABLE cargo (
+idCargo int primary key,
+cargo varchar(45),
+fkFuncionario int,
+fkDashboard int,
+
+constraint fkCargoFuncionario foreign key (fkFuncionario) references funcionario(idFuncionario),
+constraint fkCargoDashboard foreign key (fkDashboard) references dashboard(idDashboard)
+);
 
 -- Criação dos selects
