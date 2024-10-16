@@ -378,3 +378,10 @@ button:hover {
   border-color: #FF6700;
   transition: 0.8s;
 }
+
+
+.pContato2{
+  font-family: "Asap", sans-serif;
+  font-size: 17px;
+  color: #000;
+}
