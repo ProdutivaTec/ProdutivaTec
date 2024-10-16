@@ -1,0 +1,74 @@
+-- DROP DATABASE Produtiva;
+-- Criação da banco de dados
+CREATE DATABASE Produtiva;
+USE Produtiva;
+
+-- Criação das Tabelas
+CREATE TABLE empresa (
+idEmpresa int primary key,
+razaoSocial varchar(45),
+cnpj varchar(45),
+email varchar(45),
+senha varchar(45)
+);
+
+CREATE TABLE endereco (
+idEndereco int primary key,
+estado char(2),
+cidade varchar(45),
+cep char(10),
+numero varchar(45),
+fkEnderecoEmpresa int,
+
+constraint fkEmpresaEndereco foreign key (fkEnderecoEmpresa) references empresa(idEmpresa)
+);
+
+CREATE TABLE contato (
+idContato int primary key,
+nome varchar(45),
+email varchar(45),
+comentario varchar(365),
+fkContatoEmpresa int,
+
+constraint fkEmpresaContato foreign key (fkContatoEmpresa) references empresa (idEmpresa)
+);
+
+CREATE TABLE funcionario (
+idFuncionario int primary key,
+nome varchar(45),
+email varchar(45),
+senha varchar(45),
+cargo varchar(45),
+fkEmpresa int,
+
+constraint fkEmpresaFuncionario foreign key (fkEmpresa) references empresa(idEmpresa)
+);
+
+CREATE TABLE cargo (
+idCargo int primary key,
+cargo varchar(45),
+fkFuncionario int,
+fkDashboard int,
+
+constraint fkCargoFuncionario foreign key (fkFuncionario) references funcionario(idFuncionario),
+constraint fkCargoDashboard foreign key (fkDashboard) references dashboard(idDashboard)
+);
+
+CREATE TABLE dashboard (
+idDashboard int primary key,
+genero varchar(45),
+totalColaborador varchar(100),
+satisfacaoPositiva varchar(100),
+satisfacaoNegativa varchar(100),
+reputacaoEmpresa varchar(100),
+ocupacao varchar(100),
+produtividade varchar(100),
+aspectoNegativo varchar(100),
+presencialTrabalhando int,
+presencialPessoal int,
+remotoTrabalhando int,
+remotoPessoal int
+);
+
+
+-- Criação dos selects
