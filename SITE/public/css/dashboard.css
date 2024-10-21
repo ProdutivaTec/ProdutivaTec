@@ -73,6 +73,22 @@ body {
     margin-left: -3%;
 }
 
+.menu-itemAtivo{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 12px 20px;
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: -3%;
+    background-color: #3d71B8;
+    transform: scale(1.05);
+}
+
+
 .icon {
     width: 20px;
     height: 20px;
@@ -437,9 +453,7 @@ select:focus{
     outline: none;
 }
 
-option{
 
-}
 ------------------------------------------
 /* Dark Mode*/ 
 
@@ -475,7 +489,17 @@ body.dark-mode .itemExit:hover {
    
 }
 
+#theme-confgPerfil{
+    width: 100%;
+    height: 100%;
+}
+
 #myChart {
     width: 300px;
     height: 450px;
+}
+
+.ativo {
+    font-weight: bold;
+    border-bottom: 2px solid #295490;
 }
