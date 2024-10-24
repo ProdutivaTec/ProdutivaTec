@@ -1,12 +1,24 @@
-import java.io.FileInputStream;
-import java.io.InputStream;
+
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MainDadosTrabalho {
+
+    private static final Logger logger = Logger.getLogger(MainDadosTrabalho.class.getName());
+
     public static void main(String[] args) {
         String caminhoArquivo = "Planilha de Dados.xlsx"; // Altere para o caminho do seu arquivo
+        logger.log(Level.INFO, "Iniciando a leitura do arquivo: {0}", caminhoArquivo);
+
         LeituraDadosTrabalhoRemoto leitura = new LeituraDadosTrabalhoRemoto();
         List<DadosTrabalhoRemoto> dados = leitura.extrairDados(caminhoArquivo);
+
+        if (dados.isEmpty()) {
+            logger.log(Level.WARNING, "Nenhum dado foi extraído do arquivo: {0}", caminhoArquivo);
+        } else {
+            logger.log(Level.INFO, "Dados extraídos com sucesso. Total de registros: {0}", dados.size());
+        }
 
         // Exibir os dados extraídos
         for (DadosTrabalhoRemoto dado : dados) {
@@ -30,5 +42,6 @@ public class MainDadosTrabalho {
             System.out.println("Nº de Anos de Experiência: " + dado.getNumeroAnosExperiencia());
             System.out.println("------------------------------------------");
         }
+        logger.log(Level.INFO, "Processo de leitura e exibição concluído.");
     }
 }
