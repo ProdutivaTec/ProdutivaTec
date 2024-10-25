@@ -71,7 +71,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.6</version> <!-- Verifique a versão mais recente -->
+            <version>1.2.13</version> <!-- Verifique a versão mais recente -->
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
