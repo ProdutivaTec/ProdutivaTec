@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@
     <link rel="shortcut icon" type="imagex/png" href="./assets/ABA.ico">
     <title>Produtiva: Cadastre-se</title>
 </head>
-
 <body>
     <div class="container-principal">
         <div class="inside1">
@@ -23,35 +21,51 @@
         <br><br>
         <div class="inside2">
             <div class="parteEmpresa">
-            <div class="input-container">
-                <input placeholder="Nome da Empresa" type="text" id="input_nome">
+                <div class="input-container">
+                    <input placeholder="Nome da Empresa" type="text" id="input_nome">
+                    <div id="erro_nome" style="color: red; font-size: 0.9em;"></div>
+                </div>
+                <div class="input-container">
+                    <input placeholder="CNPJ" type="number" id="input_cnpj">
+                    <div id="erro_cnpj" style="color: red; font-size: 0.9em;"></div>
+                </div>
             </div>
-            <div class="input-container">
-                <input placeholder="CNPJ" type="number" id="input_cnpj">
-            </div>
-        </div>
             <div class="input-container">
                 <input placeholder="CEP" type="number" id="input_cep">
+                <div id="erro_cep" style="color: red; font-size: 0.9em;"></div>
             </div>
             <div class="input-container">
                 <input placeholder="Logradouro" type="text" id="input_logradouro">
+                <div id="erro_logradouro" style="color: red; font-size: 0.9em;"></div>
             </div>
-            <div class="input-container">
-                <input placeholder="Número" type="number" id="input_numero">
+            <div class="parteEmpresa">
+                <div class="input-container">
+                    <input placeholder="Bairro" type="text" id="input_bairro">
+                    <div id="erro_bairro" style="color: red; font-size: 0.9em;"></div>
+                </div>
+                <div class="input-container">
+                    <input placeholder="Cidade" type="text" id="input_cidade">
+                    <div id="erro_cidade" style="color: red; font-size: 0.9em;"></div>
+                </div>
             </div>
-            <div class="input-container">
-                <input placeholder="Complemento" type="number" id="input_complemento">
+            <div class="parteEmpresa">
+                <div class="input-container">
+                    <input placeholder="Número" type="number" id="input_numero">
+                    <div id="erro_numero" style="color: red; font-size: 0.9em;"></div>
+                </div>
+                <div class="input-container">
+                    <input placeholder="Complemento" type="number" id="input_complemento">
+                </div>
             </div>
             <div class="input-container">
                 <input placeholder="Quantidade de Funcionários" type="number" id="input_qtdFuncionarios">
+                <div id="erro_qtdFuncionarios" style="color: red; font-size: 0.9em;"></div>
             </div>
-            
-            <a href="cadastroFuncionario.html"><button class="bntCadastrar" onclick="entrar()">Cadastrar Empresa</button></a>
+            <button class="bntCadastrar" onclick="entrar()">Cadastrar Empresa</button>
         </div>
     </div>
 </body>
-
 </html>
-
-<script src="js/cadastro.js"></script>
+<script src="js/cadastroEmpresa.js"></script>
 <script src="js/sessao.js"></script>
+<script src="js/viaCep.js"></script>
