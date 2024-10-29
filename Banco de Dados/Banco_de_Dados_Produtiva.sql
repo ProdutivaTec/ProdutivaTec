@@ -68,4 +68,16 @@ constraint fkCargoFuncionario foreign key (fkFuncionario) references funcionario
 constraint fkCargoDashboard foreign key (fkDashboard) references dashboard(idDashboard)
 );
 
+CREATE TABLE alerta_log (
+idAlerta int primary key,
+tipo varchar(45),
+descricao varchar(255),
+severidade varchar(45),
+dataHora timestamp default current_timestamp,
+fkFuncionario int,
+fkDashboard int,
+constraint fkFuncionarioAlerta foreign key (fkFuncionario) references funcionario (idFuncionario),
+constraint fkDashboardAlerta foreign key (fkDashboard) references dashboard (idDashboard)
+);
+
 -- Criação dos selects
