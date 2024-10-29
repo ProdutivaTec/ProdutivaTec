@@ -356,7 +356,9 @@ a{
     display: flex;
     flex-direction: column;
     margin-left: 0;
-    padding: 0;
+    padding: 8px;
+    padding-right: 2px;
+
 }
 
 #GraficoPiorAspecto {

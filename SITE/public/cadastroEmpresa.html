@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/cadastroEmpresa.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
     </style>
@@ -20,33 +20,33 @@
         <div class="inside1">
             <img class="logo" src="./assets/img/LOGO.png" alt="Logo">
         </div>
-        <h1 class="h1Cadastro">Bem-vindo!</h1>
+        <br><br>
         <div class="inside2">
-            <div class="input-container">
-                <input placeholder="Nome" type="text" id="input_nome">
-            </div>
-            <div class="input-container">
-                <input placeholder="Email" type="email" id="input_email">
-            </div>
-            <div class="input-container">
-                <input placeholder="Telefone" type="text" id="input_telefone">
-            </div>
             <div class="parteEmpresa">
-                <div class="input-container">
-                    <input placeholder="Nome da Empresa" type="text" id="input_empresa">
-                </div>
-                <div class="input-container">
-                    <input placeholder="Cargo" type="text" id="input_cargo">
-                </div>
+            <div class="input-container">
+                <input placeholder="Nome da Empresa" type="text" id="input_nome">
             </div>
             <div class="input-container">
-                <input placeholder="Senha" type="password" id="input_senha">
+                <input placeholder="CNPJ" type="number" id="input_cnpj">
+            </div>
+        </div>
+            <div class="input-container">
+                <input placeholder="CEP" type="number" id="input_cep">
             </div>
             <div class="input-container">
-                <input placeholder="Confirmação de senha" type="password" id="input_senhaConfirmar">
+                <input placeholder="Logradouro" type="text" id="input_logradouro">
             </div>
-            <button onclick="entrar()">Cadastrar</button>
-            <p>Você já possui uma conta? <a href="login.html">Login</a></p>
+            <div class="input-container">
+                <input placeholder="Número" type="number" id="input_numero">
+            </div>
+            <div class="input-container">
+                <input placeholder="Complemento" type="number" id="input_complemento">
+            </div>
+            <div class="input-container">
+                <input placeholder="Quantidade de Funcionários" type="number" id="input_qtdFuncionarios">
+            </div>
+            
+            <a href="cadastroFuncionario.html"><button class="bntCadastrar" onclick="entrar()">Cadastrar Empresa</button></a>
         </div>
     </div>
 </body>

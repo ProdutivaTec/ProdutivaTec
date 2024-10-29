@@ -11,13 +11,14 @@ body {
 
 .container-principal {
     width: 90%;
-    max-width: 600px;
+    max-width: 900px;
     background-color: white;
     border-radius: 50px;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    height: 600px;
 }
 
 .logo {
@@ -43,7 +44,8 @@ body {
 
 .input-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
+    height: 50px;
 }
 
 input::placeholder, input {
@@ -71,7 +73,20 @@ input:focus {
     justify-content: space-between;
     gap: 30px;
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
+    flex-direction: row;
+}
+
+/* Remove setinhas do Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove setinhas do Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 
@@ -104,4 +119,8 @@ a{
     text-decoration: none;
     color: #245293;
     font-family: "Paytone One", sans-serif;
+}
+
+.bntCadastrar{
+    font-family: "Asap", sans-serif;
 }
