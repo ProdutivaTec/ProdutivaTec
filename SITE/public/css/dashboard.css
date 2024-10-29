@@ -503,3 +503,138 @@ body.dark-mode .itemExit:hover {
     font-weight: bold;
     border-bottom: 2px solid #295490;
 }
+
+/*--------------------------------Responsividade-------------------------------------- */
+
+/* Menu hamburger escondido por padrão */
+.navbar-mobile {
+    display: none;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+  }
+  
+  /* Exibir o botão apenas em telas menores */
+  @media (max-width: 768px) {
+    .navbar-mobile {
+      display: block;
+    }
+  
+    /* Sidebar será escondida em dispositivos móveis */
+    .sidebar {
+      display: none;
+    }
+  
+    /* O conteúdo da dashboard ocupa toda a tela */
+    .dashboard-container {
+      flex-direction: column;
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    /* O conteúdo principal ocupa 100% da largura */
+    .main-content {
+      width: 100%;
+    }
+  
+    /* Faz os gráficos se ajustarem automaticamente */
+    .chart-container {
+      width: 100%;
+      max-height: 400px;
+      overflow: auto;
+    }
+  
+    /* Aplicar scroll horizontal em tabelas grandes */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+    .navbar-mobile {
+        display: block;
+    }
+
+    /* Esconder a sidebar por padrão no mobile */
+    .sidebar {
+        display: none;
+    }
+
+    /* Exibir a sidebar quando a classe "open" for adicionada */
+    .sidebar.open {
+        display: block;
+        width: 250px;
+    }
+
+    /* Ajustar o conteúdo da dashboard no mobile */
+    .dashboard-container {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .chart-container,
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+
+
+
+
+
+
+.kpi-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.kpi {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 20px;
+    flex: 0 0 calc(50% - 10px); /* 50% do espaço, menos margem */
+    margin-bottom: 20px; /* Espaçamento entre as linhas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden; /* Para evitar overflow nas KPIs */
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column; /* Coloca os gráficos um embaixo do outro */
+    overflow-y: auto; /* Apenas os gráficos podem ter overflow */
+}
+
+.chart {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px; /* Espaçamento entre os gráficos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Para evitar overflow nos gráficos */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .kpi {
+        flex: 0 0 100%; /* Cada KPI ocupa 100% do espaço em mobile */
+    }
+}

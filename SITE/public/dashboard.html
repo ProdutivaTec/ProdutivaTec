@@ -12,6 +12,49 @@
 </head>
 
 <body onload="validarSessao()">
+    <!-- Botão que aparece apenas em dispositivos móveis -->
+    <button class="navbar-mobile" onclick="toggleSidebar()">☰</button>
+
+<!-- Sidebar existente -->
+<div class="sidebar">
+    <div class="imgDash" id="theme-dash">
+        <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
+    </div>
+    <br>
+    <div class="divMenu">
+        <div class="menu-itemAtivo">
+            <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
+            Dashboards
+        </div>
+        <div class="menu-item" id="openModalBtn">
+            <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
+            Notificações
+        </div>
+        <a href="./calendario.html">
+            <div class="menu-item">
+                <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
+                Eventos
+            </div>
+        </a>
+        <a href="http://localhost:3000">
+            <div class="menu-item">
+                <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
+                Suporte - IA
+            </div>
+        </a>
+        <a href="./configuracoesPerfil.html">
+        <div class="menu-item">
+            <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
+            Configurações
+        </div>
+    </a>
+    </div>
+    <div class="itemExit">
+        <p class="pSidebar">Sair</p>
+        <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
+    </div>
+</div>
+
     <section class="container">
         <aside class="sidebar">
             <div class="imgDash" id="theme-dash">
@@ -153,7 +196,39 @@
                 </div>
             </div>
         </section>
+    </section>
 
+
+    <section class="container2">
+        <div class="kpi-container">
+            <div class="kpi">
+                <h3>KPI 1</h3>
+                <p>Valor 1</p>
+            </div>
+            <div class="kpi">
+                <h3>KPI 2</h3>
+                <p>Valor 2</p>
+            </div>
+            <div class="kpi">
+                <h3>KPI 3</h3>
+                <p>Valor 3</p>
+            </div>
+            <div class="kpi">
+                <h3>KPI 4</h3>
+                <p>Valor 4</p>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <div class="chart">
+                <h3>Gráfico 1</h3>
+                <!-- Aqui você pode adicionar seu gráfico -->
+            </div>
+            <div class="chart">
+                <h3>Gráfico 2</h3>
+                <!-- Aqui você pode adicionar seu gráfico -->
+            </div>
+        </div>
     </section>
 
     <div id="myModal" class="modal">
@@ -408,3 +483,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 </script>
+
+<script>
+    function toggleSidebar() {
+        var sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>
+  

@@ -157,6 +157,21 @@ p {
     background-size: 60%;
 }
 
+.menu-itemAtivo{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 12px 20px;
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: -3%;
+    background-color: #3d71B8;
+    transform: scale(1.05);
+}
+
 .resultadoBusca {
     margin-top: 20px;
 }
