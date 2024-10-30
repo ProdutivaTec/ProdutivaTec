@@ -13,7 +13,7 @@
 
 body {
     font-family: "Asap", sans-serif;
-    background-color: #bfbfbf;
+    background-color: #F1F1F1;
 }
 
 .container{
@@ -254,7 +254,7 @@ a{
 .tittleEmpresa{
     font-family: "Paytone One", sans-serif;
     color: #0A82B0 ;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .tittleEmpresaG3{
@@ -447,8 +447,7 @@ option{
 
 /* Tema Escuro */
 body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: #f17171
 }
 
 body.dark-mode .sidebar {
@@ -456,7 +455,7 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .vertical{
-    background-color: #121212 ;
+    background-color: #121212;
 }
 
 body.dark-mode .menu-item:hover {

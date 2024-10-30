@@ -4,7 +4,7 @@
 html{
 
 
-  --body-color:#FFFCFF ;
+  --body-color:#F1F1F1 ;
 
   --header-color:#d36c6c;
 
@@ -29,7 +29,7 @@ html{
 
  
   font-family: "Asap", sans-serif;
-  background-color: #bfbfbf;
+  background-color: #F1F1F1;
 
 }
 
@@ -173,7 +173,7 @@ button {
 body {
   font-family: "Asap", sans-serif;
   font-size: 14px;
-  background-color: #bfbfbf;
+  background-color: #F1F1F1;
 }
 
 .container{

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/notificações.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="./assets/img/ABA.ico">
 
 </head>
 
@@ -21,7 +22,7 @@
             <div class="divMenu">
                 <div class="menu-item">
                     <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
-                    Dashboards
+                    Dashboard
                 </div>
                 <div class="menu-item" id="openModalBtn">
                     <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
@@ -40,17 +41,67 @@
                     </div>
                 </a>
                 <a href="./configuracoesPerfil.html">
-                <div class="menu-item">
-                    <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
-                    Configurações
-                </div>
-            </a>
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
+                        Configurações
+                    </div>
+                </a>
             </div>
             <div class="itemExit">
                 <p class="pSidebar">Sair</p>
                 <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
             </div>
         </aside>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Notificações</h2>
+                <table>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Evento</th>
+                        <th>+Notificações</th>
+                    </tr>
+                    <tr>
+                        <td>15155</td>
+                        <td>Lorem ipsum</td>
+                        <td>email</td>
+                    </tr>
+                    <tr>
+                        <td>18623</td>
+                        <td>Lorem ipsum</td>
+                        <td>email</td>
+                    </tr>
+                    <tr>
+                        <td>15155</td>
+                        <td>Lorem ipsum</td>
+                        <td>email</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>15155</td>
+                        <td>Lorem ipsum</td>
+                        <td>email</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>15155</td>
+                        <td>Lorem ipsum</td>
+                        <td>email</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>15155</td>
+                        <td>Lorem ipsum</td>
+                        <td>email</td>
+                    </tr>
+                    <tr>
+    
+                        <!-- Mais notificações aqui -->
+                </table>
+            </div>
+        </div>
 
         <header class="headerDash">
             <div class="headerRight">
@@ -128,8 +179,8 @@
                             <option value="">desempenho</option>
                         </select>
                     </div>
-                        <p class="subtittleEmpresaG1">por equipe</p>
-                        <canvas id="feedbackEquipes"></canvas>
+                    <p class="subtittleEmpresaG1">por equipe</p>
+                    <canvas id="feedbackEquipes"></canvas>
                 </div>
 
                 <div class="KPI4">
@@ -145,64 +196,12 @@
                             <option value="">Presencial</option>
                         </select>
                     </div>
-                     <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
+                    <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
 
                 </div>
             </div>
         </section>
-
     </section>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Notificações</h2>
-            <table>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Evento</th>
-                    <th>+Notificações</th>
-                </tr>
-                <tr>
-                    <td>15155</td>
-                    <td>Lorem ipsum</td>
-                    <td>email</td>
-                </tr>
-                <tr>
-                    <td>18623</td>
-                    <td>Lorem ipsum</td>
-                    <td>email</td>
-                </tr>
-                <tr>
-                    <td>15155</td>
-                    <td>Lorem ipsum</td>
-                    <td>email</td>
-                </tr>
-                <tr>
-                <tr>
-                    <td>15155</td>
-                    <td>Lorem ipsum</td>
-                    <td>email</td>
-                </tr>
-                <tr>
-                <tr>
-                    <td>15155</td>
-                    <td>Lorem ipsum</td>
-                    <td>email</td>
-                </tr>
-                <tr>
-                <tr>
-                    <td>15155</td>
-                    <td>Lorem ipsum</td>
-                    <td>email</td>
-                </tr>
-                <tr>
-
-                    <!-- Mais notificações aqui -->
-            </table>
-        </div>
-    </div>
-
 
 </body>
 
@@ -210,8 +209,6 @@
 
 <script src="../public/js/dashboard.js"></script>
 <script src="./js/modal.js"></script>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -221,65 +218,65 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 <script>
-   const labels = [
-    'Oportunidades de socialização', 
-    'Bem-estar mental', 
-    'Satisfação no trabalho', 
-    'Vida pessoal', 
-    'Despesas diárias'
-];
+    const labels = [
+        'Oportunidades de socialização',
+        'Bem-estar mental',
+        'Satisfação no trabalho',
+        'Vida pessoal',
+        'Despesas diárias'
+    ];
 
-const data = {
-    labels: labels, // Mantido, mas não será exibido
-    datasets: [{
-        label: 'Pior Aspecto do Trabalho Remoto',
-        data: [56, 17.5, 11.9, 7.7, 6.9],
-        backgroundColor: [
-            '#007bff', 
-            '#0056b3', 
-            '#6f42c1', 
-            '#c71585', 
-            '#dc3545'  
-        ],
-        borderColor: '#fff',
-        borderWidth: 2
-    }]
-};
+    const data = {
+        labels: labels, // Mantido, mas não será exibido
+        datasets: [{
+            label: 'Pior Aspecto do Trabalho Remoto',
+            data: [56, 17.5, 11.9, 7.7, 6.9],
+            backgroundColor: [
+                '#007bff',
+                '#0056b3',
+                '#6f42c1',
+                '#c71585',
+                '#dc3545'
+            ],
+            borderColor: '#fff',
+            borderWidth: 2
+        }]
+    };
 
-const config = {
-    type: 'pie',
-    data: data,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: true, // Exibe a legenda
-                position: 'top',
-                labels: {
-                    usePointStyle: true,
-                    pointStyle: 'rect',
-                    padding: 10
-                }
-            },
-            tooltip: {
-                enabled: true // Habilita os tooltips quando o usuário passa o mouse
-            },
-            // datalabels: {
-            //     display: true, // Desabilitado, mas comentado para que você possa ativar se precisar
-            //     color: '#fff',
-            //     formatter: (value, context) => {
-            //         let label = context.chart.data.labels[context.dataIndex];
-            //         return `${label}: ${value}%`;
-            //     }
-            // }
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true, // Exibe a legenda
+                    position: 'top',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'rect',
+                        padding: 10
+                    }
+                },
+                tooltip: {
+                    enabled: true // Habilita os tooltips quando o usuário passa o mouse
+                },
+                // datalabels: {
+                //     display: true, // Desabilitado, mas comentado para que você possa ativar se precisar
+                //     color: '#fff',
+                //     formatter: (value, context) => {
+                //         let label = context.chart.data.labels[context.dataIndex];
+                //         return `${label}: ${value}%`;
+                //     }
+                // }
+            }
         }
-    }
-};
+    };
 
-document.addEventListener('DOMContentLoaded', function () {
-    const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
-    const myChart = new Chart(ctx, config);
-});
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
+        const myChart = new Chart(ctx, config);
+    });
 
 
 

@@ -1,116 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- arquivos style -->
-  <link href="./css/style.css" rel="stylesheet">
-  <link href="./css/darkMode.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/calendario.css">
+    <!-- arquivos style -->
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/darkMode.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/calendario.css">
+    <link rel="stylesheet" href="./css/notificações.css">
+    <link rel="shortcut icon" type="imagex/png" href="./assets/img/ABA.ico">
 
-  <title>Calendário</title>
+    <title>Calendário</title>
 </head>
 
 <body>
-  <section class="container">
-      <aside class="sidebar">
-          <div class="imgDash" id="theme-dash">
-              <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
-          </div>
-          <br>
-          <a href="./dashboard.html">
-          <div class="divMenu">
-              <div class="menu-item">
-                  <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
-                  Dashboards
-              </div>
+    <section class="container">
+        <aside class="sidebar">
+            <div class="imgDash" id="theme-dash">
+                <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
+            </div>
+            <br>
+            <a href="./dashboard.html">
+                <div class="divMenu">
+                    <div class="menu-item">
+                        <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
+                        Dashboard
+                    </div>
             </a>
-              <div class="menu-item" id="openModalBtn">
-                  <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
-                  Notificações
-              </div>
-              <div class="menu-item">
-                  <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
-                  Eventos
-              </div>
-              <a href="http://localhost:8080">
-              <div class="menu-item">
-                  <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
-                  Suporte - IA
-              </div>
+            <div class="menu-item" id="openModalBtn">
+                <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
+                Notificações
+            </div>
+            <div class="menu-item">
+                <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
+                Eventos
+            </div>
+            <a href="http://localhost:8080">
+                <div class="menu-item">
+                    <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
+                    Suporte - IA
+                </div>
             </a>
-              <div class="menu-item">
-                  <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
-                  Configurações
-              </div>
-          </div>
-          <div class="itemExit">
-              <p class="pSidebar">Sair</p>
-              <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
-          </div>
-      </aside>
+            <a href="./configuracoesPerfil.html">
+                <div class="menu-item">
+                    <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
+                    Configurações
+                </div>
+            </a>
+            </div>
+            <div class="itemExit">
+                <p class="pSidebar">Sair</p>
+                <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
+            </div>
+        </aside>
 
-      <header class="headerDash">
-          <div class="headerRight">
-              <div class="funcionalidadesHeader" id="theme-toggle">
-                  <img src="./assets/icon/Light.png" alt="Tema Claro" id="theme-icon">
-              </div>
-              <div class="vertical"></div>
-              <div class="funcionalidadesHeader" id="theme-header1">
-                  <img src="./assets/icon/image 35.png" id="theme-noti" alt="">
-              </div>
-              <div class="funcionalidadesHeader" id="theme-header2">
-                  <img src="./assets/icon/image 34.png" id="theme-confg" alt="">
-              </div>
-              <div class="vertical"></div>
-          </div>
-      </header>
+        <header class="headerDash">
+            <div class="headerRight">
+                <div class="funcionalidadesHeader" id="theme-toggle">
+                    <img src="./assets/icon/Light.png" alt="Tema Claro" id="theme-icon">
+                </div>
+                <div class="vertical"></div>
+                <div class="funcionalidadesHeader" id="theme-header1">
+                    <img src="./assets/icon/image 35.png" id="theme-noti" alt="">
+                </div>
+                <div class="funcionalidadesHeader" id="theme-header2">
+                    <img src="./assets/icon/image 34.png" id="theme-confg" alt="">
+                </div>
+                <div class="vertical"></div>
+            </div>
+        </header>
 
-      <div id="container">
-          <div id="header">
-              <div id="monthDisplay"></div>
-              <div>
-                  <button id="backButton">Voltar</button>
-                  <button id="nextButton">Próximo</button>
-              </div>
-          </div>
+        <div id="container">
+            <div id="header">
+                <div id="monthDisplay"></div>
+                <div>
+                    <button id="backButton">Voltar</button>
+                    <button id="nextButton">Próximo</button>
+                </div>
+            </div>
 
-          <div id="weekdays">
-              <div>Domingo</div>
-              <div>Segunda-feira</div>
-              <div>Terça-feira</div>
-              <div>Quarta-feira</div>
-              <div>Quinta-feira</div>
-              <div>Sexta-feira</div>
-              <div>Sábado</div>
-          </div>
+            <div id="weekdays">
+                <div>Domingo</div>
+                <div>Segunda-feira</div>
+                <div>Terça-feira</div>
+                <div>Quarta-feira</div>
+                <div>Quinta-feira</div>
+                <div>Sexta-feira</div>
+                <div>Sábado</div>
+            </div>
 
-          <!-- div dinamic -->
-          <div id="calendar"></div>
-      </div>
+            <!-- div dinamic -->
+            <div id="calendar"></div>
+        </div>
 
-      <div id="newEventModal">
-          <h2>New Evente</h2>
-          <input id="eventTitleInput" placeholder="Event Title" />
-          <button id="saveButton">Salvar</button>
-          <button id="cancelButton">Cancelar</button>
-      </div>
+        <div id="newEventModal">
+            <h2>New Evente</h2>
+            <input id="eventTitleInput" placeholder="Event Title" />
+            <button id="saveButton">Salvar</button>
+            <button id="cancelButton">Cancelar</button>
+        </div>
 
-      <div id="deleteEventModal">
-          <h2>Evento</h2>
-          <div id="eventText"></div><br>
-          <button id="deleteButton">Deletar</button>
-          <button id="closeButton">Fechar</button>
-      </div>
+        <div id="deleteEventModal">
+            <h2>Evento</h2>
+            <div id="eventText"></div><br>
+            <button id="deleteButton">Deletar</button>
+            <button id="closeButton">Fechar</button>
+        </div>
 
-      <div id="modalBackDrop"></div>
+        <div id="modalBackDrop"></div>
 
-      
-      <script src="./js/main.js"></script>
-  </section>
+    </section>
 
-  
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Notificações</h2>
+            <table>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Evento</th>
+                    <th>+Notificações</th>
+                </tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                    <td>18623</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>15155</td>
+                    <td>Lorem ipsum</td>
+                    <td>email</td>
+                </tr>
+                <tr>
+
+                    <!-- Mais notificações aqui -->
+            </table>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/modal.js"></script>
+
 </body>
+
 </html>
