@@ -49,7 +49,7 @@ header {
     width: 200px;
     height: 200px;
     position: relative;
-    bottom: 50px;
+    bottom: -10px;
 }
 
 .menu ul {

@@ -8,6 +8,10 @@
     <style>@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Paytone+One&display=swap');</style>
     <link rel="shortcut icon" type="imagex/png" href="./assets/img/ABA.ico">
     <title>Produtiva: Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Paytone+One&display=swap');
+    </style>
 </head>
 <body>
     <div class="container-principal">
@@ -18,18 +22,20 @@
         <br><br>
         <div class="inside2">
             <div class="input-container">
-                <label for="email">
-                    E-mail
-               </label>
-                <input class="iconEmail" type="text" id="email">
+                <label for="email">E-mail</label>
+                <input class="iconEmail" type="text" id="email" oninput="validarEmail()">                <span id="email-error" class="error-message"></span> <!-- Span para mostrar erros de email -->
             </div>
             <br><br>           
             <div class="input-container">
-                <label for="senha">
-                    Senha
-                </label>
-                <input type="password" id="senha">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" oninput="validarSenha()">
+                <span id="senha-error" class="error-message"></span>
+                <div id="forca-senha" style="margin-top: 5px; height: 10px; background: lightgray; border-radius: 5px; overflow: hidden;">
+                    <div id="barra-forca" style="height: 100%; width: 0%;"></div> <!-- Barra que mostrará a força -->
+                </div>
             </div>
+            
+            
             <br>
             <span>Esqueceu a senha?</span>
             <br>
@@ -38,9 +44,7 @@
             <span>Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a></span>
         </div>
     </div>
+    <script src="js/login.js"></script>
+    <script src="js/sessao.js"></script>
 </body>
 </html>
-
-
-<script src="js/login.js"></script>
-<script src="js/sessao.js"></script>

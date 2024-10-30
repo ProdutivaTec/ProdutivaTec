@@ -147,6 +147,13 @@ p {
     height: 20px;
     background-color: #0A82B0;
     margin-left: 87%;
+    background-image:url(../assets/icon/icons8-ponto-de-interrogação-30.png);
+    background-position: center;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
 }
 
 .resultadoBusca {
