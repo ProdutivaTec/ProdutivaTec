@@ -78,11 +78,5 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.30</version> <!-- Verifique a versão mais recente -->
         </dependency>
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20210307</version>
-        </dependency>
     </dependencies>
 </project>

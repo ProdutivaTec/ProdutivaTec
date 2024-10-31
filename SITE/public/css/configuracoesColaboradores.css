@@ -9,7 +9,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #BFBFBF;
+    background-color: #F1F1F1;
     color: #1f1f1f;
 }
 
@@ -72,11 +72,10 @@ p {
 .search__input {
     font-family: inherit;
     font-size: inherit;
-    background-color: #f4f2f2;
+    background-color: #ffffff;
     border: none;
-    color: #646464;
+    color: #000000;
     padding: 0.7rem 1rem;
-    border-radius: 7px;
     width: 810px;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
@@ -89,7 +88,7 @@ p {
 
 .search__input:focus {
     outline: none;
-    background-color: #f0eeee;
+    background-color: #ffffff;
 }
 
 .search__input::-webkit-input-placeholder {
@@ -148,13 +147,6 @@ p {
     height: 20px;
     background-color: #0A82B0;
     margin-left: 87%;
-    background-image:url(../assets/icon/icons8-ponto-de-interrogação-30.png);
-    background-position: center;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: 60%;
 }
 
 .resultadoBusca {

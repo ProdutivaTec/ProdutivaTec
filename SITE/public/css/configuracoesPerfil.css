@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 
+
 /* Reset básico */
 * {
     margin: 0;
@@ -11,7 +12,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #BFBFBF;
+    background-color: #F1F1F1;
     color: #1f1f1f;
 }
 
@@ -47,6 +48,7 @@ hr {
     margin-right: 20px;
     cursor: pointer;
     display: flex;
+    font-family: "Asap", sans-serif;
 }
 
 .ativo {
@@ -64,30 +66,16 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 25%;
     background-color: #FFFF;
-    height: 350px;
-    border-radius: 24px;
+    height: 450px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
-    width: 300px;
-}
+    margin-top: 2%;
 
-.menu-itemAtivo{
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border-radius: 16px;
-    padding: 12px 20px;
-    width: 90%;
-    box-sizing: border-box;
-    margin-left: -3%;
-    background-color: #3d71B8;
-    transform: scale(1.05);
 }
 
 .fotoUsuario {
@@ -107,26 +95,44 @@ hr {
 }
 
 .btnFoto {
-    background-color: #E6EEF5;
-    border: none;
-    margin-right: 5px;
-    cursor: pointer;
-    height: 45px;
-    width: 110px;
-    border-radius: 7px;
+    background-color: #E6EEF5; /* Cor de fundo */
+    border: none; /* Sem borda */
+    margin-right: 5px; /* Espaço entre os botões */
+    cursor: pointer; /* Cursor de pointer ao passar o mouse */
+    height: 45px; /* Altura do botão */
+    width: 110px; /* Largura do botão */
+    border-radius: 7px; /* Bordas arredondadas */
+    display: flex; /* Flex para centralizar o conteúdo */
+    align-items: center; /* Alinhamento vertical */
+    justify-content: center; /* Alinhamento horizontal */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transições suaves */
+}
+
+.btnFoto:hover {
+    transform: scale(1.05); /* Aumenta o tamanho do botão ao passar o mouse */
+    background-color: #C4D9E7; /* Cor de fundo ao passar o mouse */
 }
 
 .iconBnt {
-    height: 20px;
-    width: auto;
+    height: 20px; /* Altura da imagem */
+    width: auto; /* Largura automática */
+    transition: transform 0.3s ease; /* Transição suave para a imagem */
 }
 
+.btnFoto:hover .iconBnt {
+    transform: rotate(15deg); /* Rotaciona a imagem ao passar o mouse */
+}
+
+
 .dadosPessoais {
-    width: 60%;
+    width: 65%;
 }
 
 .dadosPessoais h2 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 6%;
+    font-family: "Paytone One", sans-serif;
+    font-weight: lighter;
 }
 
 form {
@@ -135,6 +141,7 @@ form {
 
 .form-group {
     margin-bottom: 15px;
+    font-family: "Asap", sans-serif;
 }
 
 .form-group label {
@@ -146,18 +153,27 @@ form {
 input {
     height: 45px;
     padding: 10px;
-    border-radius: 6px;
     border: 1px solid #ccc;
-    width: 100%; /* Certifica que o input preencha corretamente */
-    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho */
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 17px 17px 5px -9px rgba(0,0,0,0.17);
 }
 
 .inputNome {
-    width: 500px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px; /* Corrige a aplicação de border-radius */
-    box-sizing: border-box; /* Garante que o padding não afete o tamanho */
+        width: 500px; /* Use 100% para ocupar o espaço disponível */
+        padding: 10px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+}
+
+.inputDados{
+    box-shadow: 17px 17px 5px -9px rgba(0,0,0,0.17);
+}
+
+input::placeholder {
+    color: black; 
+    opacity: 1; 
+    font-weight: bold;
 }
 
 .inputNome:focus, .inputDados:focus, textarea {
@@ -169,7 +185,7 @@ input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 6px; /* Certifique-se que o border-radius está aplicado uniformemente */
+     /* Certifique-se que o border-radius está aplicado uniformemente */
     box-sizing: border-box; /* Garante que padding e border não afetem o tamanho */
 }
 

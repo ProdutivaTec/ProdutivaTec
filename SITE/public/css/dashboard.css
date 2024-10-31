@@ -13,7 +13,7 @@
 
 body {
     font-family: "Asap", sans-serif;
-    background-color: #bfbfbf;
+    background-color: #F1F1F1;
 }
 
 .container{
@@ -72,22 +72,6 @@ body {
     box-sizing: border-box;
     margin-left: -3%;
 }
-
-.menu-itemAtivo{
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border-radius: 16px;
-    padding: 12px 20px;
-    width: 90%;
-    box-sizing: border-box;
-    margin-left: -3%;
-    background-color: #3d71B8;
-    transform: scale(1.05);
-}
-
 
 .icon {
     width: 20px;
@@ -270,7 +254,7 @@ a{
 .tittleEmpresa{
     font-family: "Paytone One", sans-serif;
     color: #0A82B0 ;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .tittleEmpresaG3{
@@ -453,7 +437,9 @@ select:focus{
     outline: none;
 }
 
+option{
 
+}
 ------------------------------------------
 /* Dark Mode*/ 
 
@@ -461,8 +447,7 @@ select:focus{
 
 /* Tema Escuro */
 body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: #f17171
 }
 
 body.dark-mode .sidebar {
@@ -470,7 +455,7 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .vertical{
-    background-color: #121212 ;
+    background-color: #121212;
 }
 
 body.dark-mode .menu-item:hover {
@@ -489,17 +474,7 @@ body.dark-mode .itemExit:hover {
    
 }
 
-#theme-confgPerfil{
-    width: 100%;
-    height: 100%;
-}
-
 #myChart {
     width: 300px;
     height: 450px;
-}
-
-.ativo {
-    font-weight: bold;
-    border-bottom: 2px solid #295490;
 }

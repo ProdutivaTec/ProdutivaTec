@@ -119,22 +119,3 @@ input:focus {
 .inside2 button:hover {
     background-color: #2a4f8b;
 }
-
-.error-message {
-    font-size: 13px; 
-    margin-top: 5px; 
-    font-family: "Asap", sans-serif;
-    color: red;
-}
-
-#forca-senha{
-    font-family: "Asap", sans-serif;
-    font-size: 13px;
-    margin-top: 5px;
-}
-
-.spanSenha{
-    font-family: "Asap", sans-serif;
-    font-size: 13px;
-    margin-top: 5px;
-}
