@@ -33,9 +33,16 @@ public class LeituraDadosTrabalhoRemoto {
     private void preencherDados(DadosTrabalhoRemoto dados, Row row) {
         for (int i = 0; i < 18; i++) { // Presumindo que você tenha 18 colunas
             Cell cell = row.getCell(i);
-            String valor = getCellValue(cell);
+            String valor = formatarValorParaSQL(getCellValue(cell));
             switch (i) {
-                case 0 -> dados.setId(valor);
+                case 0 -> {
+                    try {
+                        dados.setId(Integer.parseInt(valor)); // Converte valor para int
+                    } catch (NumberFormatException e) {
+                        // Tratar erro, por exemplo, atribuindo um valor padrão ou logando a ocorrência
+                        dados.setId(0); // ou outro valor padrão que faça sentido
+                    }
+                }
                 case 1 -> dados.setAnoNascimento(valor);
                 case 2 -> dados.setGenero(valor);
                 case 3 -> dados.setSetor(valor);
@@ -63,7 +70,7 @@ public class LeituraDadosTrabalhoRemoto {
             case STRING:
                 return cell.getStringCellValue();
             case NUMERIC:
-                return String.valueOf(cell.getNumericCellValue());
+                return String.valueOf((int) cell.getNumericCellValue()); // Para lidar com valores inteiros
             case BOOLEAN:
                 return String.valueOf(cell.getBooleanCellValue());
             case FORMULA:
@@ -71,5 +78,10 @@ public class LeituraDadosTrabalhoRemoto {
             default:
                 return "";
         }
+    }
+
+    private String formatarValorParaSQL(String valor) {
+        if (valor == null || valor.isEmpty()) return "NULL";
+        return "'" + valor.replace("'", "''") + "'";
     }
 }

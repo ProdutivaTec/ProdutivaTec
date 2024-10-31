@@ -10,7 +10,7 @@ public class Conexao {
     public Conexao(){
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://3.83.8.246:3306/produtiva");
+        dataSource.setUrl("jdbc:mysql://3.94.90.11:3306/Produtiva");
         dataSource.setUsername("root");
         dataSource.setPassword("produtiva");
 

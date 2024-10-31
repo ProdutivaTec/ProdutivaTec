@@ -32,14 +32,13 @@ constraint fkEmpresaEndereco foreign key (fkEnderecoEmpresa) references empresa(
 );
 
 CREATE TABLE funcionario (
-idFuncionario int primary key,
+idFuncionario int primary key auto_increment,
 nome varchar(45),
 email varchar(45),
+telefone varchar(45),
 senha varchar(45),
-cargo varchar(45),
-fkEmpresa int,
-
-constraint fkEmpresaFuncionario foreign key (fkEmpresa) references empresa(idEmpresa)
+nomeEmpresa varchar(45),
+cargo varchar(45)
 );
 
 CREATE TABLE dashboard (
@@ -80,4 +79,28 @@ constraint fkFuncionarioAlerta foreign key (fkFuncionario) references funcionari
 constraint fkDashboardAlerta foreign key (fkDashboard) references dashboard (idDashboard)
 );
 
+
+CREATE TABLE DadosTrabalhoRemoto (
+    id INT PRIMARY KEY auto_increment,
+    ano_nascimento VARCHAR(10),
+    genero VARCHAR(50),
+    setor VARCHAR(100),
+    ocupacao VARCHAR(100),
+    qtd_empregados VARCHAR(50),
+    facilidade_permissao VARCHAR(50),
+    horas_trabalhadas VARCHAR(50),
+    horas_pessoais VARCHAR(50),
+    produtividade VARCHAR(50),
+    comentario_produtividade TEXT,
+    conectividade VARCHAR(150),
+    gerenciamento_compromissos VARCHAR(150),
+    oportunidades_socializacao VARCHAR(150),
+    numero_interacoes VARCHAR(150),
+    numero_projetos VARCHAR(150),
+    numero_horas VARCHAR(150),
+    numero_anos_experiencia VARCHAR(150)
+);
+
 -- Criação dos selects
+
+

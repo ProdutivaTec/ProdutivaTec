@@ -7,9 +7,9 @@ function autenticar(email, senha) {
 	    WHEN fun_valida_usuario('${email}','${senha}') = 1
         THEN 'Login realizado com sucesso'
         ELSE 'Login ou senha incorreta' END Validação,
-        idUsuario, nome, sobrenome, email
-        from usuario
-        where 
+        idFuncionario, nome, email
+        from funcionario
+        where  
         email = '${email}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -17,13 +17,13 @@ function autenticar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, sobrenome, email, senha, telefone) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, sobrenome, email, senha, telefone);
+function cadastrar(nome, email, senha, telefone, nomeEmpresa, cargo) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email,  telefone, nomeEmpresa, cargo, senha,);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO usuario (nome, sobrenome, email, senha, telefone) VALUES ('${nome}', '${sobrenome}', '${email}', sha2('${senha}', 256), '${telefone}');
+        INSERT INTO funcionario (nome, email, telefone, senha, nomeEmpresa, cargo) VALUES ('${nome}', '${email}', '${telefone}', '${senha}','${nomeEmpresa}','${cargo}');
 
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

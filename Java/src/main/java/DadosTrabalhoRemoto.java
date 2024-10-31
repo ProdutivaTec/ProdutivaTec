@@ -1,5 +1,5 @@
 public class DadosTrabalhoRemoto {
-    private String id;
+    private Integer id;
     private String anoNascimento;
     private String genero;
     private String setor;
@@ -19,11 +19,11 @@ public class DadosTrabalhoRemoto {
     private String numeroAnosExperiencia;
 
     // Getters e Setters
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
