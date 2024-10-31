@@ -20,11 +20,13 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
 
                         res.json({
-                            email: resultadoAutenticar[0].email,
+                            idFuncionario: resultadoAutenticar[0].idFuncionario,
                             nome: resultadoAutenticar[0].nome,
+                            email: resultadoAutenticar[0].email,
+                            telefone: resultadoAutenticar[0].telefone,
+                            nomeEmpresa: resultadoAutenticar[0].nomeEmpresa,
+                            cargo: resultadoAutenticar[0].cargo,
                             senha: resultadoAutenticar[0].senha,
-                            idUsuario: resultadoAutenticar[0].idUsuario,
-                            sobrenome: resultadoAutenticar[0].sobrenome
                         });
 
                     } else if (resultadoAutenticar.length == 0) {
@@ -46,13 +48,16 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    console.log("Dados recebidos no body: ", req.body);
+
     var nome = req.body.nomeServer;
-    var sobrenome = req.body.sobrenomeServer;
     var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
     var telefone = req.body.telefoneServer;
-    // Faça as validações dos valores
+    var nomeEmpresa = req.body.nomeEmpresaServer;
+    var cargo = req.body.cargoServer;
+    var senha = req.body.senhaServer;
+
+    // Validações
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (senha == undefined) {
@@ -60,27 +65,20 @@ function cadastrar(req, res) {
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (telefone == undefined) {
-        res.status(400).send("Sua telefone está undefined!");
-    }else if (sobrenome == undefined) {
-        res.status(400).send("Seu sobrenome está undefined!");
+        res.status(400).send("Seu telefone está undefined!");
+    } else if (cargo == undefined) {
+        res.status(400).send("Seu cargo está undefined!");
+    } else if (nomeEmpresa == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
     } else {
-
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, email, senha, telefone)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+        usuarioModel.cadastrar(nome, email, telefone, nomeEmpresa, cargo, senha)
+            .then(function (resultado) {
+                res.json(resultado);
+            })
+            .catch(function (erro) {
+                console.log("Erro no cadastro:", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
     }
 }
 
