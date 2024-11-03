@@ -40,12 +40,6 @@
     margin-left: 80%;
 }
 
-.logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .left-side p {
     color: #666;
     font-size: 14px;
@@ -60,6 +54,12 @@
 .social-links img {
     width: 30px;
     height: 30px;
+}
+
+.imagem-contato {
+  width: 350px;
+  height: 350px;
+  z-index: 500;
 }
 
 .right-side {
@@ -393,3 +393,4 @@ button:hover {
   border-color: #FF6700;
   transition: 0.8s;
 }
+

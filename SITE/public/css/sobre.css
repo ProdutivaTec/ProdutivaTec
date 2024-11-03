@@ -9,13 +9,14 @@
     font-family: "Paytone One", sans-serif;
     color: #245293;
     text-align: center;
-    font-size: 35px;
+    font-size: 45px;
 }
 
 .p {
     text-align: center;
     font-family: "Asap", sans-serif;
     color: #666666;
+    font-size: 20px;
 }
 
 .areaP {
@@ -27,6 +28,7 @@
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
+    
 }
 
 .buttonSobre {
