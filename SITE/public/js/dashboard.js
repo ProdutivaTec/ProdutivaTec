@@ -28,10 +28,10 @@
                 themeconfg.src = './assets/icon/icons8-configuração-50.png';
                 localStorage.setItem('theme', 'dark');
             } else {
-                themeIcon.src = './assets/icon/Light.png';
+                themeIcon.src = './assets/icon/sun.png';
                 themelogo.src = './assets/img/LOGO.png';
-                themenoti.src = './assets/icon/image 35.png';
-                themeconfg.src = './assets/icon/image 34.png';
+                themenoti.src = './assets/icon/notification (1).png';
+                themeconfg.src = './assets/icon/setting (3).png';
                 localStorage.setItem('theme', 'light');
             }
         }

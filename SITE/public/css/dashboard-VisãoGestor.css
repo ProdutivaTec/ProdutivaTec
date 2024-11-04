@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     margin: 0;
@@ -16,7 +16,7 @@ body {
     background-color: #F1F1F1;
 }
 
-.container{
+.container {
     display: flex;
     height: 100vh;
 }
@@ -36,7 +36,7 @@ body {
     padding: 0;
 }
 
-.imgDash{
+.imgDash {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,9 +54,9 @@ body {
     flex-grow: 1;
 }
 
-.linkPag{
+.linkPag {
     text-decoration: none;
-    color: #FFFF ;
+    color: #FFFF;
 }
 
 .menu-item {
@@ -100,8 +100,6 @@ body {
     transform: scale(1.05);
 }
 
-
-
 .itemExit {
     position: absolute;
     bottom: 20px;
@@ -133,11 +131,12 @@ body {
     background-color: #3d71B8;
 }
 
-.headerDash{
-    width: calc(100% - 250px); /* Desconta a largura da sidebar */
+.headerDash {
+    width: calc(100% - 250px);
+    /* Desconta a largura da sidebar */
     height: 60px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 0 10px;
     position: fixed;
@@ -152,39 +151,89 @@ body {
     align-items: center;
 }
 
-.funcionalidadesHeader{
+.imgPeople {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.funcionalidadesHeader img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+
+}
+
+.funcionalidadesHeader {
     width: 40px;
     height: 40px;
-    border-radius: 50%; 
-    overflow: hidden; /* Garante que a imagem fique contida dentro da div */
+    border-radius: 50%;
+    overflow: hidden;
+    /* Garante que a imagem fique contida dentro da div */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FFFF;
+
 }
 
-.funcionalidadesHeader img{
-    width: 50%;
-    height: 50%;
-    object-fit: cover; 
-    
+.funcionalidadesHeaderP{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* Garante que a imagem fique contida dentro da div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFF;
+
+    position: relative;
+    display: inline-block;
 }
 
-.funcionalidadesHeader .imgPeople{
+
+
+.funcionalidadesHeaderP {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Estilo para a imagem principal do perfil */
+.funcionalidadesHeaderP .imgPeople {
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
-.vertical{
-    width: 1.5px; 
-    height: 40px; 
-    background-color: #FFFF; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vertical {
+    width: 1.5px;
+    height: 40px;
+    background-color: #FFFF;
     margin: 0 5px;
 }
 
 
 
-.graficosDash{
+.graficosDash {
     display: flex;
     flex-direction: column;
     margin-left: 260px;
@@ -205,15 +254,17 @@ body {
 }
 
 
-.KPI1, .KPI2, .KPI22{
+.KPI1,
+.KPI2,
+.KPI22 {
     background-color: #FFFF;
     border-radius: 20px;
     box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
     display: flex;
-    padding:2px;
+    padding: 2px;
     width: 230px;
     height: 150px;
-    margin-right: 10px; 
+    margin-right: 10px;
     flex-direction: column;
     display: flex;
     gap: -1px;
@@ -222,12 +273,12 @@ body {
 }
 
 
-.KPI1{
+.KPI1 {
     width: 500px;
     margin-left: 0.6%;
 }
 
-.KPI2{
+.KPI2 {
     margin-right: 10px;
     display: flex;
     flex-direction: column;
@@ -235,25 +286,25 @@ body {
     align-items: center;
 }
 
-.KPI22{
+.KPI22 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.area2Kpis{
+.area2Kpis {
     display: flex;
     gap: 10px;
     margin-right: 1%;
     flex-direction: column;
- padding: 7px;
+    padding: 7px;
     margin-top: -7px;
-    
+    margin-left: 0.8%;
 
 }
 
-.KPI3{
-    width: 250px;
+.KPI3 {
+    width: 400px;
     height: 70px;
     gap: 5px;
     background-color: #FFFF;
@@ -262,73 +313,107 @@ body {
     display: flex;
     flex-direction: row;
     padding: 10px;
-        box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
+    box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
 
+    justify-content: start;
+align-items: center;
 }
 
-.KPI22{
-  margin-right: 30px;
-  margin-left: -0.2%;
+.KPI22 {
+    margin-right: 30px;
+    margin-left: -0.2%;
 }
-    
 
-a{
+
+a {
     text-decoration: none;
     color: white;
 }
 
-.textEmpresa{
+.textEmpresa {
     margin-top: -1%;
     margin-bottom: 1%;
     margin-left: 1.5%;
 }
 
-.tittleEmpresa{
+.tittleEmpresa {
     font-family: "Paytone One", sans-serif;
-    color: #0A82B0 ;
+    color: #0A82B0;
     font-size: 25px;
 }
 
-.tittleEmpresaG3{
+.tittleEmpresaG3 {
     font-family: "Paytone One", sans-serif;
-    color: #0A82B0 ;
+    color: #0A82B0;
     font-size: 20px;
 
 }
 
-.selectAspectos{
+.selectAspectos {
     padding-inline-start: 10px;
 }
 
 
 
-.textDados{
+.textDados {
     font-family: "Paytone One", sans-serif;
-    color: #0A82B0 ;
+    color: #0A82B0;
     font-size: 40px;
+    padding-inline-start: 30px;
 }
 
-.textDadosG{
+.textDadosKPI1 {
     font-family: "Paytone One", sans-serif;
-    color: #0A82B0 ;
-    font-size: 50px;
+    color: #0A82B0;
+    font-size: 40px;
+    padding-inline-start: 30px;
+    margin-left: -20%;
 }
 
-.textTitulosKpis{
+.textDadosG {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 60px;
+}
+
+.textTitulosKpis {
     font-family: "Asap", sans-serif;
     color: #666666;
     font-size: 12px;
     text-align: center;
 }
 
+.pTextKPI3{
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    font-size: 17px;
+    text-align: center;
+    padding-inline-start: 55px;
+    text-align: center;
+
+}
+
+.pTextKPI2{
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    font-size: 14px;
+    text-align: center;
+}
 
 
-.subtittleEmpresa{
-    font-family: "Paytone One", sans-serif;
+
+.subtittleEmpresa {
+    font-family: "Asap", sans-serif;
     color: #666666;
 }
 
-.dashBottom{
+.subtittleEmpresaKPI1{
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    padding-top: 1%;
+}
+
+.dashBottom {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -337,10 +422,12 @@ a{
     margin-top: -1.5%;
 }
 
-.KPI4, .KPI5, .KPI6 {
+.KPI4,
+.KPI5,
+.KPI6 {
     background-color: #FFFF;
     border-radius: 20px;
-    box-shadow: 0 2px 10px 0px rgb(172, 169, 169); 
+    box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -350,8 +437,8 @@ a{
 
 .KPI4 {
     width: 500px;
-    height: 400px; 
-    margin-right: 20px; 
+    height: 400px;
+    margin-right: 20px;
     display: flex;
     flex-direction: column;
     margin-left: 1%;
@@ -360,7 +447,7 @@ a{
 .KPI5 {
     margin-left: 30px;
     width: 340px;
-    height: 400px; 
+    height: 400px;
     margin-right: 3%;
     display: flex;
     flex-direction: column;
@@ -375,7 +462,7 @@ a{
 .KPI6 {
     margin-left: 30px;
     width: 340px;
-    height: 400px; 
+    height: 400px;
     margin-right: 0;
     display: flex;
     flex-direction: column;
@@ -384,94 +471,110 @@ a{
 }
 
 #GraficoPiorAspecto {
-   max-width: 90%;
-   max-height: 70%;
-   height: 400px;
-   width: auto;
+    max-width: 90%;
+    max-height: 70%;
+    height: 400px;
+    width: auto;
 
 }
 
-.infoKPI1{
+#comparacaoEquipes{
+    max-width: 90%;
+    max-height: 100%;
+    width: auto;
+}
+
+.infoKPI1 {
     display: flex;
     flex-direction: row;
     margin-top: 2%;
     gap: 20px;
 }
 
-.textDados{
+.textDados {
     font-family: "Paytone One", sans-serif;
-    color: #0A82B0 ;
+    color: #0A82B0;
     font-size: 40px;
 }
 
-.textTitulosKpis{
-    font-family: "Paytone One", sans-serif;
+.textTitulosKpis {
+    font-family: "Asap", sans-serif;
     color: #666666;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 
-.imgSexo{
+.imgSexo {
     height: 100px;
     width: auto;
 }
 
-.qtdPessoas{
+.qtdPessoas {
     display: flex;
     flex-direction: column;
 
 }
 
-.qtdPessoasM{
+.qtdPessoasM {
     display: flex;
     flex-direction: column;
+
 }
 
-.satisfacao{
+.textDadosKPI1 {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 40px;
+    padding-inline-start: 30px;
+}
+
+.satisfacao {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    margin-top: -5%;
-    margin-left: 15%;
-
+    margin-top: -1%;
 }
 
-#feedbackEquipes{
-    border-radius: 20px;
+#feedbackEquipes {
+    max-width: 90%;
+    max-height: 70%;
+    height: 400px;
+    width: auto;
 }
 
-.tituloKpi1{
+.tituloKpi1 {
     display: flex;
     flex-direction: row;
     gap: 40px;
     padding: 7px;
-    margin-top: 1%;
+    margin-top: -18%;
 }
 
-.tituloKpi3{
+
+
+.tituloKpi3 {
     display: flex;
     flex-direction: row;
     gap: 15px;
     margin-top: -10%;
 }
 
-.subtittleEmpresaG1{
+.subtittleEmpresaG1 {
     display: flex;
     margin-left: -63%;
     font-family: "Paytone One", sans-serif;
     color: #666666;
-    margin-top: -5%;
+    margin-top: -4%;
     padding: 5px;
-    margin-right: 1px;
+    margin-right: -18px;
 }
 
-select{
+select {
     width: 140px;
     border-radius: 50px;
     height: 25px;
     margin-top: 2%;
-    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.1) ;
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.1);
     font-family: "Paytone One", sans-serif;
     border: none;
     outline: none;
@@ -480,13 +583,14 @@ select{
 
 }
 
-select:focus{
+select:focus {
     outline: none;
 }
 
-canvas{
+canvas {
     padding: 10px;
 }
+
 ------------------------------------------
 body.dark-mode .sidebar {
     background-color: #000000 !important;
@@ -521,6 +625,19 @@ body.dark-mode .itemExit:hover {
     width: 20px;
     height: 20px;
    
+}
+
+#myChart {
+    width: 300px;
+    height: 450px;
+}
+
+
+/* Estilos para a imagem do botão */
+#theme-icon {
+    width: 20px;
+    height: 20px;
+
 }
 
 #myChart {

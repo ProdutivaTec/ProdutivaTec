@@ -51,6 +51,23 @@ hr {
     border-bottom: 2px solid #295490;
 }
 
+
+.menu-itemAtivo{
+    background-color: #3d71B8;
+    transform: scale(1.05);
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 12px 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: -3%;
+}
+
 p {
     font-family: "Asap", sans-serif;
 }
@@ -69,6 +86,14 @@ p {
     text-align: center;
 }
 
+.search__hr {
+    width: 20px;
+    border: none;
+    border-top: 2px solid #0A82B0;
+    margin-right: 5px; /* Espaço entre o <hr> e o botão */
+}
+
+
 .search__input {
     font-family: inherit;
     font-size: inherit;
@@ -79,6 +104,8 @@ p {
     width: 810px;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
+        box-shadow: 0 2px 5px 0px rgb(172, 169, 169);
+
 }
 
 .search__input:hover,
@@ -102,7 +129,7 @@ p {
 
 .search__button {
     border: none;
-    background-color: #f4f2f2;
+    background-color: #ffff;
     margin-top: .1em;
 }
 
@@ -113,7 +140,7 @@ p {
 .search__icon {
     height: 1.3em;
     width: 1.3em;
-    fill: #b4b4b4;
+    fill: #232323;
 }
 
 .bntCadastro {
@@ -143,11 +170,26 @@ p {
     font-family: "Paytone One", sans-serif;
     color: #FFFF;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 25px; /* Ajuste conforme necessário */
+    aspect-ratio: 1; /* Garante que o botão seja um quadrado */
     background-color: #0A82B0;
     margin-left: 87%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.pQuestion{
+    font-family: "Asap",sans-serif;
+    font-size: 13px;
+}
+
+.iconQuestion {
+    max-width: 100%; /* Ajuste conforme necessário */
+    height: 15px; /* Mantém a proporção da imagem */
+}
+
 
 .resultadoBusca {
     margin-top: 20px;
@@ -486,4 +528,35 @@ button[type="submit"]:hover {
     font-size: 12px;
     margin-top: 5px;
     font-family: "Asap", sans-serif;
+}
+
+/* Dark Mode*/ 
+
+/* Tema Claro (Padrão) */
+
+/* Tema Escuro */
+
+
+body.dark-mode .sidebar {
+    background-color: #000000;
+}
+
+body.dark-mode .vertical{
+    background-color: #121212;
+}
+
+body.dark-mode .menu-item:hover {
+    background-color: #444;
+    background-color: #333;
+}
+
+body.dark-mode .menu-itemAtivo{
+    transform: scale(1.05);
+    background-color: #444;
+    background-color: #333;
+
+}
+
+body.dark-mode .itemExit:hover {
+    background-color: #333;
 }

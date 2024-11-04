@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/cadastroFuncionario.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Paytone+One&display=swap');
     </style>
-    <link rel="shortcut icon" type="imagex/png" href="./assets/img/ABA.ico">
+    <link rel="shortcut icon" type="imagex/png" href="./assets/ABA.ico">
     <title>Produtiva: Cadastre-se</title>
 </head>
 
@@ -20,7 +20,7 @@
         <div class="inside1">
             <img class="logo" src="./assets/img/LOGO.png" alt="Logo">
         </div>
-        <h1 class="h1Cadastro">Bem-vindo!</h1>
+        <br><br>
         <div class="inside2">
             <div class="input-container">
                 <input placeholder="Nome" type="text" id="input_nome">
@@ -29,12 +29,10 @@
                 <input placeholder="Email" type="email" id="input_email">
             </div>
             <div class="input-container">
-                <input placeholder="Telefone" type="text" id="input_telefone">
+                <input placeholder="Telefone" type="number" id="input_telefone">
             </div>
             <div class="parteEmpresa">
-                <div class="input-container">
-                    <input placeholder="Nome da Empresa" type="text" id="input_empresa">
-                </div>
+               
                 <div class="input-container">
                     <input placeholder="Cargo" type="text" id="input_cargo">
                 </div>
@@ -45,13 +43,12 @@
             <div class="input-container">
                 <input placeholder="Confirmação de senha" type="password" id="input_senhaConfirmar">
             </div>
-            <button onclick="entrar()">Cadastrar</button>
-            <p>Você já possui uma conta? <a href="login.html">Login</a></p>
+            <button onclick="entrar()">Cadastrar Funcionário</button>
         </div>
     </div>
 </body>
 
 </html>
 
-<script src="js/cadastro.js"></script>
+<script src="js/cadastroFuncionario.js"></script>
 <script src="js/sessao.js"></script>

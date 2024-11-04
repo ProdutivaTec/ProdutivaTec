@@ -46,7 +46,7 @@
                         </div>
                     </a>
                     <a href="./configuracoesPerfil.html">
-                    <div class="menu-item">
+                    <div class="menu-itemAtivo">
                         <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
                         Configurações
                     </div>
@@ -62,16 +62,19 @@
             <header class="headerDash">
                 <div class="headerRight">
                     <div class="funcionalidadesHeader" id="theme-toggle">
-                        <img src="./assets/icon/Light.png" alt="Tema Claro" id="theme-icon">
+                        <img src="./assets/icon/sun.png" alt="Tema Claro" id="theme-icon">
                     </div>
                     <div class="vertical"></div>
                     <div class="funcionalidadesHeader" id="theme-header1">
-                        <img src="./assets/icon/image 35.png" id="theme-noti" alt="">
+                        <img src="./assets/icon/notification (1).png" id="theme-noti" alt="">
                     </div>
                     <div class="funcionalidadesHeader" id="theme-header2">
-                        <img src="./assets/icon/image 34.png" id="theme-confg" alt="">
+                        <img src="./assets/icon/setting (3).png" id="theme-confg" alt="">
                     </div>
                     <div class="vertical"></div>
+                    <div class="funcionalidadesHeader" id="theme-header2">
+                        <img class="imgPeople" src="./assets/img/image 56.png" id="theme-confg" alt="">
+                    </div>
                 </div>
             </header>
         </section>
@@ -87,26 +90,29 @@
             <hr>
             <br>
             <p>Procure pelo nome do Colaborador</p>
-            <div class="areaBotaoDuvida">
-                <button class="bntDuvida" id="openHelpModal"><img src="./assets/icon/ajuda 1.png" alt=""></button>
-            </div>
+                <div class="areaBotaoDuvida">
+                    <button class="bntDuvida" id="openHelpModal"><p class="pQuestion">?</p></button>
+                </div>
             <div class="areaBusca">
                 <div class="search">
                     <input type="text" class="search__input" id="searchInput" placeholder="Pesquisar funcionário">
-                    <button class="search__button" id="searchBtn">
-                        <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
-                            <g>
-                                <path
-                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
-                                </path>
-                            </g>
-                        </svg>
-                    </button>
+                    <div class="buttonContainer">
+
+                        <button class="search__button" id="searchBtn">
+                            <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+                                <g>
+                                    <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="areaBotoesCadastro">
                     <button id="btnCadastro" class="bntCadastro">Cadastrar Funcionário</button>
                 </div>
             </div>
+            
+            
 
 
 
@@ -126,44 +132,46 @@
                         <th>+Notificações</th>
                     </tr>
                     <tr>
-                        <td>15155</td>
-                        <td>Lorem ipsum</td>
-                        <td>email</td>
+                        <td>Feedback Positivo</td>
+                        <td>Equipe de Marketing elogiada pela colaboração no projeto X.</td>
+                        <td>Ver mais feedbacks positivos sobre a Equipe de Marketing</td>
                     </tr>
                     <tr>
-                        <td>18623</td>
-                        <td>Lorem ipsum</td>
-                        <td>email</td>
+                        <td>Feedback Negativo</td>
+                        <td>Alta taxa de insatisfação com o volume de trabalhom</td>
+                        <td>Revisar carga de trabalho por departamento</td>
                     </tr>
                     <tr>
-                        <td>15155</td>
-                        <td>Lorem ipsum</td>
-                        <td>email</td>
-                    </tr>
-                    <tr>
-                    <tr>
-                        <td>15155</td>
-                        <td>Lorem ipsum</td>
-                        <td>email</td>
+                        <td>Feedback Anônimo</td>
+                        <td>Sugestão de melhoria no ambiente físico do escritório.</td>
+                        <td>Ver todas as sugestões anônimas</td>
                     </tr>
                     <tr>
                     <tr>
-                        <td>15155</td>
-                        <td>Lorem ipsum</td>
-                        <td>email</td>
+                        <td>Reconhecimento</td>
+                        <td>Funcionário Y recebeu elogios pela liderança em projeto Z.</td>
+                        <td>Ver detalhes do projeto e comentários</td>
                     </tr>
                     <tr>
                     <tr>
-                        <td>15155</td>
-                        <td>Lorem ipsum</td>
-                        <td>email</td>
+                        <td>Sugestão</td>
+                        <td>Equipe de TI sugeriu melhorias na comunicação interna.</td>
+                        <td>Ver todas as sugestões recentes</td>
                     </tr>
                     <tr>
-    
+                    <tr>
+                        <td>Engajamento</td>
+                        <td>Equipe de Design atingiu alto nível de engajamento nas reuniões semanais.</td>
+                        <td>Ver detalhes sobre engajamento na empresa</td>
+                    </tr>
+                    <tr>
+
                         <!-- Mais notificações aqui -->
                 </table>
             </div>
         </div>
+
+
     <!-- Modal Dúvidas ---------------------------------------------------------------->
     <div id="helpModal" class="modal">
         <div class="modal-content">

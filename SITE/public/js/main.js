@@ -67,8 +67,9 @@ function load (){
   const paddinDays = weekdays.indexOf(dateString.split(', ') [0])
   
   //mostrar mês e ano:
-  document.getElementById('monthDisplay').innerText = `${date.toLocaleDateString('pt-br',{month: 'long'})}, ${year}`
-
+  const monthName = date.toLocaleDateString('pt-br', { month: 'long' });
+  document.getElementById('monthDisplay').innerText = `${monthName.charAt(0).toUpperCase() + monthName.slice(1)}, ${year}`;
+  
   
   calendar.innerHTML =''
 
