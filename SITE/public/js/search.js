@@ -34,7 +34,12 @@ document.getElementById('searchBtn').addEventListener('click', function () {
               </div>
   
           </div>
-          <br><br>
+            <br>
+         <div class="areaBotaoTela">
+  <a href="./dashboard-VisãoGestor.html">  <button class="bntOutraTela">Tela</button> </a>
+      </div>
+
+          <br>
           <div class="botoes">
               <button class="editar">Atualizar Informações</button>
             <button class="deletar">Excluir Funcionário</button>

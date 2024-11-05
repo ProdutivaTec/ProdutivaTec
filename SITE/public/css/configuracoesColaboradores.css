@@ -560,3 +560,17 @@ body.dark-mode .menu-itemAtivo{
 body.dark-mode .itemExit:hover {
     background-color: #333;
 }
+
+.bntOutraTela{
+    height: 15px;
+    width: 15px;
+    background-color: #0A82B0;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFF;
+    font-family: "Paytone One", sans-serif;
+}
