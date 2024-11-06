@@ -41,6 +41,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-left: -50px;
 }
 
 .input-container {
@@ -114,6 +115,7 @@ input:focus {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-right: -50px;
 }
 
 .inside2 button:hover {
