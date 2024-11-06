@@ -118,7 +118,8 @@
                 <div class="vertical"></div>
 
                 <div class="funcionalidadesHeaderP" id="theme-header2">
-                    <img class="imgPeople" src="./assets/img/image 56.png" id="theme-confg" alt="" onclick="toggleMenu()">
+                    <img class="imgPeople" src="./assets/img/image 56.png" id="theme-confg" alt=""
+                        onclick="toggleMenu()">
                 </div>
             </div>
         </header>
@@ -129,40 +130,54 @@
                 <p class="subtittleEmpresa">100 colaboradores</p>
             </div>
             <div class="dashTop">
-                <div class="KPI1" id="KPI1">
-                    <p class="subtittleEmpresaKPI1">GENÊRO</p>
-                    <div class="infoKPI1">
-                        <div class="qtdPessoasM">
-                            <Span class="textDadosKPI1"> 56</Span>
-                            <p class="textTitulosKpis">MASCULINO</p>
-                        </div>
-                        <img class="imgSexo" src="./assets/icon/banheiro 1.png" alt="">
-                        <hr>
-                        <img class="imgSexo" src="./assets/icon/banheiro 2.png" alt="">
-                        <div class="qtdPessoas">
-                            <Span class="textDadosKPI1"> 46</Span>
-                            <p class="textTitulosKpis">FEMININO</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="area2Kpis">
                     <div class="KPI3">
                         <div class="satisfacao">
+                            <img class="imgSexo" src="./assets/icon/banheiro 1.png" alt="">
+                            <div class="areaHR">
+                                <hr class="hrKPI">
+                            </div>
                             <Span class="textDados"> 75%</Span>
                             <p class="pTextKPI3">Mais produtivos no <br> trabalho remoto </p>
                         </div>
                     </div>
                     <div class="KPI3">
                         <div class="satisfacao">
+                            <img class="imgSexo" src="./assets/icon/banheiro 1.png" alt="">
+                            <div class="areaHR">
+                                <hr class="hrKPI">
+                            </div>
                             <Span class="textDados"> 25%</Span>
                             <p class="pTextKPI3"> Mais produtivos no <br> trabalho presencial </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="area2Kpis2">
+                    <div class="KPI3">
+                        <div class="satisfacao">
+                            <img class="imgSexo" src="./assets/icon/banheiro 2.png" alt="">
+                            <div class="areaHR">
+                                <hr class="hrKPI">
+                            </div>
+                            <Span class="textDados"> 14%</Span>
+                            <p class="pTextKPI3">Mais produtivas no <br> trabalho remoto </p>
+                        </div>
+                    </div>
+                    <div class="KPI3">
+                        <div class="satisfacao">
+                            <img class="imgSexo" src="./assets/icon/banheiro 2.png" alt="">
+                            <div class="areaHR">
+                            <hr class="hrKPI">
+                        </div>
+                            <Span class="textDados"> 86%</Span>
+                            <p class="pTextKPI3"> Mais produtivas no <br> trabalho presencial </p>
                         </div>
                     </div>
                 </div>
                 <div class="KPI22">
                     <p class="pTextKPI2">A produtividade média de <br> equipe é de</p>
                     <Span class="textDadosG">4.2</Span>
-                    <p class="pTextKPI2">  Em uma escala de 0 a 5 </p>
+                    <p class="pTextKPI2"> Em uma escala de 0 a 5 </p>
                 </div>
             </div>
 
@@ -181,7 +196,7 @@
 
                 <div class="KPI4">
                     <span class="tittleEmpresa"> Utilização de Recursos</span>
-                    <p class="pTextKPI2">  Em horas </p>
+                    <p class="pTextKPI2"> Em horas </p>
                     <canvas id="comparacaoEquipes"></canvas>
                 </div>
 
@@ -216,7 +231,7 @@
 
 <script>
 
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
         const myChart = new Chart(ctx, config);
     });
@@ -275,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-   
+
 
 
 
@@ -289,13 +304,13 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: ['Remoto', 'Presencial'],
             datasets: [
                 {
-                    label: 'Personal and family time',
+                    label: 'Tempo pessoal e em família',
                     data: [8, 3],
                     backgroundColor: '#0A2F5C', // Azul escuro
                     borderRadius: 5
                 },
                 {
-                    label: 'Working',
+                    label: 'Trabalho',
                     data: [6, 10],
                     backgroundColor: '#0A82B0', // Azul claro
                     borderRadius: 5
@@ -353,52 +368,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Gráfico de feedback por equipes
     const ctx3 = document.getElementById('feedbackEquipes').getContext('2d');
-const myFeedbackChart = new Chart(ctx3, {
-    type: 'pie',
-    data: {
-        labels: [
-            'Managers',
-            'Sales',
-            'Chief Executives',
-            'Education Professionals',
-            'Construction Trades',
-            'Hospitality'
-        ],
-        datasets: [{
-            label: 'Feedback Positivo',
-            data: [3, 8, 16, 20, 12, 17],
-            backgroundColor: [
-                '#007bff',
-                '#0056b3',
-                '#6f42c1',
-                '#c71585',
-                '#dc3545',
-                '#0A82B0'
+    const myFeedbackChart = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Managers',
+                'Sales',
+                'Chief Executives',
+                'Education Professionals',
+                'Construction Trades',
+                'Hospitality'
             ],
-            borderColor: '#fff',
-            borderWidth: 2
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: true,
-                position: 'top',
-                labels: {
-                    usePointStyle: true,
-                    pointStyle: 'rect',
-                    padding: 10
+            datasets: [{
+                label: 'Feedback Positivo',
+                data: [3, 8, 16, 20, 12, 17],
+                backgroundColor: [
+                    '#007bff',
+                    '#0056b3',
+                    '#6f42c1',
+                    '#c71585',
+                    '#dc3545',
+                    '#0A82B0'
+                ],
+                borderColor: '#fff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'rect',
+                        padding: 10
+                    }
+                },
+                tooltip: {
+                    enabled: true
                 }
-            },
-            tooltip: {
-                enabled: true
             }
         }
-    }
-});
+    });
 
 
 
 </script>
-

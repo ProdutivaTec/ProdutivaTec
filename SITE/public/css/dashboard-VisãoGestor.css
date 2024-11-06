@@ -303,18 +303,29 @@ body {
 
 }
 
+.area2Kpis2 {
+    display: flex;
+    gap: 10px;
+    margin-right: 1%;
+    flex-direction: column;
+    padding: 7px;
+    margin-top: -7px;
+    margin-left: -0.5%;
+
+}
+
 .KPI3 {
-    width: 400px;
+    width: 460px;
     height: 70px;
     gap: 5px;
     background-color: #FFFF;
     border-radius: 20px;
-    margin-right: 20px;
+    margin-right: 30px;
     display: flex;
     flex-direction: row;
     padding: 10px;
     box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
-
+margin-left: -3px;
     justify-content: start;
 align-items: center;
 }
@@ -388,7 +399,7 @@ a {
     color: #666666;
     font-size: 17px;
     text-align: center;
-    padding-inline-start: 55px;
+    padding-inline-start: 40px;
     text-align: center;
 
 }
@@ -417,7 +428,7 @@ a {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-left: 0.7%;
+    margin-left: 1%;
     padding: 8px;
     margin-top: -1.5%;
 }
@@ -495,6 +506,7 @@ a {
     font-family: "Paytone One", sans-serif;
     color: #0A82B0;
     font-size: 40px;
+    padding-inline-start: 20px;
 }
 
 .textTitulosKpis {
@@ -505,8 +517,20 @@ a {
 
 
 .imgSexo {
-    height: 100px;
+    height: 60px;
     width: auto;
+    padding-inline-start: 10px;
+}
+
+.areaHR{
+    padding-inline-start: 10px;
+}
+
+.hrKPI{
+    height: 50px;
+    width: 3px;
+    background-color: #0A82B0;
+    
 }
 
 .qtdPessoas {
@@ -525,7 +549,7 @@ a {
     font-family: "Paytone One", sans-serif;
     color: #0A82B0;
     font-size: 40px;
-    padding-inline-start: 30px;
+    padding-inline-start: 10px;
 }
 
 .satisfacao {

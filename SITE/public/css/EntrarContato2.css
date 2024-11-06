@@ -32,12 +32,12 @@
     background-color: #245293;
 }
 
-.left-side .logo img {
+.left-side .logoContato {
     width: 300px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     height: 100px;
     margin-top: -20px;
-    margin-left: 80%;
+    margin-left: 15%;
 }
 
 .left-side p {
