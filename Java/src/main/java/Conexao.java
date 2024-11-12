@@ -10,9 +10,9 @@ public class Conexao {
     public Conexao(){
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://44.211.216.103:3306/Produtiva");
-        dataSource.setUsername("root");
-        dataSource.setPassword("produtiva");
+        dataSource.setUrl("SENHA_URL");
+        dataSource.setUsername("SENHA_USUARIO");
+        dataSource.setPassword("SENHA_BD");
 
         conexaoDoBanco = new JdbcTemplate(dataSource);
     }

@@ -10,8 +10,8 @@ public class MainS3 {
         ZipSecureFile.setMinInflateRatio(0.0);
     }
 
-    private static final String BUCKET_NAME = "produtiva";
-    private static final String FILE_KEY = "base-de-dados.xlsx";
+    private static final String BUCKET_NAME = "BUCKET_NAME";
+    private static final String FILE_KEY = "Planilha de Dados.xlsx";
 
     public static void main(String[] args) {
         S3 s3 = new S3();
