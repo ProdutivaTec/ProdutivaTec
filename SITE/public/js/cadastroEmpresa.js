@@ -13,14 +13,15 @@ async function entrar(event) {
 
     let erro = false;
 
-    if (!validarCampo('nome', 0)) erro = true;
-    if (!validarCampo('cnpj', 14)) erro = true;
-    if (!validarCampo('cep', 8)) erro = true;
-    if (!validarCampo('logradouro', 0)) erro = true;
-    if (!validarCampo('bairro', 0)) erro = true;
-    if (!validarCampo('cidade', 0)) erro = true;
-    if (!validarCampo('numero', 0)) erro = true;
-    if (!validarCampo('qtdFuncionarios', 1)) erro = true;
+    if (!validarCampo('nome', 0, 60)) erro = true;
+    if (!validarCampo('cnpj', 14, 14)) erro = true;
+    if (!validarCampo('cep', 8, 8)) erro = true;
+    if (!validarCampo('logradouro', 0, 60)) erro = true;
+    if (!validarCampo('bairro', 0, 50)) erro = true;
+    if (!validarCampo('cidade', 0, 50)) erro = true;
+    if (!validarCampo('numero', 0, 7)) erro = true;
+    if (!validarCampo('complemento', -1, 50)) erro = true;
+    if (!validarCampo('qtdFuncionarios', 1, 1000000)) erro = true;
 
     if (erro) {
         finalizarAguardar();
@@ -43,6 +44,7 @@ async function entrar(event) {
                 bairroServer: document.querySelector('#input_bairro').value,
                 cidadeServer: document.querySelector('#input_cidade').value,
                 numeroServer: document.querySelector('#input_numero').value,
+                complementoServer: document.querySelector('#input_complemento').value,
                 qtdFuncionariosServer: document.querySelector('#input_qtdFuncionarios').value
             }),
         });
@@ -62,19 +64,12 @@ async function entrar(event) {
     }
 }
 
-function validarCampo(campo, minLength) {
+function validarCampo(campo, minLength, maxLength) {
     const valor = document.querySelector(`#input_${campo}`).value;
     const erroDiv = document.querySelector(`#erro_${campo}`);
     
-    if (valor.length < minLength || valor === "" || (campo === 'qtdFuncionarios' && valor <= 0)) {
-        erroDiv.innerHTML = campo === 'nome' ? "Nome da empresa é obrigatório" :
-                            campo === 'cnpj' ? "CNPJ deve ter 14 dígitos" :
-                            campo === 'cep' ? "CEP deve ter 8 dígitos" :
-                            campo === 'logradouro' ? "Logradouro é obrigatório" :
-                            campo === 'bairro' ? "Bairro é obrigatório" :
-                            campo === 'cidade' ? "Cidade é obrigatória" :
-                            campo === 'numero' ? "Número é obrigatório" :
-                            "Quantidade de funcionários deve ser maior que zero";
+    if (valor.length < minLength || valor === "" || valor.length > maxLength || (campo === 'qtdFuncionarios' && valor <= 0)) {
+        erroDiv.innerHTML = mensagensErro[campo];
         return false;
     } else {
         erroDiv.innerHTML = "";
@@ -86,23 +81,36 @@ function toggleButton() {
     const botaoCadastrar = document.querySelector('#botaoCadastrar');
     let todosValidos = true;
 
-    if (!validarCampo('nome', 0)) todosValidos = false;
-    if (!validarCampo('cnpj', 14)) todosValidos = false;
-    if (!validarCampo('cep', 8)) todosValidos = false;
-    if (!validarCampo('logradouro', 0)) todosValidos = false;
-    if (!validarCampo('bairro', 0)) todosValidos = false;
-    if (!validarCampo('cidade', 0)) todosValidos = false;
-    if (!validarCampo('numero', 0)) todosValidos = false;
-    if (!validarCampo('qtdFuncionarios', 1)) todosValidos = false;
+    if (!validarCampo('nome', 0, 60)) todosValidos = false;
+    if (!validarCampo('cnpj', 14, 14)) todosValidos = false;
+    if (!validarCampo('cep', 8, 8)) todosValidos = false;
+    if (!validarCampo('logradouro', 0, 60)) todosValidos = false;
+    if (!validarCampo('bairro', 0, 50)) todosValidos = false;
+    if (!validarCampo('cidade', 0, 50)) todosValidos = false;
+    if (!validarCampo('numero', 0, 7)) todosValidos = false;
+    if (!validarCampo('complemento', -1, 50)) todosValidos = false;
+    if (!validarCampo('qtdFuncionarios', 1, 1000000)) todosValidos = false;
 
     botaoCadastrar.style.pointerEvents = todosValidos ? 'auto' : 'none';
     botaoCadastrar.style.opacity = todosValidos ? '1' : '0.5';
+    botaoCadastrar.disabled = !todosValidos;
 }
 
 function sumirMensagem() {
     const div_alert = document.querySelector('#alertas');
     if (div_alert) div_alert.style.display = 'none';
 }
+
+const mensagensErro = {
+    nome: "Nome da empresa é obrigatório",
+    cnpj: "CNPJ deve ter 14 dígitos",
+    cep: "CEP deve ter 8 dígitos",
+    logradouro: "Logradouro é obrigatório",
+    bairro: "Bairro é obrigatório",
+    cidade: "Cidade é obrigatória",
+    numero: "Número é obrigatório",
+    qtdFuncionarios: "Quantidade de funcionários deve ser maior que zero",
+};
 
 function aguardar() {
     const loader = document.querySelector('#loader');
@@ -122,5 +130,6 @@ function limparFormulario() {
     document.querySelector('#input_bairro').value = '';
     document.querySelector('#input_cidade').value = '';
     document.querySelector('#input_numero').value = '';
+    document.querySelector('#input_complemento').value = '';
     document.querySelector('#input_qtdFuncionarios').value = '';
 }
