@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log(document.getElementById('idDoElemento'));
     document.querySelectorAll("input").forEach(input => {
         input.addEventListener('input', () => {
             validarCampo(input.id.replace('input_', ''), input.id === 'input_cnpj' ? 14 : input.id === 'input_cep' ? 8 : 0);
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function entrar(event) {
-    event.preventDefault(); // Evita que o botão recarregue a página.
+    event.preventDefault()
     aguardar();
 
     let erro = false;
@@ -31,7 +32,7 @@ async function entrar(event) {
     sumirMensagem();
 
     try {
-        const resposta = await fetch("/usuarios/cadastrar", {
+        const resposta = await fetch("/usuarios/cadastrarEmpresa", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -55,6 +56,7 @@ async function entrar(event) {
             }, 2000);
             limparFormulario();
         } else {
+            console.log(document.getElementById('idDoElemento'));
             throw new Error("Houve um erro ao tentar realizar o cadastro!");
         }
     } catch (error) {
@@ -69,10 +71,14 @@ function validarCampo(campo, minLength, maxLength) {
     const erroDiv = document.querySelector(`#erro_${campo}`);
     
     if (valor.length < minLength || valor === "" || valor.length > maxLength || (campo === 'qtdFuncionarios' && valor <= 0)) {
-        erroDiv.innerHTML = mensagensErro[campo];
-        return false;
-    } else {
-        erroDiv.innerHTML = "";
+        if (erroDiv) { 
+            erroDiv.innerHTML = mensagensErro[campo]; 
+        } 
+        return false; 
+    } else { 
+        if (erroDiv) { 
+            erroDiv.innerHTML = ""; 
+        } 
         return true;
     }
 }
@@ -93,7 +99,6 @@ function toggleButton() {
 
     botaoCadastrar.style.pointerEvents = todosValidos ? 'auto' : 'none';
     botaoCadastrar.style.opacity = todosValidos ? '1' : '0.5';
-    botaoCadastrar.disabled = !todosValidos;
 }
 
 function sumirMensagem() {

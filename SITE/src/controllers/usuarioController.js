@@ -112,11 +112,14 @@ function cadastrarEmpresa(req, res) {
         res.status(400).send("Seu numero está undefined!");
     } else if (numero == undefined) {
         res.status(400).send("Seu numero está undefined!");
-    }else if (qtdFuncionarios == undefined) {
+    } else if (complemento == undefined) {
+        res.status(400).send("Seu numero está undefined!");
+    } else if (qtdFuncionarios == undefined) {
         res.status(400).send("Sua qtdFuncionarios está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, cnpj, cep, logradouro, bairro, cidade, numero, complemento, qtdFuncionarios)
+        usuarioModel.cadastrarEmpresa(nome, cnpj, cep, logradouro, bairro, cidade, numero, complemento, qtdFuncionarios)
             .then(function (resultado) {
+                console.log("Sucesso no Controller:", erro.sqlMessage);
                 res.json(resultado);
             })
             .catch(function (erro) {
