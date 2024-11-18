@@ -93,9 +93,14 @@
     color: #999;
 }
 
+.areaInput{
+  margin-right: -50px;
+}
+
 form {
     display: flex;
     flex-direction: column;
+   margin-right: -10rem
 }
 
 .form-group {
@@ -120,7 +125,7 @@ textarea:focus{
 
 
 input[type="text"] {
-    width: 289px;
+    width: 38.3%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -130,7 +135,7 @@ input[type="text"] {
 }
 
 .inputET{
-  width: 610px;
+  width: 80%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -142,7 +147,7 @@ input[type="text"] {
 textarea {
     height: 100px;
     resize: none;
-    width: 610px;
+    width: 80%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -195,6 +200,7 @@ button:hover {
     cursor: pointer;
     border: none;
     height: 50px;
+    width: 82.3%;
   }
   
   .bntEntrarContato:after {
@@ -392,5 +398,170 @@ button:hover {
   color: #FFFF;
   border-color: #FF6700;
   transition: 0.8s;
+}
+
+/* Para telas menores que 1200px */
+@media (max-width: 1200px) {
+  .left-side, .right-side {
+    width: 50%;
+  }
+  
+
+  .left-side .logoContato {
+    margin-left: 10%;
+    width: 250px;
+    height: 80px;
+  }
+
+  .inputET, textarea {
+    width: 70%;
+}
+
+input[type="text"] {
+  width: 32.1%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Asap", sans-serif;
+}
+ 
+
+.bntEntrarContato {
+  position: relative;
+  display: flex
+;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #183153;
+  font-family: "Paytone One", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  height: 50px;
+  width: 73.9%;
+}
+
+}
+
+/* Para telas menores que 992px */
+@media (max-width: 992px) {
+  .containerContato {
+    flex-direction: row;
+    height: auto;
+  }
+  .left-side, .right-side {
+    width: 100%;
+    padding: 20px;
+  }
+  .left-side .logoContato {
+    margin: 0 auto;
+  }
+  .inputET, textarea {
+        width: 65%;
+    }
+
+    input[type="text"] {
+      width: 29.3%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      font-family: "Asap", sans-serif;
+  }
+
+
+  .bntEntrarContato {
+    position: relative;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #183153;
+    font-family: "Paytone One", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    height: 50px;
+    width: 69.3%;
+}
+}
+
+
+
+/* Para telas menores que 768px */
+@media (max-width: 768px) {
+  .left-side {
+    text-align: center;
+  }
+  .left-side .logoContato {
+    width: 200px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .inputET, textarea {
+    width: 51.3%;
+  };
+
+  input[type="text"] {
+    width: 21.3%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Asap", sans-serif;
+}
+  
+  
+  .bntEntrarContato {
+  position: relative;
+  display: flex
+  ;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #183153;
+  font-family: "Paytone One", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  height: 50px;
+  width: 57.3%;
+  }
+}
+
+
+  
+
+/* Para telas menores que 600px */
+@media (max-width: 600px) {
+  .containerContato {
+    width: 90%;
+    margin: 20px auto;
+  }
+  .areaLinks {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .bntEntrarContato {
+    width: 100%;
+  }
+  .left-side .logoContato {
+    width: 150px;
+    height: 50px;
+  }
+
+ 
+
 }
 
