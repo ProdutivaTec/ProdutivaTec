@@ -1,37 +1,35 @@
 public class DadosTrabalhoRemoto {
-    private Integer id;
-    private String anoNascimento;
+    private Integer responseId;
+    private Integer anoNascimento;
     private String genero;
     private String setor;
     private String ocupacao;
-    private String qtdEmpregados;
-    private String facilidadePermissao;
-    private String horasTrabalhadas;
-    private String horasPessoais;
+    private String tipoFamilia;
+    private String facilidadeColaboracaoPassado;
+    private String recomendacaoTrabalhoRemotoPassado;
+    private String facilidadeColaboracao3Meses;
+    private String recomendacaoTrabalhoRemoto3Meses;
+    private String preferenciaTempoRemoto;
     private String produtividade;
-    private String comentarioProdutividade;
-    private String conectividade;
-    private String gerenciamentoCompromissos;
-    private String oportunidadesSocializacao;
-    private String numeroInteracoes;
-    private String numeroProjetos;
-    private String numeroHoras;
-    private String numeroAnosExperiencia;
+    private Double horasTrabalhadas;
+    private String barreiraMaisSignificativa;
+    private String barreiraMenosSignificativa;
+    private String piorAspectoTrabalhoRemoto;
+    private String melhorAspectoTrabalhoRemoto;
 
-    // Getters e Setters
-    public Integer getId() {
-        return id;
+    public Integer getResponseId() {
+        return responseId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setResponseId(Integer responseId) {
+        this.responseId = responseId;
     }
 
-    public String getAnoNascimento() {
+    public Integer getAnoNascimento() {
         return anoNascimento;
     }
 
-    public void setAnoNascimento(String anoNascimento) {
+    public void setAnoNascimento(Integer anoNascimento) {
         this.anoNascimento = anoNascimento;
     }
 
@@ -43,14 +41,6 @@ public class DadosTrabalhoRemoto {
         this.genero = genero;
     }
 
-    public String getSetor() {
-        return setor;
-    }
-
-    public void setSetor(String setor) {
-        this.setor = setor;
-    }
-
     public String getOcupacao() {
         return ocupacao;
     }
@@ -59,36 +49,60 @@ public class DadosTrabalhoRemoto {
         this.ocupacao = ocupacao;
     }
 
-    public String getQtdEmpregados() {
-        return qtdEmpregados;
+    public String getSetor() {
+        return setor;
     }
 
-    public void setQtdEmpregados(String qtdEmpregados) {
-        this.qtdEmpregados = qtdEmpregados;
+    public void setSetor(String setor) {
+        this.setor = setor;
     }
 
-    public String getFacilidadePermissao() {
-        return facilidadePermissao;
+    public String getTipoFamilia() {
+        return tipoFamilia;
     }
 
-    public void setFacilidadePermissao(String facilidadePermissao) {
-        this.facilidadePermissao = facilidadePermissao;
+    public void setTipoFamilia(String tipoFamilia) {
+        this.tipoFamilia = tipoFamilia;
     }
 
-    public String getHorasTrabalhadas() {
-        return horasTrabalhadas;
+    public String getFacilidadeColaboracaoPassado() {
+        return facilidadeColaboracaoPassado;
     }
 
-    public void setHorasTrabalhadas(String horasTrabalhadas) {
-        this.horasTrabalhadas = horasTrabalhadas;
+    public void setFacilidadeColaboracaoPassado(String facilidadeColaboracaoPassado) {
+        this.facilidadeColaboracaoPassado = facilidadeColaboracaoPassado;
     }
 
-    public String getHorasPessoais() {
-        return horasPessoais;
+    public String getRecomendacaoTrabalhoRemotoPassado() {
+        return recomendacaoTrabalhoRemotoPassado;
     }
 
-    public void setHorasPessoais(String horasPessoais) {
-        this.horasPessoais = horasPessoais;
+    public void setRecomendacaoTrabalhoRemotoPassado(String recomendacaoTrabalhoRemotoPassado) {
+        this.recomendacaoTrabalhoRemotoPassado = recomendacaoTrabalhoRemotoPassado;
+    }
+
+    public String getFacilidadeColaboracao3Meses() {
+        return facilidadeColaboracao3Meses;
+    }
+
+    public void setFacilidadeColaboracao3Meses(String facilidadeColaboracao3Meses) {
+        this.facilidadeColaboracao3Meses = facilidadeColaboracao3Meses;
+    }
+
+    public String getRecomendacaoTrabalhoRemoto3Meses() {
+        return recomendacaoTrabalhoRemoto3Meses;
+    }
+
+    public void setRecomendacaoTrabalhoRemoto3Meses(String recomendacaoTrabalhoRemoto3Meses) {
+        this.recomendacaoTrabalhoRemoto3Meses = recomendacaoTrabalhoRemoto3Meses;
+    }
+
+    public String getPreferenciaTempoRemoto() {
+        return preferenciaTempoRemoto;
+    }
+
+    public void setPreferenciaTempoRemoto(String preferenciaTempoRemoto) {
+        this.preferenciaTempoRemoto = preferenciaTempoRemoto;
     }
 
     public String getProdutividade() {
@@ -99,67 +113,43 @@ public class DadosTrabalhoRemoto {
         this.produtividade = produtividade;
     }
 
-    public String getComentarioProdutividade() {
-        return comentarioProdutividade;
+    public Double getHorasTrabalhadas() {
+        return horasTrabalhadas;
     }
 
-    public void setComentarioProdutividade(String comentarioProdutividade) {
-        this.comentarioProdutividade = comentarioProdutividade;
+    public void setHorasTrabalhadas(Double horasTrabalhadas) {
+        this.horasTrabalhadas = horasTrabalhadas;
     }
 
-    public String getConectividade() {
-        return conectividade;
+    public String getBarreiraMaisSignificativa() {
+        return barreiraMaisSignificativa;
     }
 
-    public void setConectividade(String conectividade) {
-        this.conectividade = conectividade;
+    public void setBarreiraMaisSignificativa(String barreiraMaisSignificativa) {
+        this.barreiraMaisSignificativa = barreiraMaisSignificativa;
     }
 
-    public String getGerenciamentoCompromissos() {
-        return gerenciamentoCompromissos;
+    public String getBarreiraMenosSignificativa() {
+        return barreiraMenosSignificativa;
     }
 
-    public void setGerenciamentoCompromissos(String gerenciamentoCompromissos) {
-        this.gerenciamentoCompromissos = gerenciamentoCompromissos;
+    public void setBarreiraMenosSignificativa(String barreiraMenosSignificativa) {
+        this.barreiraMenosSignificativa = barreiraMenosSignificativa;
     }
 
-    public String getOportunidadesSocializacao() {
-        return oportunidadesSocializacao;
+    public String getPiorAspectoTrabalhoRemoto() {
+        return piorAspectoTrabalhoRemoto;
     }
 
-    public void setOportunidadesSocializacao(String oportunidadesSocializacao) {
-        this.oportunidadesSocializacao = oportunidadesSocializacao;
+    public void setPiorAspectoTrabalhoRemoto(String piorAspectoTrabalhoRemoto) {
+        this.piorAspectoTrabalhoRemoto = piorAspectoTrabalhoRemoto;
     }
 
-    public String getNumeroInteracoes() {
-        return numeroInteracoes;
+    public String getMelhorAspectoTrabalhoRemoto() {
+        return melhorAspectoTrabalhoRemoto;
     }
 
-    public void setNumeroInteracoes(String numeroInteracoes) {
-        this.numeroInteracoes = numeroInteracoes;
-    }
-
-    public String getNumeroProjetos() {
-        return numeroProjetos;
-    }
-
-    public void setNumeroProjetos(String numeroProjetos) {
-        this.numeroProjetos = numeroProjetos;
-    }
-
-    public String getNumeroHoras() {
-        return numeroHoras;
-    }
-
-    public void setNumeroHoras(String numeroHoras) {
-        this.numeroHoras = numeroHoras;
-    }
-
-    public String getNumeroAnosExperiencia() {
-        return numeroAnosExperiencia;
-    }
-
-    public void setNumeroAnosExperiencia(String numeroAnosExperiencia) {
-        this.numeroAnosExperiencia = numeroAnosExperiencia;
+    public void setMelhorAspectoTrabalhoRemoto(String melhorAspectoTrabalhoRemoto) {
+        this.melhorAspectoTrabalhoRemoto = melhorAspectoTrabalhoRemoto;
     }
 }
