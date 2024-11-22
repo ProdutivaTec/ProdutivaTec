@@ -5,11 +5,16 @@ USE Produtiva;
 
 -- Criação das Tabelas
 CREATE TABLE empresa (
-idEmpresa int primary key,
+idEmpresa int primary key auto_increment,
 razaoSocial varchar(45),
-cnpj varchar(45),
-email varchar(45),
-senha varchar(45)
+cnpj char(14),
+cep varchar(10),
+logradouro varchar(45),
+bairro varchar(45),
+cidade varchar(45),
+numero varchar(10),
+complemento varchar(45),
+qtdFuncionarios int
 );
 
 CREATE TABLE leads (
@@ -20,6 +25,7 @@ telefone varchar(45),
 comentario varchar(365)
 );
 
+/*
 CREATE TABLE endereco (
 idEndereco int primary key,
 estado char(2),
@@ -30,6 +36,7 @@ fkEnderecoEmpresa int,
 
 constraint fkEmpresaEndereco foreign key (fkEnderecoEmpresa) references empresa(idEmpresa)
 );
+*/
 
 CREATE TABLE funcionario (
 idFuncionario int primary key auto_increment,
@@ -102,5 +109,8 @@ CREATE TABLE DadosTrabalhoRemoto (
 );
 
 -- Criação dos selects
+
+select * from empresa;
+
 
 

@@ -208,7 +208,7 @@
         <div class="modalCadastro">
             <div class="modal-headerCadastro">
                 <h2>SEJA BEM-VINDO AO CADASTRO DE FUNCIONÁRIOS</h2>
-                <span id="closeCadastro" class="closeCadastro">&times;</span>
+                <button class="closeCadastro">&times;</button>
             </div>
             <form class="modal-bodyCadastro">
                 <fieldset>
@@ -218,29 +218,29 @@
                         <div class="input-groupCadastro">
                             <div>
                                 <span class="input-label">Nome</span>
-                                <input class="inputCadastro" type="text">
+                                <input class="inputCadastro" type="text" id="nome_input">
                             </div>
                             <div>
                                 <span class="input-label">Sobrenome</span>
-                                <input class="inputCadastro" type="text">
+                                <input class="inputCadastro" type="text" id="sobrenome_input">
                             </div>
                         </div>
                         <div>
                             <span class="input-label">Email</span>
-                            <input class="inputCadastro" type="email">
+                            <input class="inputCadastro" type="email" id="email_input">
                         </div>
                         <div>
                             <span class="input-label">Função</span>
-                            <input class="inputCadastro" type="text">
+                            <input class="inputCadastro" type="text" id="funcao_input">
                         </div>
                     </div>
                 </fieldset>
                 <div class="access-typeCadastro">
-                    <label><input type="checkbox"> Acesso total</label>
-                    <label><input type="checkbox"> Acesso limitado</label>
+                    <label><input type="checkbox" id="acessoTotal_input"> Acesso total</label>
+                    <label><input type="checkbox" id="acessoLimitado_input"> Acesso limitado</label>
                     <span class="error" id="checkboxError"></span>
                 </div>
-                <button type="submit">CADASTRAR FUNCIONÁRIO</button>
+                <button onclick="entrar2(event)" type="submit">CADASTRAR FUNCIONÁRIO</button>
             </form>
         </div>
     </div>
@@ -255,11 +255,31 @@
 <script src="./js/modal.js"></script>
 <script src="./js/dashboard.js"></script>
 <script src="./js/search.js"></script>
+<script src="./js/cadastroFuncionario.js"></script>
 
 <script>
-    btnCadastro.onclick = function() {
+    const btnCadastro = document.getElementById("btnCadastro");
+const modalCadastro = document.getElementById("modalCadastro");
+const closeCadastro = document.querySelector(".closeCadastro");
+
+// Abrir o modal
+btnCadastro.onclick = function () {
     console.log("Botão de cadastro clicado");
     modalCadastro.style.display = 'block';
-}
+};
+
+// Fechar o modal
+closeCadastro.onclick = function () {
+    console.log("Botão de fechar clicado");
+    modalCadastro.style.display = 'none';
+};
+
+// Fechar o modal ao clicar fora dele
+window.onclick = function (event) {
+    if (event.target === modalCadastro) {
+        modalCadastro.style.display = 'none';
+    }
+};
+
 
 </script>
