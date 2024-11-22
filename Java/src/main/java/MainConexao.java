@@ -1,4 +1,6 @@
 import org.springframework.jdbc.core.JdbcTemplate;
+import software.amazon.awssdk.auth.credentials.AwsSessionCredentials;
+
 import java.util.List;
 
 public class MainConexao {
@@ -8,9 +10,16 @@ public class MainConexao {
 
     public MainConexao() {
         this.conexao = new Conexao();
-        this.s3 = new S3();
-        this.notificadorSlack = new NotificadorSlack("https://hooks.slack.com/services/EXAMPLE");
+        this.notificadorSlack = new NotificadorSlack("https://hooks.slack.com/services/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 ");
+        AwsSessionCredentials credentials = AwsSessionCredentials.create(
+                System.getenv("AWS_ACCESS_KEY_ID"),
+                System.getenv("AWS_SECRET_ACCESS_KEY"),
+                System.getenv("AWS_SESSION_TOKEN")
+        );
+
+        this.s3 = new S3(credentials);
     }
+
 
     public void executar(String bucket, String chaveArquivo, String caminhoLocal) {
         JdbcTemplate jdbcTemplate = conexao.getConexaoDoBanco();
@@ -33,14 +42,14 @@ public class MainConexao {
     }
 
     private void inserirDadosNoBanco(JdbcTemplate jdbcTemplate, List<DadosTrabalhoRemoto> dadosList) {
-        String sql = "INSERT INTO DadosTrabalhoRemoto (" +
-                "response_id, ano_nascimento, genero, setor, ocupacao, tipo_familia, " +
-                "facilidade_colaboracao_passado, recomendacao_trabalho_remoto_passado, " +
-                "facilidade_colaboracao_3_meses, recomendacao_trabalho_remoto_3_meses, " +
-                "preferencia_tempo_remoto, produtividade, horas_trabalhadas, " +
-                "barreira_mais_significativa, barreira_menos_significativa, " +
-                "pior_aspecto_trabalho_remoto, melhor_aspecto_trabalho_remoto) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO DadosTrabalhoRemoto (\n" +
+                "    response_id, ano_nascimento, genero, setor, ocupacao, tipo_familia, \n" +
+                "    facilidade_colaboracao_passado, recomendacao_trabalho_remoto_passado, \n" +
+                "    facilidade_colaboracao_3_meses, recomendacao_trabalho_remoto_3_meses, \n" +
+                "    preferencia_tempo_remoto, produtividade, horas_trabalhadas, \n" +
+                "    barreira_mais_significativa, barreira_menos_significativa, \n" +
+                "    pior_aspecto_trabalho_remoto, melhor_aspecto_trabalho_remoto\n" +
+                ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);\n";
 
         for (DadosTrabalhoRemoto dados : dadosList) {
             jdbcTemplate.update(sql,
@@ -67,6 +76,7 @@ public class MainConexao {
 
     public static void main(String[] args) {
         MainConexao mainConexao = new MainConexao();
-        mainConexao.executar("BUCKET", "PlanilhaDados.xlsx", "PlanilhaDadosLocal.xlsx");
+        String bucket = System.getenv("BUCKET");
+        mainConexao.executar(bucket, "base-tratada-kip.xlsx", "base-tratada-kip.xlsx");
     }
 }

@@ -6,10 +6,15 @@ public class Conexao {
 
     public Conexao() {
         BasicDataSource dataSource = new BasicDataSource();
+
+        String url = System.getenv("SENHA_URL");
+        String usuario = System.getenv("SENHA_USUARIO");
+        String senha = System.getenv("SENHA_BD");
+
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("SENHA_URL");
-        dataSource.setUsername("SENHA_USUARIO");
-        dataSource.setPassword("SENHA_BD");
+        dataSource.setUrl(url);
+        dataSource.setUsername(usuario);
+        dataSource.setPassword(senha);
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

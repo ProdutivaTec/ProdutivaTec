@@ -5,6 +5,11 @@ import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import java.nio.file.Paths;
 
 public class S3 {
+    private final AwsSessionCredentials credentials;
+
+    public S3(AwsSessionCredentials credentials) {
+        this.credentials = credentials;
+    }
     public void fazerDownload(String bucket, String chaveArquivo, String caminhoLocal) {
         try (S3Client s3Client = getS3Client()) {
             GetObjectRequest request = GetObjectRequest.builder()
@@ -20,10 +25,7 @@ public class S3 {
     private S3Client getS3Client() {
         return S3Client.builder()
                 .region(Region.US_EAST_1)
-                .credentialsProvider(() -> AwsSessionCredentials.create(
-                        System.getenv("AWS_ACCESS_KEY_ID"),
-                        System.getenv("AWS_SECRET_ACCESS_KEY"),
-                        System.getenv("AWS_SESSION_TOKEN")
-                )).build();
+                .credentialsProvider(() -> credentials)
+                .build();
     }
 }
