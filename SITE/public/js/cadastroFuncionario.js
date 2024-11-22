@@ -82,10 +82,6 @@ function entrar2() {
   event.preventDefault()
   aguardar();
 
-  function gerarNumeroDecimalAleatorio(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
   var nome_input = document.getElementById("nome_input");
   var sobrenome_input = document.getElementById("sobrenome_input");
   var email_input = document.getElementById("email_input");

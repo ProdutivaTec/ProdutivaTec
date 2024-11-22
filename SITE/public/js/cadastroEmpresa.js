@@ -8,62 +8,82 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-async function entrar(event) {
+async function cadastrarEmpresa(event) {
     event.preventDefault()
     aguardar();
 
     let erro = false;
 
-    if (!validarCampo('nome', 0, 60)) erro = true;
+    if (!validarCampo('nome', 0, 45)) erro = true;
     if (!validarCampo('cnpj', 14, 14)) erro = true;
     if (!validarCampo('cep', 8, 8)) erro = true;
-    if (!validarCampo('logradouro', 0, 60)) erro = true;
-    if (!validarCampo('bairro', 0, 50)) erro = true;
-    if (!validarCampo('cidade', 0, 50)) erro = true;
-    if (!validarCampo('numero', 0, 7)) erro = true;
-    if (!validarCampo('complemento', -1, 50)) erro = true;
-    if (!validarCampo('qtdFuncionarios', 1, 1000000)) erro = true;
+    if (!validarCampo('logradouro', 0, 45)) erro = true;
+    if (!validarCampo('bairro', 0, 45)) erro = true;
+    if (!validarCampo('cidade', 0, 45)) erro = true;
+    if (!validarCampo('numero', 0, 10)) erro = true;
+    if (!validarCampo('complemento', -1, 45)) erro = true;
+    if (!validarCampo('qtdFuncionarios', 1, 8)) erro = true;
 
     if (erro) {
         finalizarAguardar();
         return;
     }
 
+    var input_nome = document.getElementById("input_nome");
+    var input_cnpj = document.getElementById("input_cnpj");
+    var input_cep = document.getElementById("input_cep");
+    var input_logradouro = document.getElementById("input_logradouro");
+    var input_bairro = document.getElementById("input_bairro");
+    var input_cidade = document.getElementById("input_cidade");
+    var input_numero = document.getElementById("input_numero");
+    var input_complemento = document.getElementById("input_complemento");
+    var input_qtdFuncionarios = document.getElementById("input_qtdFuncionarios");
+
+    var nomeVar = input_nome.value;
+    var cnpjVar = input_cnpj.value;
+    var cepVar = input_cep.value;
+    var logradouroVar = input_logradouro.value;
+    var bairroVar = input_bairro.value;
+    var cidadeVar = input_cidade.value;
+    var numeroVar = input_numero.value;
+    var complementoVar = input_complemento.value;
+    var qtdFuncionariosVar = input_qtdFuncionarios.value;
+
     sumirMensagem();
 
-    try {
-        const resposta = await fetch("/usuarios/cadastrarEmpresa", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                nomeServer: document.querySelector('#input_nome').value,
-                cnpjServer: document.querySelector('#input_cnpj').value,
-                cepServer: document.querySelector('#input_cep').value,
-                logradouroServer: document.querySelector('#input_logradouro').value,
-                bairroServer: document.querySelector('#input_bairro').value,
-                cidadeServer: document.querySelector('#input_cidade').value,
-                numeroServer: document.querySelector('#input_numero').value,
-                complementoServer: document.querySelector('#input_complemento').value,
-                qtdFuncionariosServer: document.querySelector('#input_qtdFuncionarios').value
-            }),
+    fetch("/usuarios/cadastrarEmpresa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeServer: nomeVar,
+          cnpjServer: cnpjVar,
+          cepServer: cepVar,
+          logradouroServer: logradouroVar,
+          bairroServer: bairroVar,
+          cidadeServer: cidadeVar,
+          numeroServer: numeroVar,
+          complementoServer: complementoVar,
+          qtdFuncionariosServer: qtdFuncionariosVar
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            
+              window.location = "cadastroFuncionario.html";
+  
+            finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
         });
-
-        if (resposta.ok) {
-            setTimeout(() => {
-                window.location = "cadastroFuncionario.html";
-            }, 2000);
-            limparFormulario();
-        } else {
-            console.log(document.getElementById('idDoElemento'));
-            throw new Error("Houve um erro ao tentar realizar o cadastro!");
-        }
-    } catch (error) {
-        console.log(`#ERRO: ${error}`);
-    } finally {
-        finalizarAguardar();
-    }
 }
 
 function validarCampo(campo, minLength, maxLength) {
@@ -87,15 +107,15 @@ function toggleButton() {
     const botaoCadastrar = document.querySelector('#botaoCadastrar');
     let todosValidos = true;
 
-    if (!validarCampo('nome', 0, 60)) todosValidos = false;
+    if (!validarCampo('nome', 0, 45)) todosValidos = false;
     if (!validarCampo('cnpj', 14, 14)) todosValidos = false;
     if (!validarCampo('cep', 8, 8)) todosValidos = false;
-    if (!validarCampo('logradouro', 0, 60)) todosValidos = false;
-    if (!validarCampo('bairro', 0, 50)) todosValidos = false;
-    if (!validarCampo('cidade', 0, 50)) todosValidos = false;
-    if (!validarCampo('numero', 0, 7)) todosValidos = false;
-    if (!validarCampo('complemento', -1, 50)) todosValidos = false;
-    if (!validarCampo('qtdFuncionarios', 1, 1000000)) todosValidos = false;
+    if (!validarCampo('logradouro', 0, 45)) todosValidos = false;
+    if (!validarCampo('bairro', 0, 45)) todosValidos = false;
+    if (!validarCampo('cidade', 0, 45)) todosValidos = false;
+    if (!validarCampo('numero', 0, 10)) todosValidos = false;
+    if (!validarCampo('complemento', -1, 45)) todosValidos = false;
+    if (!validarCampo('qtdFuncionarios', 1, 8)) todosValidos = false;
 
     botaoCadastrar.style.pointerEvents = todosValidos ? 'auto' : 'none';
     botaoCadastrar.style.opacity = todosValidos ? '1' : '0.5';
