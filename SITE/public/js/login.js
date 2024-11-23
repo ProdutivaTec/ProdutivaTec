@@ -35,7 +35,7 @@ function entrar() {
     
                     setTimeout(function () {
                         window.location = "dashboard.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000);
     
                 })
     

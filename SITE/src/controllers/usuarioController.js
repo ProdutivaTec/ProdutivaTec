@@ -47,13 +47,12 @@ function autenticar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function cadastrarFuncionarioRoot(req, res) {
     console.log("Dados recebidos no body: ", req.body);
 
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var telefone = req.body.telefoneServer;
-    var nomeEmpresa = req.body.nomeEmpresaServer;
     var cargo = req.body.cargoServer;
     var senha = req.body.senhaServer;
 
@@ -68,10 +67,40 @@ function cadastrar(req, res) {
         res.status(400).send("Seu telefone está undefined!");
     } else if (cargo == undefined) {
         res.status(400).send("Seu cargo está undefined!");
-    } else if (nomeEmpresa == undefined) {
-        res.status(400).send("Sua empresa está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, email, telefone, nomeEmpresa, cargo, senha)
+        usuarioModel.cadastrarFuncionarioRoot(nome, email, telefone, senha, cargo)
+            .then(function (resultado) {
+                res.json(resultado);
+            })
+            .catch(function (erro) {
+                console.log("Erro no cadastro:", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
+
+function cadastrarFuncionario(req, res) {
+    console.log("Dados recebidos no body: ", req.body);
+
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var telefone = req.body.telefoneServer;
+    var cargo = req.body.cargoServer;
+    var senha = req.body.senhaServer;
+
+    // Validações
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (telefone == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
+    } else if (cargo == undefined) {
+        res.status(400).send("Seu cargo está undefined!");
+    } else {
+        usuarioModel.cadastrarFuncionario(nome, email, telefone, senha, cargo)
             .then(function (resultado) {
                 res.json(resultado);
             })
@@ -129,6 +158,7 @@ function cadastrarEmpresa(req, res) {
 
 module.exports = {
     autenticar,
-    cadastrar,
+    cadastrarFuncionarioRoot,
+    cadastrarFuncionario,
     cadastrarEmpresa
 }

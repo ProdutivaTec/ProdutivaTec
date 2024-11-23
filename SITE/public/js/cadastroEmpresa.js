@@ -72,8 +72,11 @@ async function cadastrarEmpresa(event) {
           console.log("resposta: ", resposta);
   
           if (resposta.ok) {
-            
-              window.location = "cadastroFuncionario.html";
+            alert("Empresa cadastrada com sucesso!");
+
+            setTimeout(() => {
+                window.location = "cadastroFuncionario.html";;
+            }, "2000");
   
             finalizarAguardar();
           } else {

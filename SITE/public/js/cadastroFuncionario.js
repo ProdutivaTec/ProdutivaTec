@@ -4,25 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function entrar() {
+function cadastrarFuncionarioRoot() {
     event.preventDefault()
     aguardar();
-
-    function gerarNumeroDecimalAleatorio(min, max) {
-      return Math.random() * (max - min) + min;
-  }
     
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var telefoneVar = telefone_input.value;
-    var cargoVar = cargo_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var nomeVar =  document.getElementById("input_nome").value;
+    var emailVar = document.getElementById("input_email").value;
+    var telefoneVar = document.getElementById("input_telefone").value;
+    var cargoVar = document.getElementById("input_cargo").value;
+    var senhaVar = document.getElementById("input_senha").value;
+    var confirmacaoSenhaVar = document.getElementById("input_senhaConfirmar").value;
 //    var empresaVar = listaEmpresas.value
 
     if (
       nomeVar == "" ||
       emailVar == "" ||
+      telefoneVar == "" ||
+      cargoVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" 
     ) {
@@ -32,39 +30,33 @@ function entrar() {
 
       finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
     }
 
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("/usuarios/cadastrarFuncionarioRoot", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        empresaServer: empresaVar
+        telefoneServer: telefoneVar,
+        cargoServer: cargoVar,
+        senhaServer: senhaVar
+        //empresaServer: empresaVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          alert("Funcionário cadastrado com sucesso!");
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
+        setTimeout(() => {
+          window.location = "index.html";
+        }, "2000");
+        
           finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
@@ -78,7 +70,7 @@ function entrar() {
     return false;
 }
 
-function entrar2() {
+function cadastrarFuncionario() {
   event.preventDefault()
   aguardar();
 
@@ -86,19 +78,28 @@ function entrar2() {
   var sobrenome_input = document.getElementById("sobrenome_input");
   var email_input = document.getElementById("email_input");
   var funcao_input = document.getElementById("funcao_input");
+  const acessoTotal_input = document.getElementById("acessoTotal_input");
+  const acessoLimitado_input = document.getElementById("acessoLimitado_input");
 
-  if (document.getElementById("acessoTotal_input") != '') {
-    var nivelAcessoVar = document.getElementById("acessoTotal_input")
-  } else if (document.getElementById("acessoLimitado_input") != '') {
-    var nivelAcessoVar = document.getElementById("acessoLimitado_input")
-  }
+  let nivelAcessoVar = '';
+    if (acessoTotal_input.checked) {
+        nivelAcessoVar = "RH";
+    } else if (acessoLimitado_input.checked) {
+        nivelAcessoVar = "Gestor";
+    } else {
+        // Exibe mensagem de erro se nenhum for selecionado
+        const checkboxError = document.getElementById("checkboxError");
+        checkboxError.textContent = "Por favor, selecione um nível de acesso.";
+        return;
+    }
   
-  var nomeVar = nome_input.value + ' ' + sobrenome_input;
+  var nomeVar = `${nome_input.value} ${sobrenome_input.value}`;
   var emailVar = email_input.value;
-  var funcaoVar = funcao_input.value;
+  var telefoneVar = '';
+  var cargoVar = funcao_input.value;
   var senhaAleatoriaVar = Math.floor(Math.random() * 10000) + 6;
   //var empresaVar = listaEmpresas.value
-  var nivelAcessoVar = nivelAcesso_input.value;
+      nivelAcessoVar;
 
   // COMEÇO DAS VALIDAÇÕES //
 
@@ -106,18 +107,17 @@ function entrar2() {
     nomeVar == "" ||
     emailVar == "" ||
     senhaAleatoriaVar == "" ||
-    funcaoVar == "" ||
+    cargoVar == "" ||
     nivelAcessoVar == ""
   //  empresaVar == ""
   ) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
+    checkboxError.textContent =
       "(Mensagem de erro para todos os campos em branco)";
 
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(5000);
   } 
 
   // VALIDAÇÕES NOME //
@@ -126,26 +126,24 @@ function entrar2() {
 
   // SE O NOME SEM OS ESPACOS FOR IGUAL A VAZIO, ELE NÃO PASSA
   if (nomeTrim == '') {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
+    checkboxError.textContent =
       "(Preencha o campo Nome)";
 
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(5000);
   }
 
   // SE O TAMANHO DO NOME FOR MAIOR QUE 50, ELE NÃO PASSA
-  if (nomeTamanho > 50) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "(O nome só pode ter no maximo 50 caracteres)";
+  if (nomeTamanho > 45) {
+    checkboxError.textContent =
+      "(O nome só pode ter no maximo 45 caracteres)";
 
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(5000);
   }
 
   // VALIDAÇÕES EMAIL //
@@ -155,59 +153,53 @@ function entrar2() {
 
   // SE O EMAIL SEM OS ESPACOS FOR IGUAL A VAZIO, ELE NÃO PASSA
   if (emailTrim == '') {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
+    checkboxError.textContent =
       "(Preencha o campo Email)";
 
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(5000);
   }
 
   // SE O EMAIL TIVER UM TAMANHO MAIOR QUE 200, ELE NÃO PASSA
-  if (emailTamanho > 200) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "(O email não pode ter mais de 200 caracteres)";
+  if (emailTamanho > 45) {
+    checkboxError.textContent =
+      "(O email não pode ter mais de 45 caracteres)";
 
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(5000);
   }
 
   // SE A SENHA NÃO TIVER PELO MENOS 1 CARACTER ESPECIAL, ELE NÃO PASSA 
-  
-  for (let contador = 0; contador < emailTamanho; contador += 1) {
-      // Verifica se o email tem @      
+  for (let contador = 0; contador < emailTamanho; contador += 1) {   
       if (emailVar[contador] == '@') {
         caracterEmail += 1;
       }
   }
 
   if (caracterEmail < 1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Email precisa ter um dominio";
+    checkboxError.textContent = "Email precisa ter um dominio";
       finalizarAguardar();
       return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(5000);
   }
 
-  // VALIDAÇÕES SENHA //
+  // VALIDAÇÕES SENHA 
   let senhaTamanho = senhaAleatoriaVar.length;
 
   // SE O TAMANHO DA SENHA FOR MENOR QUE 6 OU MAIOR QUE 20, ELE NÃO PASSA
   if (senhaTamanho < 6 || senhaTamanho > 45) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
+    checkboxError.textContent =
       "Senha precisa ter no minimo 6 caracteres e no maximo 45";
 
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000);
+    setInterval(5000);
   }
 
   // FIM DAS VALIDAÇÕES //
@@ -222,7 +214,8 @@ function entrar2() {
     body: JSON.stringify({
       nomeServer: nomeVar,
       emailServer: emailVar,
-      funcaoServer: funcaoVar,
+      telefoneServer: telefoneVar,
+      cargoServer: cargoVar,
       senhaServer: senhaAleatoriaVar,
       nivelAcessoServer: nivelAcessoVar
       //empresaServer: empresaVar
@@ -232,19 +225,16 @@ function entrar2() {
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-        cardErro.style.display = "block";
-
-        mensagem_erro.innerHTML =
-          "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+        alert("Funcionário cadastrado com sucesso!");
 
         setTimeout(() => {
-          window.location = "login.html";
+          window.location = "configuracoesColaboradores.html";
         }, "2000");
 
         limparFormulario();
         finalizarAguardar();
       } else {
-        throw "Houve um erro ao tentar realizar o cadastro!";
+        throw new Error("Erro ao cadastrar funcionário.");
       }
     })
     .catch(function (resposta) {
