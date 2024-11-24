@@ -18,7 +18,7 @@ qtdFuncionarios int
 );
 
 CREATE TABLE leads (
-idLeads int primary key,
+idLeads int primary key auto_increment,
 nome varchar(45),
 email varchar(45),
 telefone varchar(45),
@@ -44,7 +44,6 @@ nome varchar(45),
 email varchar(45),
 telefone varchar(45),
 senha varchar(45),
-nomeEmpresa varchar(45),
 cargo varchar(45)
 );
 
@@ -112,5 +111,6 @@ CREATE TABLE DadosTrabalhoRemoto (
 
 select * from empresa;
 
+select * from funcionario;
 
-
+select * from leads;

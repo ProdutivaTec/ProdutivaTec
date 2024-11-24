@@ -97,7 +97,7 @@ function cadastrarFuncionario() {
   var emailVar = email_input.value;
   var telefoneVar = '';
   var cargoVar = funcao_input.value;
-  var senhaAleatoriaVar = Math.floor(Math.random() * 10000) + 6;
+  var senhaAleatoriaVar = Math.floor(Math.random() * 100_000_000);
   //var empresaVar = listaEmpresas.value
       nivelAcessoVar;
 
@@ -192,7 +192,7 @@ function cadastrarFuncionario() {
   let senhaTamanho = senhaAleatoriaVar.length;
 
   // SE O TAMANHO DA SENHA FOR MENOR QUE 6 OU MAIOR QUE 20, ELE NÃO PASSA
-  if (senhaTamanho < 6 || senhaTamanho > 45) {
+  if (senhaTamanho < 3 || senhaTamanho > 45) {
     checkboxError.textContent =
       "Senha precisa ter no minimo 6 caracteres e no maximo 45";
 
@@ -225,13 +225,11 @@ function cadastrarFuncionario() {
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-        alert("Funcionário cadastrado com sucesso!");
 
         setTimeout(() => {
           window.location = "configuracoesColaboradores.html";
         }, "2000");
 
-        limparFormulario();
         finalizarAguardar();
       } else {
         throw new Error("Erro ao cadastrar funcionário.");

@@ -24,9 +24,8 @@ function autenticar(req, res) {
                             nome: resultadoAutenticar[0].nome,
                             email: resultadoAutenticar[0].email,
                             telefone: resultadoAutenticar[0].telefone,
-                            nomeEmpresa: resultadoAutenticar[0].nomeEmpresa,
-                            cargo: resultadoAutenticar[0].cargo,
                             senha: resultadoAutenticar[0].senha,
+                            cargo: resultadoAutenticar[0].cargo,
                         });
 
                     } else if (resultadoAutenticar.length == 0) {
@@ -45,6 +44,34 @@ function autenticar(req, res) {
             );
     }
 
+}
+
+function enviarLeads(req, res) {
+    console.log("Dados recebidos no body: ", req.body);
+
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var telefone = req.body.telefoneServer;
+    var descricao = req.body.descricaoServer;
+
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (telefone == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
+    } else if (descricao == undefined) {
+        res.status(400).send("Seu descricao está undefined!");
+    } else {
+        usuarioModel.cadastrarFuncionarioRoot(nome, email, telefone, descricao)
+            .then(function (resultado) {
+                res.json(resultado);
+            })
+            .catch(function (erro) {
+                console.log("Erro no cadastro:", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
 }
 
 function cadastrarFuncionarioRoot(req, res) {
@@ -158,6 +185,7 @@ function cadastrarEmpresa(req, res) {
 
 module.exports = {
     autenticar,
+    enviarLeads,
     cadastrarFuncionarioRoot,
     cadastrarFuncionario,
     cadastrarEmpresa

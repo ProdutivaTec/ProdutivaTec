@@ -1,11 +1,14 @@
 function entrar() {
     aguardar();
 
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
+    var emailVar = document.getElementById("email").value;
+    var senhaVar = document.getElementById("senha").value;
 
     if (senhaVar == "" || senhaVar == "") {
+        emaildiv.innerHTML = "preecha os campos";
+        emaildv.innerHTML = "preecha os campos";
 
+        console.log("campo não preechido")
         finalizarAguardar();
         return false;
     } else {
@@ -19,7 +22,7 @@ function entrar() {
             },
             body: JSON.stringify({
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -32,6 +35,9 @@ function entrar() {
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_FUNCIONARIO = json.idFuncionario;
+
+                    alert("Login realizado com sucesso");
     
                     setTimeout(function () {
                         window.location = "dashboard.html";

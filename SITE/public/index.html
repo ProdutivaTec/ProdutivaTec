@@ -246,17 +246,15 @@
     <!-- <div class="areaInput"> -->
         <form>
           <div class="form-group nome-sobrenome">
-            <input type="text" placeholder="Nome" required>
-            <input type="text" placeholder="Sobrenome" required>
-        </div>
+            <input type="text" placeholder="Nome" required id="nome_input">
+            <input type="text" placeholder="Sobrenome" required id="sobrenome_input">
+          </div>
         
-            <input class="inputET" placeholder="Email">
-            <input class="inputET" placeholder="Telefone">
-            <textarea placeholder="Descreva seu problema"></textarea>
-          
-            <button class="bntEntrarContato">
-                <span>ENVIAR</span>
-              </button>
+            <input class="inputET" placeholder="Email" required id="email_input">
+            <input class="inputET" placeholder="Telefone" required id="telefone_input">
+            <textarea placeholder="Descreva seu problema" required id="descricao_input"></textarea>
+        
+            <button onclick="eviarLeads(event)" class="bntEntrarContato"> <span>ENVIAR</span> </button>
         </form>
         
     </div>
@@ -302,3 +300,5 @@
 </body>
 
 </html>
+
+<script src="js/leads.js"></script>
