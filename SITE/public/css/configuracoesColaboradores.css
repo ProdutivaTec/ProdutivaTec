@@ -429,6 +429,8 @@ p {
 .closeCadastro {
     font-size: 20px;
     cursor: pointer;
+    background-color: #FFF;
+    border: #ffff;
 }
 
 /* Corpo do modal */

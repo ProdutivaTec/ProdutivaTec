@@ -10,6 +10,704 @@
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+
+body {
+    font-family: "Asap", sans-serif;
+    background-color: #F1F1F1;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #245293;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+}
+
+.imgDash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.imgDash img {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 5%;
+}
+
+.divMenu {
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.linkPag {
+    text-decoration: none;
+    color: #FFFF;
+}
+
+.menu-item {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 12px 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: -3%;
+}
+
+.menu-itemAtivo{
+    background-color: #3d71B8;
+    transform: scale(1.05);
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 12px 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: -3%;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.menu-item:hover {
+    background-color: #3d71B8;
+    transform: scale(1.05);
+}
+
+.itemExit {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 10px 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.iconE {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.pSidebar {
+    font-family: "Asap", sans-serif;
+    margin-right: 16px;
+}
+
+.itemExit:hover {
+    background-color: #3d71B8;
+}
+
+.headerDash {
+    width: calc(100% - 250px);
+    /* Desconta a largura da sidebar */
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: fixed;
+    top: 0;
+    left: 78%;
+    z-index: 1000;
+}
+
+.headerRight {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.imgPeople {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.funcionalidadesHeader img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+
+}
+
+.funcionalidadesHeader {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* Garante que a imagem fique contida dentro da div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFF;
+
+}
+
+.funcionalidadesHeaderP{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* Garante que a imagem fique contida dentro da div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFF;
+
+    position: relative;
+    display: inline-block;
+}
+
+
+
+.funcionalidadesHeaderP {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Estilo para a imagem principal do perfil */
+.funcionalidadesHeaderP .imgPeople {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vertical {
+    width: 1.5px;
+    height: 40px;
+    background-color: #FFFF;
+    margin: 0 5px;
+}
+
+
+
+.graficosDash {
+    display: flex;
+    flex-direction: column;
+    margin-left: 260px;
+    margin-top: 65px;
+    padding: 10px;
+    height: calc(100vh - 60px);
+}
+
+.dashTop {
+    margin-top: 0%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    width: 100%;
+    gap: 0px;
+    padding: 8px;
+}
+
+
+.KPI1,
+.KPI2,
+.KPI22 {
+    background-color: #FFFF;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
+    display: flex;
+    padding: 2px;
+    width: 230px;
+    height: 150px;
+    margin-right: 10px;
+    flex-direction: column;
+    display: flex;
+    gap: -1px;
+
+    align-items: center;
+}
+
+
+.KPI1 {
+    width: 500px;
+    margin-left: 0.6%;
+}
+
+.KPI2 {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.KPI22 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.area2Kpis {
+    display: flex;
+    gap: 10px;
+    margin-right: 1%;
+    flex-direction: column;
+    padding: 7px;
+    margin-top: -7px;
+    margin-left: 0.8%;
+
+}
+
+.area2Kpis2 {
+    display: flex;
+    gap: 10px;
+    margin-right: 1%;
+    flex-direction: column;
+    padding: 7px;
+    margin-top: -7px;
+    margin-left: -0.5%;
+
+}
+
+.KPI3 {
+    width: 460px;
+    height: 70px;
+    gap: 5px;
+    background-color: #FFFF;
+    border-radius: 20px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
+margin-left: -3px;
+    justify-content: start;
+align-items: center;
+}
+
+.KPI22 {
+    margin-right: 30px;
+    margin-left: -0.2%;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.textEmpresa {
+    margin-top: -1%;
+    margin-bottom: 1%;
+    margin-left: 1.5%;
+}
+
+.tittleEmpresa {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 25px;
+}
+
+.tittleEmpresaG3 {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 20px;
+
+}
+
+.selectAspectos {
+    padding-inline-start: 10px;
+}
+
+
+
+.textDados {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 40px;
+    padding-inline-start: 30px;
+}
+
+.textDadosKPI1 {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 40px;
+    padding-inline-start: 30px;
+    margin-left: -20%;
+}
+
+.textDadosG {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 60px;
+}
+
+.textTitulosKpis {
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+}
+
+.pTextKPI3{
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    font-size: 17px;
+    text-align: center;
+    padding-inline-start: 40px;
+    text-align: center;
+
+}
+
+.pTextKPI2{
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+.subtittleEmpresa {
+    font-family: "Asap", sans-serif;
+    color: #666666;
+}
+
+.subtittleEmpresaKPI1{
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    padding-top: 1%;
+}
+
+.dashBottom {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-left: 1%;
+    padding: 8px;
+    margin-top: -1.5%;
+}
+
+.KPI4,
+.KPI5,
+.KPI6 {
+    background-color: #FFFF;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 5px;
+}
+
+.KPI4 {
+    width: 500px;
+    height: 400px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+}
+
+.KPI5 {
+    margin-left: 30px;
+    width: 340px;
+    height: 400px;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -0.7%;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.KPI6 {
+    margin-left: 30px;
+    width: 340px;
+    height: 400px;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding: 0;
+}
+
+#GraficoPiorAspecto {
+    max-width: 90%;
+    max-height: 70%;
+    height: 400px;
+    width: auto;
+
+}
+
+#comparacaoEquipes{
+    max-width: 90%;
+    max-height: 100%;
+    width: auto;
+}
+
+.infoKPI1 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    gap: 20px;
+}
+
+.textDados {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 40px;
+    padding-inline-start: 20px;
+}
+
+.textTitulosKpis {
+    font-family: "Asap", sans-serif;
+    color: #666666;
+    font-size: 14px;
+}
+
+
+.imgSexo {
+    height: 60px;
+    width: auto;
+    padding-inline-start: 10px;
+}
+
+.areaHR{
+    padding-inline-start: 10px;
+}
+
+.hrKPI{
+    height: 50px;
+    width: 3px;
+    background-color: #0A82B0;
+    
+}
+
+.qtdPessoas {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.qtdPessoasM {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.textDadosKPI1 {
+    font-family: "Paytone One", sans-serif;
+    color: #0A82B0;
+    font-size: 40px;
+    padding-inline-start: 10px;
+}
+
+.satisfacao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -1%;
+}
+
+#feedbackEquipes {
+    max-width: 90%;
+    max-height: 70%;
+    height: 400px;
+    width: auto;
+}
+
+.tituloKpi1 {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 7px;
+    margin-top: -18%;
+}
+
+
+
+.tituloKpi3 {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: -10%;
+}
+
+.subtittleEmpresaG1 {
+    display: flex;
+    margin-left: -63%;
+    font-family: "Paytone One", sans-serif;
+    color: #666666;
+    margin-top: -4%;
+    padding: 5px;
+    margin-right: -18px;
+}
+
+select {
+    width: 140px;
+    border-radius: 50px;
+    height: 25px;
+    margin-top: 2%;
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.1);
+    font-family: "Paytone One", sans-serif;
+    border: none;
+    outline: none;
+    color: #666666;
+    padding-inline-start: 10px;
+
+}
+
+select:focus {
+    outline: none;
+}
+
+canvas {
+    padding: 10px;
+}
+
+------------------------------------------
+body.dark-mode .sidebar {
+    background-color: #000000 !important;
+}
+
+body.dark-mode .sidebar{
+    background-color: #000000;
+}
+
+body.dark-mode .vertical{
+    background-color: #121212;
+}
+
+body.dark-mode .menu-item:hover {
+    background-color: #444;
+    background-color: #333;
+}
+
+body.dark-mode .menu-itemAtivo{
+    transform: scale(1.05);
+    background-color: #444;
+    background-color: #333;
+
+}
+
+body.dark-mode .itemExit:hover {
+    background-color: #333;
+}
+
+/* Estilos para a imagem do botão */
+#theme-icon {
+    width: 20px;
+    height: 20px;
+   
+}
+
+#myChart {
+    width: 300px;
+    height: 450px;
+}
+
+
+/* Estilos para a imagem do botão */
+#theme-icon {
+    width: 20px;
+    height: 20px;
+
+}
+
+#myChart {
+    width: 300px;
+    height: 450px;
+}
+
+
+
+.medidor-container {
+    text-align: center;
+}
+
+
+#medidor {
+    width: 150px;
+}
+.resultado {
+    font-size: 18px;
+    font-family: "Asap", sans-serif;
+}
+.bom {
+    color: green;
+}
+.ruim {
+    color: red;
+}
+
+.valor-slider {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+}
 
 body {
     font-family: "Asap", sans-serif;
