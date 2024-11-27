@@ -1,38 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 
-html{
+html {
 
 
-  --body-color:#F1F1F1 ;
+  --body-color: #F1F8FF;
+  /* Azul muito claro, quase branco */
+  --header-color: #1E3A8A;
+  /* Azul escuro */
+  --header-button: #2563EB;
+  /* Azul mais intenso */
+  --color-weekdays: #3B82F6;
+  /* Azul para os dias da semana */
+  --box-shadow: rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  --hover: #E0F2FE;
+  /* Azul claro no hover */
+  --current-day: #BFDBFE;
+  /* Azul claro para o dia atual */
+  --event-color: #60A5FA;
+  /* Azul claro para eventos */
+  --modal-event: #ffffff;
+  /* Azul muito claro para o fundo do modal */
+  --color-day: #FFFFFF;
+  /* Branco para os dias */
+  overflow-y: hidden;
 
-  --header-color:#d36c6c;
-
-  --header-button: #FF6700;
-
-  --color-weekdays: #247BA0;
-  
-  --box-shadow: #CBD4C2;
-
-  --hover: #b9dcee;
-
-  --current-day:#e8f4fa;
-
-  --event-color: #58bae4;
-
-  --modal-event: #e8f4fa;
-
-
- --color-day:white;
-  
- overflow-y: hidden;
-
- 
   font-family: "Asap", sans-serif;
   background-color: #F1F1F1;
 
 }
-
 
 
 body {
@@ -41,6 +38,7 @@ body {
   justify-content: center;
   background-color: var(--body-color);
 }
+
 button {
   width: 75px;
   cursor: pointer;
@@ -55,7 +53,7 @@ button {
 
 #header {
   padding: 10px;
-  color: var(--header-color) ;
+  color: var(--header-color);
   font-size: 26px;
   font-family: sans-serif;
   display: flex;
@@ -63,30 +61,36 @@ button {
   margin-top: 3%;
   font-family: "Paytone One", sans-serif;
   /* font-family: "Asap", sans-serif; */
-  color: #FF6700;
+  color: #393939;
 }
+
 #header button {
-  background-color:var(--header-button);
+  background-color: var(--header-button);
 }
+
 #container {
   width: 770px;
   margin-left: 15%;
 }
+
 #weekdays {
   width: 100%;
   display: flex;
-  color: var(--color-weekdays) ;
+  color: var(--color-weekdays);
 }
+
 #weekdays div {
   width: 100px;
   padding: 10px;
 }
+
 #calendar {
   width: 100%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
+
 .day {
   width: 100px;
   padding: 10px;
@@ -101,13 +105,15 @@ button {
   justify-content: space-between;
   border-radius: 15%;
 }
+
 .day:hover {
   background-color: var(--hover);
 }
 
-.day + #currentDay {
-  background-color:var(--current-day);
+.day+#currentDay {
+  background-color: var(--current-day);
 }
+
 .event {
   font-size: 10px;
   padding: 3px;
@@ -117,24 +123,28 @@ button {
   max-height: 55px;
   overflow: hidden;
 }
+
 .padding {
   cursor: default !important;
   background-color: var(--body-color) !important;
   box-shadow: none !important;
 }
-#newEventModal, #deleteEventModal {
+
+#newEventModal,
+#deleteEventModal {
   display: none;
   z-index: 20;
   padding: 25px;
   background-color: var(--modal-event);
+
   box-shadow: 0px 0px 3px black;
-  border-radius: 5px;
   width: 350px;
   top: 100px;
   left: calc(50% - 175px);
   position: absolute;
   font-family: sans-serif;
 }
+
 #eventTitleInput {
   padding: 10px;
   width: 100%;
@@ -145,18 +155,25 @@ button {
   border: none;
   box-shadow: 0px 0px 3px gray;
 }
+
 #eventTitleInput.error {
   border: 2px solid red;
 }
-#cancelButton, #deleteButton {
+
+#cancelButton,
+#deleteButton {
   background-color: var(--header-color);
 }
-#saveButton, #closeButton {
+
+#saveButton,
+#closeButton {
   background-color: var(--header-button);
 }
+
 #eventText {
   font-size: 14px;
 }
+
 #modalBackDrop {
   display: none;
   top: 0px;
@@ -165,9 +182,8 @@ button {
   width: 100vw;
   height: 100vh;
   position: absolute;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 
 body {
@@ -176,7 +192,7 @@ body {
   background-color: #F1F1F1;
 }
 
-.container{
+.container {
   display: flex;
   height: 100vh;
 }
@@ -196,7 +212,7 @@ body {
   padding: 0;
 }
 
-.imgDash{
+.imgDash {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,28 +230,28 @@ body {
   flex-grow: 1;
 }
 
-.linkPag{
+.linkPag {
   text-decoration: none;
-  color: #FFFF ;
+  color: #FFFF;
 }
 
 .menu-item {
   font-family: "Asap", sans-serif;
   font-size: 16px;
   display: flex;
-    text-decoration: none;
-    align-items: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border-radius: 16px;
-    padding: 12px 20px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    width: 90%;
-    box-sizing: border-box;
-    margin-left: -3%;
+  text-decoration: none;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 12px 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 90%;
+  box-sizing: border-box;
+  margin-left: -3%;
 }
 
-.menu-itemAtivo{
+.menu-itemAtivo {
   background-color: #3d71B8;
   transform: scale(1.05);
   display: flex;
@@ -251,7 +267,7 @@ body {
   margin-left: -3%;
 }
 
-a{
+a {
   text-decoration: none;
   color: white;
 }
@@ -299,11 +315,12 @@ a{
 }
 
 
-.headerDash{
-  width: calc(100% - 250px); /* Desconta a largura da sidebar */
+.headerDash {
+  width: calc(100% - 250px);
+  /* Desconta a largura da sidebar */
   height: 60px;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   position: fixed;
@@ -318,37 +335,38 @@ a{
   align-items: center;
 }
 
-.funcionalidadesHeader{
+.funcionalidadesHeader {
   width: 40px;
   height: 40px;
-  border-radius: 50%; 
-  overflow: hidden; /* Garante que a imagem fique contida dentro da div */
+  border-radius: 50%;
+  overflow: hidden;
+  /* Garante que a imagem fique contida dentro da div */
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #FFFF;
 }
 
-.funcionalidadesHeader img{
+.funcionalidadesHeader img {
   width: 50%;
   height: 50%;
-  object-fit: cover; 
-  
+  object-fit: cover;
+
 }
 
-.funcionalidadesHeader .imgPeople{
+.funcionalidadesHeader .imgPeople {
   width: 100%;
   height: 100%;
 }
 
-.vertical{
-  width: 1.5px; 
-  height: 40px; 
-  background-color: #FFFF; 
+.vertical {
+  width: 1.5px;
+  height: 40px;
+  background-color: #FFFF;
   margin: 0 5px;
 }
 
- 
+
 
 /* Tema Claro (Padrão) */
 
@@ -356,37 +374,37 @@ a{
 
 
 body.dark-mode .sidebar {
-    background-color: #000000 ;
+  background-color: #000000;
 }
 
-body.dark-mode .vertical{
-    background-color: #121212;
+body.dark-mode .vertical {
+  background-color: #121212;
 }
 
 body.dark-mode .menu-item:hover {
-    background-color: #444;
-    background-color: #333;
+  background-color: #444;
+  background-color: #333;
 }
 
-body.dark-mode .menu-itemAtivo{
-    transform: scale(1.05);
-    background-color: #444;
-    background-color: #333;
+body.dark-mode .menu-itemAtivo {
+  transform: scale(1.05);
+  background-color: #444;
+  background-color: #333;
 
 }
 
 body.dark-mode .itemExit:hover {
-    background-color: #333;
+  background-color: #333;
 }
 
 /* Estilos para a imagem do botão */
 #theme-icon {
-    width: 20px;
-    height: 20px;
-   
+  width: 20px;
+  height: 20px;
+
 }
 
 #myChart {
-    width: 300px;
-    height: 450px;
+  width: 300px;
+  height: 450px;
 }
