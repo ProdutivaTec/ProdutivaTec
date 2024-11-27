@@ -47,7 +47,7 @@
                     </div>
                 </a>
             </div>
-            <div class="itemExit" onclick="limparSessao()">
+            <div class="itemExit">
                 <p class="pSidebar">Sair</p>
                 <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
             </div>
@@ -214,7 +214,6 @@
 
 <script src="./js/dashboard.js"></script>
 <script src="./js/modal.js"></script>
-<script src="./js/sessao.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -224,71 +223,81 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 <script>
-    const labels = [
-        'Oportunidades de socialização',
-        'Bem-estar mental',
-        'Satisfação no trabalho',
-        'Vida pessoal',
-        'Despesas diárias'
-    ];
+  const labels = [
+    'Oportunidades de socialização',
+    'Bem-estar mental',
+    'Satisfação no trabalho',
+    'Vida pessoal e Despesas Diárias'
+];
 
-    const data = {
-        labels: labels, // Mantido, mas não será exibido
-        datasets: [{
-            label: 'Pior Aspecto do Trabalho Remoto',
-            data: [56, 17.5, 11.9, 7.7, 6.9],
-            backgroundColor: [
-                '#007bff',
-                '#0056b3',
-                '#6f42c1',
-                '#c71585',
-                '#dc3545'
-            ],
-            borderColor: '#fff',
-            borderWidth: 2
-        }]
-    };
+const data = {
+    labels: labels,
+    datasets: [{
+        data: [56, 17.5, 11.9, 14.6],
+        backgroundColor: [
+            '#007bff',
+            '#0056b3',
+            '#6f42c1',
+            '#c71585'
+        ],
+        borderColor: '#fff',
+        borderWidth: 2
+    }]
+};
 
-    const config = {
-        type: 'pie',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: true, // Exibe a legenda
-                    position: 'top',
-                    labels: {
-                        usePointStyle: true,
-                        pointStyle: 'rect',
-                        padding: 10
+const config = {
+    type: 'pie',
+    data: data,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    usePointStyle: false,
+                    boxWidth: 15,
+                    boxHeight: 15,
+                    padding: 10,
+                    generateLabels: (chart) => {
+                        return chart.data.labels.map((label, index) => {
+                            const text = index === 3 ? 'Outros' : label;
+                            return {
+                                text: text,
+                                fillStyle: chart.data.datasets[0].backgroundColor[index],
+                                strokeStyle: '#fff',
+                                lineWidth: 1,
+                                hidden: !chart.isDatasetVisible(0),
+                                index: index
+                            };
+                        });
                     }
-                },
-                tooltip: {
-                    enabled: true // Habilita os tooltips quando o usuário passa o mouse
-                },
-                // datalabels: {
-                //     display: true, // Desabilitado, mas comentado para que você possa ativar se precisar
-                //     color: '#fff',
-                //     formatter: (value, context) => {
-                //         let label = context.chart.data.labels[context.dataIndex];
-                //         return `${label}: ${value}%`;
-                //     }
-                // }
+                }
+            },
+            tooltip: {
+                enabled: true,
+                callbacks: {
+                    label: (tooltipItem) => {
+                        const dataset = tooltipItem.chart.data.datasets[0];
+                        const index = tooltipItem.dataIndex;
+                        const label = labels[index];
+                        const value = dataset.data[index];
+                        return `${label}: ${value}%`;
+                    }
+                }
             }
         }
-    };
+    }
+};
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
-        const myChart = new Chart(ctx, config);
-    });
-
-
-
+document.addEventListener('DOMContentLoaded', function () {
+    const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
+    const myChart = new Chart(ctx, config);
+});
 
 
-    // Gráfico de comparação por equipes
+
+
     const ctx2 = document.getElementById('comparacaoEquipes').getContext('2d');
     const myBarChart = new Chart(ctx2, {
         type: 'bar',

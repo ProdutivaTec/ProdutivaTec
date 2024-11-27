@@ -236,10 +236,10 @@
                     </div>
                 </fieldset>
                 <div class="access-typeCadastro">
-                    <label><input type="checkbox" id="acessoTotal_input"> Acesso total</label>
-                    <label><input type="checkbox" id="acessoLimitado_input"> Acesso limitado</label>
+                    <label><input type="radio" name="acesso" value="total"> Acesso total</label>
+                    <label><input type="radio" name="acesso" value="limitado"> Acesso limitado</label>
                     <span class="error" id="checkboxError"></span>
-                </div>
+                </div> 
                 <button onclick="cadastrarFuncionario(event)" type="submit">CADASTRAR FUNCIONÁRIO</button>
             </form>
         </div>
@@ -262,6 +262,25 @@
     const btnCadastro = document.getElementById("btnCadastro");
 const modalCadastro = document.getElementById("modalCadastro");
 const closeCadastro = document.querySelector(".closeCadastro");
+
+// Abrir o modal
+btnCadastro.onclick = function () {
+    console.log("Botão de cadastro clicado");
+    modalCadastro.style.display = 'block';
+};
+
+// Fechar o modal
+closeCadastro.onclick = function () {
+    console.log("Botão de fechar clicado");
+    modalCadastro.style.display = 'none';
+};
+
+// Fechar o modal ao clicar fora dele
+window.onclick = function (event) {
+    if (event.target === modalCadastro) {
+        modalCadastro.style.display = 'none';
+    }
+};
 
 // Abrir o modal
 btnCadastro.onclick = function () {
