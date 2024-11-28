@@ -41,3 +41,22 @@
 
         dashButton.addEventListener('click', toggleTheme);
     });
+
+
+
+    function carregarDadosGenero() {
+        fetch('dashboard/genero', { method: 'POST' })
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (resultado) {
+                console.log('Dados recebidos:', resultado);
+                document.getElementById("quantidade-masculino").textContent = resultado.quantidade_homens || 0;
+                document.getElementById("quantidade-feminino").textContent = resultado.quantidade_mulheres || 0;
+            })
+            .catch(function (erro) {
+                console.error("Erro ao carregar os dados de gênero:", erro);
+            });
+    }
+    
+    window.onload = carregarDadosGenero;
