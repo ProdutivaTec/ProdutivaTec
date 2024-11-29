@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
+
+.modal-content {
+    background-color: #245293;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    position: relative;
+    font-family: "Paytone One", sans-serif;
+    color: #FFF;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: "Paytone One", sans-serif;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
+
+span {
+    color: #FF6700;
+}
