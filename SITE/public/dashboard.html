@@ -24,20 +24,10 @@
                     <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
                     Dashboard
                 </div>
-                <div class="menu-item" id="openModalBtn">
-                    <img class="icon" src="./assets/icon/Notificações.png" alt="Notificações Icon">
-                    Notificações
-                </div>
                 <a href="./calendario.html">
                     <div class="menu-item">
                         <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
                         Eventos
-                    </div>
-                </a>
-                <a href="http://localhost:8080">
-                    <div class="menu-item">
-                        <img class="icon" src="./assets/icon/Suporte.png" alt="Suporte - IA Icon">
-                        Suporte - IA
                     </div>
                 </a>
                 <a href="./configuracoesPerfil.html">
@@ -127,27 +117,27 @@
         <section class="graficosDash">
             <div class="textEmpresa">
                 <Span class="tittleEmpresa">Nome da Empresa</Span>
-                <p class="subtittleEmpresa">GRANDE PORTE - acima de 5.000 colaboradores</p>
+                <p class="subtittleEmpresa">GRANDE PORTE - acima de <span id="quantidade-colaboradores"></span> colaboradores</p>
             </div>
             <div class="dashTop">
                 <div class="KPI1" id="KPI1">
                     <p class="subtittleEmpresa">GENÊRO</p>
                     <div class="infoKPI1">
                         <div class="qtdPessoasM">
-                            <Span class="textDados"> 4.588</Span>
+                            <Span class="textDados" id="porcentagem-homens">0</Span>
                             <p class="textTitulosKpis">MASCULINO</p>
                         </div>
                         <img class="imgSexo" src="./assets/icon/banheiro 1.png" alt="">
                         <hr>
                         <img class="imgSexo" src="./assets/icon/banheiro 2.png" alt="">
                         <div class="qtdPessoas">
-                            <Span class="textDados"> 2.475</Span>
+                            <Span class="textDados" id="porcentagem-mulheres">0</Span>
                             <p class="textTitulosKpis">FEMININO</p>
                         </div>
                     </div>
                 </div>
                 <div class="KPI2">
-                    <Span class="textDadosG"> 90%</Span>
+                    <Span class="textDadosG" id="porcentagem-respostas">0%</Span>
                     <p class="textTitulosKpis">RESPONDERAM SUA <br> PESQUISA</p>
                 </div>
 
@@ -156,20 +146,20 @@
                         <img src="./assets/icon/felicidade (1) 1.png" alt="">
 
                         <div class="satisfacao">
-                            <Span class="textDados"> 75%</Span>
+                            <Span class="textDados" id="porcentagem-satisfeitos"> 75%</Span>
                             <p class="textTitulosKpis">SATISFEITOS</p>
                         </div>
                     </div>
                     <div class="KPI3">
                         <img src="./assets/icon/triste (1) 1.png" alt="">
                         <div class="satisfacao">
-                            <Span class="textDados"> 25%</Span>
+                            <Span class="textDados" id="porcentagem-insatisfeitos"> 25%</Span>
                             <p class="textTitulosKpis">INSATISFEITOS</p>
                         </div>
                     </div>
                 </div>
                 <div class="KPI22">
-                    <Span class="textDadosG">48%</Span>
+                    <Span class="textDadosG" id="porcentagem-recomendaria">48%</Span>
                     <p class="textTitulosKpis">RECOMENDARIAM SUA <br>EMPRESA</p>
                 </div>
             </div>
