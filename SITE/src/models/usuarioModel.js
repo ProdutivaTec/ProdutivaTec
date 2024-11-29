@@ -29,11 +29,11 @@ function enviarLeads(nome, email, telefone, descricao) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrarFuncionarioRoot(nome, email, telefone, senha, cargo) {
-    console.log("ACESSEI O USUARIO MODEL cadastroFuncionario \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, telefone, senha, cargo);
+function cadastrarFuncionarioRoot(nome, email, telefone, senha, empresa, cargo) {
+    console.log("ACESSEI O USUARIO MODEL cadastroFuncionario \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, telefone, senha, empresa, cargo);
 
     var instrucaoSql = `
-        INSERT INTO funcionario (nome, email, telefone, senha, cargo) VALUES ('${nome}', '${email}', '${telefone}', '${senha}','${cargo}');
+        INSERT INTO funcionario (nome, email, telefone, senha, fkEmpresa, fkTipoFuncionario) VALUES ('${nome}', '${email}', '${telefone}', '${senha}', '${empresa}', '${cargo}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     
@@ -72,7 +72,7 @@ function cadastrarEmpresa(nome, cnpj, cep, logradouro, bairro, cidade, numero, c
     console.log("ACESSEI O USUARIO MODEL cadastroEmpresa \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cnpj, cep, logradouro, bairro, cidade, numero, complemento, qtdFuncionarios);
 
     var instrucaoSql = `
-        INSERT INTO empresa (razaoSocial, cnpj, cep, logradouro, bairro, cidade, numero, complemento, qtdFuncionarios) VALUES ('${nome}', '${cnpj}', '${cep}', '${logradouro}', '${bairro}','${cidade}','${numero}', '${complemento}', ${qtdFuncionarios});
+        INSERT INTO empresa (nome, cnpj, cep, logradouro, bairro, cidade, numero, complemento, qtdFuncionarios) VALUES ('${nome}', '${cnpj}', '${cep}', '${logradouro}', '${bairro}','${cidade}','${numero}', '${complemento}', ${qtdFuncionarios});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
 
@@ -87,11 +87,33 @@ function cadastrarEmpresa(nome, cnpj, cep, logradouro, bairro, cidade, numero, c
         });
 }
 
+function listarEmpresas() {
+    var instrucaoSql = `
+    SELECT * FROM empresa
+    `;
+  
+    return database.executar(instrucaoSql);
+}
+
+function buscarPorId(id) {
+    var instrucaoSql = `SELECT * FROM empresa WHERE id = '${id}'`;
+  
+    return database.executar(instrucaoSql);
+}
+  
+function buscarPorCnpj(cnpj) {
+    var instrucaoSql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`;
+  
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     autenticar,
     enviarLeads,
     cadastrarFuncionarioRoot,
     cadastrarFuncionario,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    listarEmpresas,
+    buscarPorCnpj,
+    buscarPorId
 };

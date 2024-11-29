@@ -11,10 +11,12 @@ function cadastrarFuncionarioRoot() {
     var nomeVar =  document.getElementById("input_nome").value;
     var emailVar = document.getElementById("input_email").value;
     var telefoneVar = document.getElementById("input_telefone").value;
-    var cargoVar = document.getElementById("input_cargo").value;
+    var cargoVar = '1';
     var senhaVar = document.getElementById("input_senha").value;
     var confirmacaoSenhaVar = document.getElementById("input_senhaConfirmar").value;
-//    var empresaVar = listaEmpresas.value
+    var empresaVar = document.getElementById("listaEmpresas").value;
+    console.log("Empresa selecionada:", empresaVar);
+
 
     if (
       nomeVar == "" ||
@@ -22,11 +24,10 @@ function cadastrarFuncionarioRoot() {
       telefoneVar == "" ||
       cargoVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
+      confirmacaoSenhaVar == "" ||
+      empresaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      console.log('erro ao enviar para o controller')
 
       finalizarAguardar();
       return false;
@@ -42,9 +43,9 @@ function cadastrarFuncionarioRoot() {
         nomeServer: nomeVar,
         emailServer: emailVar,
         telefoneServer: telefoneVar,
-        cargoServer: cargoVar,
-        senhaServer: senhaVar
-        //empresaServer: empresaVar
+        senhaServer: senhaVar,
+        empresaServer: empresaVar,
+        cargoServer: cargoVar
       }),
     })
       .then(function (resposta) {
@@ -59,7 +60,7 @@ function cadastrarFuncionarioRoot() {
         
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          throw "Houve um erro ao tentar realizar o cadastro! no featch";
         }
       })
       .catch(function (resposta) {
@@ -285,3 +286,21 @@ function finalizarAguardar() {
     const loader = document.querySelector('#loader');
     if (loader) loader.style.display = 'none';
 }
+
+/* function listar() {
+  fetch("/usuarios/listarEmpresas", {
+    method: "GET",
+  })
+    .then(function (resposta) {
+      resposta.json().then((empresas) => {
+        empresas.forEach((empresa) => {
+          listaEmpresas.innerHTML += `<option value='${empresa.idEmpresa}'>${empresa.cnpj}</option>`;
+          document.getElementById("listaEmpresas").innerHTML += `<option value='${empresa.idEmpresa}'>${empresa.cnpj}</option>`;
+        });
+      });
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+}
+*/

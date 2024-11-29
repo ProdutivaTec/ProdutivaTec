@@ -25,13 +25,15 @@ function autenticar(req, res) {
                             email: resultadoAutenticar[0].email,
                             telefone: resultadoAutenticar[0].telefone,
                             senha: resultadoAutenticar[0].senha,
-                            cargo: resultadoAutenticar[0].cargo,
+                            fkEmpresa: resultadoAutenticar[0].fkEmpresa,
+                            fkTipoFuncionario: resultadoAutenticar[0].fkTipoFuncionario
                         });
 
                     } else if (resultadoAutenticar.length == 0) {
+                        console.log("Email e/ou senha inválido(s)");
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
-
+                        console.log("Mais de um usuário com o mesmo login e senha!");
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
                 }
@@ -80,8 +82,9 @@ function cadastrarFuncionarioRoot(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var telefone = req.body.telefoneServer;
-    var cargo = req.body.cargoServer;
     var senha = req.body.senhaServer;
+    var empresa = req.body.empresaServer;
+    var cargo = req.body.cargoServer;
 
     // Validações
     if (nome == undefined) {
@@ -94,12 +97,16 @@ function cadastrarFuncionarioRoot(req, res) {
         res.status(400).send("Seu telefone está undefined!");
     } else if (cargo == undefined) {
         res.status(400).send("Seu cargo está undefined!");
+    } else if (empresa == undefined) {
+        res.status(400).send("Seu cargo está undefined!");
     } else {
-        usuarioModel.cadastrarFuncionarioRoot(nome, email, telefone, senha, cargo)
+        usuarioModel.cadastrarFuncionarioRoot(nome, email, telefone, senha, empresa, cargo)
             .then(function (resultado) {
+                console.log('passando pelo controller');
                 res.json(resultado);
             })
             .catch(function (erro) {
+                console.log('Erro no controller');
                 console.log("Erro no cadastro:", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             });
@@ -183,10 +190,35 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
+function listarEmpresas(req, res) {
+    usuarioModel.listarEmpresas().then((resultado) => {
+      res.status(200).json(resultado);
+    });
+}
+
+function buscarPorCnpj(req, res) {
+    var cnpj = req.query.cnpj;
+  
+    empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+  
+  function buscarPorId(req, res) {
+    var id = req.params.id;
+  
+    empresaModel.buscarPorId(id).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
 module.exports = {
     autenticar,
     enviarLeads,
     cadastrarFuncionarioRoot,
     cadastrarFuncionario,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    listarEmpresas,
+    buscarPorCnpj,
+    buscarPorId,
 }

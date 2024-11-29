@@ -10,6 +10,7 @@ router.post("/cadastrarEmpresa", function (req, res) {
 
 router.post("/cadastrarFuncionarioRoot", function (req, res) {
     usuarioController.cadastrarFuncionarioRoot(req, res);
+    console.log('passando pela rota');
 })
 
 router.post("/cadastrarFuncionario", function (req, res) {
@@ -22,6 +23,10 @@ router.post("/autenticar", function (req, res) {
 
 router.post("/enviarLeads", function (req, res) {
     usuarioController.enviarLeads(req, res);
+});
+
+router.get("/listarEmpresas", function (req, res) {
+    usuarioController.listarEmpresas(req, res);
 });
 
 module.exports = router;

@@ -15,13 +15,18 @@
     <title>Produtiva: Cadastre-se</title>
 </head>
 
-<body>
+<body onload="listar()">
     <div class="container-principal">
         <div class="inside1">
             <img class="logo" src="./assets/img/LOGO.png" alt="Logo">
         </div>
         <br><br>
         <div class="inside2">
+            <div class="input-container">
+                <select name="empresas" id="listaEmpresas">
+                    <option value="" selected>Selecione uma empresa</option>
+                </select>
+            </div>
             <div class="input-container">
                 <input placeholder="Nome" type="text" id="input_nome">
             </div>
@@ -31,12 +36,13 @@
             <div class="input-container">
                 <input placeholder="Telefone" type="number" id="input_telefone">
             </div>
+            <!--
             <div class="parteEmpresa">
-               
                 <div class="input-container">
                     <input placeholder="Cargo" type="text" id="input_cargo">
                 </div>
             </div>
+            -->
             <div class="input-container">
                 <input placeholder="Senha" type="password" id="input_senha">
             </div>
@@ -52,3 +58,31 @@
 
 <script src="js/cadastroFuncionario.js"></script>
 <script src="js/sessao.js"></script>
+
+<script>
+function listar() {
+    // Obtém o elemento do select
+    const listaEmpresas = document.getElementById("listaEmpresas");
+
+    // Verifica se o elemento foi encontrado
+    if (!listaEmpresas) {
+        console.error("Elemento 'listaEmpresas' não encontrado!");
+        return;
+    }
+
+    // Faz a requisição ao backend para listar as empresas
+    fetch("/usuarios/listarEmpresas", {
+        method: "GET",
+    })
+    .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.idEmpresa}'>${empresa.nome}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+}
+</script>
