@@ -78,17 +78,16 @@ function cadastrarFuncionario() {
   var nome_input = document.getElementById("nome_input");
   var sobrenome_input = document.getElementById("sobrenome_input");
   var email_input = document.getElementById("email_input");
-  var funcao_input = document.getElementById("funcao_input");
+  var senha_input = document.getElementById("senha_input");
   const acessoTotal_input = document.getElementById("acessoTotal_input");
   const acessoLimitado_input = document.getElementById("acessoLimitado_input");
 
   let nivelAcessoVar = '';
     if (acessoTotal_input.checked) {
-        nivelAcessoVar = "RH";
+        nivelAcessoVar = 1;
     } else if (acessoLimitado_input.checked) {
-        nivelAcessoVar = "Gestor";
+        nivelAcessoVar = 2;
     } else {
-        // Exibe mensagem de erro se nenhum for selecionado
         const checkboxError = document.getElementById("checkboxError");
         checkboxError.textContent = "Por favor, selecione um nível de acesso.";
         return;
@@ -97,9 +96,8 @@ function cadastrarFuncionario() {
   var nomeVar = `${nome_input.value} ${sobrenome_input.value}`;
   var emailVar = email_input.value;
   var telefoneVar = '';
-  var cargoVar = funcao_input.value;
-  var senhaAleatoriaVar = Math.floor(Math.random() * 100_000_000);
-  //var empresaVar = listaEmpresas.value
+  var senhaVar = senha_input.value;
+  var empresaVar = sessionStorage.FK_EMPRESA;
       nivelAcessoVar;
 
   // COMEÇO DAS VALIDAÇÕES //
@@ -107,10 +105,9 @@ function cadastrarFuncionario() {
   if (
     nomeVar == "" ||
     emailVar == "" ||
-    senhaAleatoriaVar == "" ||
-    cargoVar == "" ||
-    nivelAcessoVar == ""
-  //  empresaVar == ""
+    senhaVar == "" ||
+    nivelAcessoVar == "" ||
+    empresaVar == ""
   ) {
     checkboxError.textContent =
       "(Mensagem de erro para todos os campos em branco)";
@@ -190,7 +187,7 @@ function cadastrarFuncionario() {
   }
 
   // VALIDAÇÕES SENHA 
-  let senhaTamanho = senhaAleatoriaVar.length;
+  let senhaTamanho = senhaVar.length;
 
   // SE O TAMANHO DA SENHA FOR MENOR QUE 6 OU MAIOR QUE 20, ELE NÃO PASSA
   if (senhaTamanho < 3 || senhaTamanho > 45) {
@@ -216,10 +213,9 @@ function cadastrarFuncionario() {
       nomeServer: nomeVar,
       emailServer: emailVar,
       telefoneServer: telefoneVar,
-      cargoServer: cargoVar,
-      senhaServer: senhaAleatoriaVar,
+      senhaServer: senhaVar,
+      empresaServer: empresaVar,
       nivelAcessoServer: nivelAcessoVar
-      //empresaServer: empresaVar
     }),
   })
     .then(function (resposta) {

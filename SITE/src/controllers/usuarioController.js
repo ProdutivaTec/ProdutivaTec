@@ -119,8 +119,9 @@ function cadastrarFuncionario(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var telefone = req.body.telefoneServer;
-    var cargo = req.body.cargoServer;
-    var senha = req.body.senhaServer;
+    var senha = req.body.senhaServer; 
+    var empresa = req.body.empresaServer;
+    var tipoFuncionario = req.body.nivelAcessoServer;
 
     // Validações
     if (nome == undefined) {
@@ -131,10 +132,12 @@ function cadastrarFuncionario(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (telefone == undefined) {
         res.status(400).send("Seu telefone está undefined!");
-    } else if (cargo == undefined) {
+    } else if (empresa == undefined) {
+        res.status(400).send("Seu cargo está undefined!");
+    } else if (tipoFuncionario == undefined) {
         res.status(400).send("Seu cargo está undefined!");
     } else {
-        usuarioModel.cadastrarFuncionario(nome, email, telefone, senha, cargo)
+        usuarioModel.cadastrarFuncionario(nome, email, telefone, senha, empresa, tipoFuncionario)
             .then(function (resultado) {
                 res.json(resultado);
             })
