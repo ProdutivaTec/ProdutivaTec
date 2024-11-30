@@ -84,7 +84,6 @@ CREATE TABLE dadosDashboard (
 CREATE TABLE leads (
     idEmail INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(256) NOT NULL,
-    sobrenome VARCHAR(256),
     email VARCHAR(45) NOT NULL,
     telefone VARCHAR(45),
     mensagem VARCHAR(900)

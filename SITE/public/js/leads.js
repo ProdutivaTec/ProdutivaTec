@@ -6,10 +6,10 @@ function enviarLeads() {
     var sobrenome_input = document.getElementById("sobrenome_input");
     var email_input = document.getElementById("email_input");
     var telefone_input = document.getElementById("telefone_input");
-    var descricao_input = document.getElementById("funcao_input");
+    var descricao_input = document.getElementById("descricao_input");
 
     var nomeVar = `${nome_input.value} ${sobrenome_input.value}`;
-    var emailVar = email_input.value.toLowerCase;
+    var emailVar = email_input.value;
     var telefoneVar = telefone_input.value;
     var descricaoVar = descricao_input.value;
 
@@ -20,6 +20,7 @@ function enviarLeads() {
         descricaoVar == "" 
     ) {
         finalizarAguardar();
+        console.log("Preencha todos os campos");
         return false;
     } else {
         setInterval(5000);
@@ -32,7 +33,7 @@ function enviarLeads() {
         },
         body: JSON.stringify({
           nomeServer: nomeVar,
-          emailServer: emailVar.toLowerCase,
+          emailServer: emailVar.toLowerCase(),
           telefoneServer: telefoneVar,
           descricaoServer: descricaoVar
         }),
@@ -46,7 +47,6 @@ function enviarLeads() {
               window.location = "configuracoesColaboradores.html";
             }, "2000");
     
-            limparFormulario();
             finalizarAguardar();
           } else {
             throw new Error("Erro ao enviar o leads");
@@ -58,4 +58,14 @@ function enviarLeads() {
         });
     
       return false;
+}
+
+function aguardar() {
+  const loader = document.querySelector('#loader');
+  if (loader) loader.style.display = 'block';
+}
+
+function finalizarAguardar() {
+  const loader = document.querySelector('#loader');
+  if (loader) loader.style.display = 'none';
 }

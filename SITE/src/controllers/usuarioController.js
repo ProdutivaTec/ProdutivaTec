@@ -65,7 +65,7 @@ function enviarLeads(req, res) {
     } else if (descricao == undefined) {
         res.status(400).send("Seu descricao está undefined!");
     } else {
-        usuarioModel.cadastrarFuncionarioRoot(nome, email, telefone, descricao)
+        usuarioModel.enviarLeads(nome, email, telefone, descricao)
             .then(function (resultado) {
                 res.json(resultado);
             })
