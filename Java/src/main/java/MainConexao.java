@@ -10,7 +10,7 @@ public class MainConexao {
 
     public MainConexao() {
         this.conexao = new Conexao();
-        this.notificadorSlack = new NotificadorSlack("https://hooks.slack.com/services/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 ");
+        this.notificadorSlack = new NotificadorSlack("https://hooks.slack.com/services/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");
         AwsSessionCredentials credentials = AwsSessionCredentials.create(
                 System.getenv("AWS_ACCESS_KEY_ID"),
                 System.getenv("AWS_SECRET_ACCESS_KEY"),
@@ -42,34 +42,37 @@ public class MainConexao {
     }
 
     private void inserirDadosNoBanco(JdbcTemplate jdbcTemplate, List<DadosTrabalhoRemoto> dadosList) {
-        String sql = "INSERT INTO DadosTrabalhoRemoto (\n" +
-                "    response_id, ano_nascimento, genero, setor, ocupacao, tipo_familia, \n" +
-                "    facilidade_colaboracao_passado, recomendacao_trabalho_remoto_passado, \n" +
-                "    facilidade_colaboracao_3_meses, recomendacao_trabalho_remoto_3_meses, \n" +
-                "    preferencia_tempo_remoto, produtividade, horas_trabalhadas, \n" +
-                "    barreira_mais_significativa, barreira_menos_significativa, \n" +
-                "    pior_aspecto_trabalho_remoto, melhor_aspecto_trabalho_remoto\n" +
-                ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);\n";
+        String sql = "INSERT INTO dadosDashboard (" +
+                "idDados, anoNascimento, genero, setor, ocupacao, tamanhoFamilia, " +
+                "colaboracaoComColegasAnoAnterior, recomendacao, colaboracaoComColegas3Meses, " +
+                "preferenciaTrabalhoRemoto, produtividade, piorAspectoTrabalhoRemoto, " +
+                "piorAspectoTrabalhoPresencial, tempoDedicadoTrabalhoPresencial, " +
+                "tempoDedicadoTarefasPresencial, tempoDedicadoTrabalhoRemoto, " +
+                "tempoDedicadoTarefasRemoto, maiorBarreiraTrabalhoRemoto, " +
+                "menorBarreiraTrabalhoRemoto" +
+                ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         for (DadosTrabalhoRemoto dados : dadosList) {
             jdbcTemplate.update(sql,
-                    dados.getResponseId(),
+                    dados.getIdDados(),
                     dados.getAnoNascimento(),
                     dados.getGenero(),
                     dados.getSetor(),
                     dados.getOcupacao(),
-                    dados.getTipoFamilia(),
-                    dados.getFacilidadeColaboracaoPassado(),
-                    dados.getRecomendacaoTrabalhoRemotoPassado(),
-                    dados.getFacilidadeColaboracao3Meses(),
-                    dados.getRecomendacaoTrabalhoRemoto3Meses(),
-                    dados.getPreferenciaTempoRemoto(),
+                    dados.getTamanhoFamilia(),
+                    dados.getColaboracaoComColegasAnoAnterior(),
+                    dados.getRecomendacao(),
+                    dados.getColaboracaoComColegas3Meses(),
+                    dados.getPreferenciaTrabalhoRemoto(),
                     dados.getProdutividade(),
-                    dados.getHorasTrabalhadas(),
-                    dados.getBarreiraMaisSignificativa(),
-                    dados.getBarreiraMenosSignificativa(),
                     dados.getPiorAspectoTrabalhoRemoto(),
-                    dados.getMelhorAspectoTrabalhoRemoto()
+                    dados.getPiorAspectoTrabalhoPresencial(),
+                    dados.getTempoDedicadoTrabalhoPresencial(),
+                    dados.getTempoDedicadoTarefasPresencial(),
+                    dados.getTempoDedicadoTrabalhoRemoto(),
+                    dados.getTempoDedicadoTarefasRemoto(),
+                    dados.getMaiorBarreiraTrabalhoRemoto(),
+                    dados.getMenorBarreiraTrabalhoRemoto()
             );
         }
     }
@@ -77,6 +80,6 @@ public class MainConexao {
     public static void main(String[] args) {
         MainConexao mainConexao = new MainConexao();
         String bucket = System.getenv("BUCKET");
-        mainConexao.executar(bucket, "base-tratada-kip.xlsx", "base-tratada-kip.xlsx");
+        mainConexao.executar(bucket, "PLANILHA CORRETA.xlsx", "PLANILHA CORRETA.xlsx");
     }
 }
