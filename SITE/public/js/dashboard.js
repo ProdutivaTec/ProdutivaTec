@@ -305,7 +305,88 @@
             }
         });
     }
+    function carregarComparacaoEquipes() {
+        fetch('/dashboard/comparacao/equipes', { method: 'POST' })
+            .then(resposta => {
+                if (resposta.status === 204) {
+                    throw new Error("Nenhum dado encontrado para comparação.");
+                }
+                return resposta.json();
+            })
+            .then(dados => {
+                console.log('Dados de comparação por equipe:', dados);
     
+                const labels = dados.map(item => item.equipe);
+                const produtividade = dados.map(item => item.produtividade);
+                const satisfacao = dados.map(item => item.satisfacao);
+    
+                const ctx2 = document.getElementById('comparacaoEquipes').getContext('2d');
+    
+                if (window.myBarChart) {
+                    window.myBarChart.destroy();
+                }
+    
+                window.myBarChart = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Produtividade',
+                            data: produtividade,
+                            backgroundColor: '#0A82B0', 
+                            borderWidth: 1,
+                            borderRadius: 5,
+                            barPercentage: 1.5,
+                            categoryPercentage: 0.5
+                        }, {
+                            label: 'Satisfação',
+                            data: satisfacao,
+                            backgroundColor: '#00bfff', 
+                            borderWidth: 1,
+                            borderRadius: 5,
+                            barPercentage: 1.5,
+                            categoryPercentage: 0.5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y', 
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Comparação por Equipes',
+                                font: {
+                                    size: 20
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(erro => {
+                console.error("Erro ao carregar os dados de comparação:", erro);
+                alert("Erro ao carregar os dados de comparação. Verifique o console para mais detalhes.");
+            });
+    }
     window.onload = function () {
         carregarDadosGenero();
         carregarTotalColaboradores();
@@ -314,4 +395,5 @@
         carregarDadosInsatisfeitos();
         carregarDadosRecomendacao();
         atualizarGraficoFeedback();
+        carregarComparacaoEquipes();
     };

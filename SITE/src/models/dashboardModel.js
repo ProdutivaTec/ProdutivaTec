@@ -81,27 +81,13 @@ function recomendacao() {
 function produtividadePorEquipe() {
     var instrucaoSql = `
     SELECT 
+        ocupacao AS equipe,
         produtividade AS categoria_produtividade,
         COUNT(*) AS quantidade
     FROM 
         dadosDashboard
     GROUP BY 
-        produtividade
-    ORDER BY 
-        quantidade DESC;
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-function desempenhoPorEquipe() {
-    var instrucaoSql = `
-    SELECT 
-        produtividade AS categoria_produtividade,
-        COUNT(*) AS quantidade
-    FROM 
-        dadosDashboard
-    GROUP BY 
-        produtividade
+        ocupacao, produtividade
     ORDER BY 
         quantidade DESC;
     `;
@@ -111,18 +97,20 @@ function desempenhoPorEquipe() {
 function satisfacaoPorEquipe() {
     var instrucaoSql = `
     SELECT 
-        colaboracaoComColegas3meses AS categoria_satisfacao,
+        ocupacao AS equipe,
+        colaboracaoComColegasAnoAnterior AS categoria_satisfacao,
         COUNT(*) AS quantidade
     FROM 
         dadosDashboard
     GROUP BY 
-        colaboracaoComColegas3meses
+        ocupacao, colaboracaoComColegasAnoAnterior
     ORDER BY 
         quantidade DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 module.exports = {
     genero,
     totalColaboradores,
@@ -131,5 +119,5 @@ module.exports = {
     colaboradoresSatisfeitos,
     recomendacao,
     produtividadePorEquipe,
-    satisfacaoPorEquipe
+    satisfacaoPorEquipe,
 };
