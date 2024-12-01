@@ -212,7 +212,7 @@
                     produtividades.push(item.quantidade); 
                 });
     
-                atualizarGraficoFeedback(equipes, produtividades, 'Produtividade por Equipe');
+                atualizarGraficoFeedback(equipes, produtividades, '');
             })
             .catch(function (erro) {
                 console.error("Erro ao carregar os dados de produtividade por equipe:", erro);
@@ -241,7 +241,7 @@
                     satisfacoes.push(item.quantidade); 
                 });
     
-                atualizarGraficoFeedback(equipes, satisfacoes, 'Satisfação por Equipe');
+                atualizarGraficoFeedback(equipes, satisfacoes, '');
             })
             .catch(function (erro) {
                 console.error("Erro ao carregar os dados de satisfação por equipe:", erro);
@@ -331,7 +331,7 @@
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Produtividade',
+                            label: '',
                             data: produtividade,
                             backgroundColor: '#0A82B0', 
                             borderWidth: 1,
@@ -373,7 +373,7 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Comparação por Equipes',
+                                text: '',
                                 font: {
                                     size: 20
                                 }
