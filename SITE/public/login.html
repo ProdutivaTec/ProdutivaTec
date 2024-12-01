@@ -7,6 +7,7 @@
     <style>@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');</style>
     <style>@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Paytone+One&display=swap');</style>
     <link rel="shortcut icon" type="imagex/png" href="./assets/img/ABA.ico">
+    <link rel="stylesheet" href="./css/modalValidacao.css">
     <title>Produtiva: Login</title>
 </head>
 <body>
@@ -39,6 +40,21 @@
             <br>
         </div>
     </div>
+
+    <div class="modal" id="successModal"> <!-- Antes: modalSucesso -->
+        <div class="modal-content">
+            <img class="imgg" src="./assets/icon/confirmacao 1.png" alt="Confirmação">
+            <p class="pez">Login realizado <br> com <span class="spanModal">sucesso</span>!</p>
+        </div>
+    </div>
+    
+    <div class="modal" id="errorModal"> <!-- Este está correto -->
+        <div class="modal-content">
+            <img class="imgg" src="./assets/icon/multiplicar 1.png" alt="Erro">
+            <p class="pez">Erro ao fazer login <br> <span class="spanModal">Tente novamente</span>!</p>
+        </div>
+    </div>
+
 </body>
 </html>
 

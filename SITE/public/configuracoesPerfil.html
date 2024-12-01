@@ -94,20 +94,20 @@
                     <div class="areaNome">
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input class="inputNome" type="text" id="nome" placeholder="Luciana" readonly>
+                            <input class="inputNome" type="text" id="nome" readonly>
                         </div>
                         <div class="form-group">
                             <label for="sobrenome">Sobrenome</label>
-                            <input class="inputNome" type="text" id="sobrenome" placeholder="Gimenez" readonly>
+                            <input class="inputNome" type="text" id="sobrenome" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input class="inputDados" type="email" id="email" placeholder="luciana_metal@net.br" readonly>
+                        <input class="inputDados" type="email" id="email" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="funcao">Função</label>
-                        <input class="inputDados" type="text" id="funcao" placeholder="Diretora de Recursos Humanos" readonly>
+                        <label for="funcao">Telefone</label>
+                        <input class="inputDados" type="text" id="telefone" readonly>
                     </div>
                 </form>
             </div>
@@ -173,3 +173,18 @@
 <script src="../public/js/dashboard.js"></script>
 <script src="./js/modal.js"></script>
 <script src="./js/sessao.js"></script>
+
+<script>
+    let nomeCompleto = sessionStorage.NOME_USUARIO || "";
+
+if (nomeCompleto) {
+    let nomeParts = nomeCompleto.split(" ");
+    let primeiroNome = nomeParts[0];
+    let sobrenome = nomeParts.slice(1).join(" "); 
+
+    document.getElementById("nome").value = primeiroNome || "";
+    document.getElementById("sobrenome").value = sobrenome || "";
+}
+    document.getElementById("email").value = sessionStorage.EMAIL_USUARIO || "";
+    document.getElementById("telefone").value = sessionStorage.TELEFONE || "";
+</script>

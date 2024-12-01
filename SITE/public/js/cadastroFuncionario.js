@@ -30,7 +30,7 @@ function cadastrarFuncionarioRoot() {
       console.log('erro ao enviar para o controller')
 
       finalizarAguardar();
-      return false;
+      
     }
 
     // Enviando o valor da nova input
@@ -52,11 +52,11 @@ function cadastrarFuncionarioRoot() {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          alert("Funcionário cadastrado com sucesso!");
+          exibirModalSucesso();
 
-        setTimeout(() => {
+          setTimeout(() => {
           window.location = "index.html";
-        }, "2000");
+        }, 2100);
         
           finalizarAguardar();
         } else {
@@ -64,8 +64,10 @@ function cadastrarFuncionarioRoot() {
         }
       })
       .catch(function (resposta) {
+        exibirModalErro();
         console.log(`#ERRO: ${resposta}`);
         finalizarAguardar();
+        return;
       });
 
     return false;
@@ -90,6 +92,7 @@ function cadastrarFuncionario() {
     } else {
         const checkboxError = document.getElementById("checkboxError");
         checkboxError.textContent = "Por favor, selecione um nível de acesso.";
+        exibirModalErro();
         return;
     }
   
@@ -110,11 +113,12 @@ function cadastrarFuncionario() {
     empresaVar == ""
   ) {
     checkboxError.textContent =
-      "(Mensagem de erro para todos os campos em branco)";
+      "preencha os campos vazios";
 
-    finalizarAguardar();
-    return false;
-  } else {
+      exibirModalErro();  
+     finalizarAguardar();
+     return false;
+    } else {
     setInterval(5000);
   } 
 
@@ -126,7 +130,7 @@ function cadastrarFuncionario() {
   if (nomeTrim == '') {
     checkboxError.textContent =
       "(Preencha o campo Nome)";
-
+      exibirModalErro();
     finalizarAguardar();
     return false;
   } else {
@@ -137,7 +141,7 @@ function cadastrarFuncionario() {
   if (nomeTamanho > 45) {
     checkboxError.textContent =
       "(O nome só pode ter no maximo 45 caracteres)";
-
+      exibirModalErro();
     finalizarAguardar();
     return false;
   } else {
@@ -153,7 +157,7 @@ function cadastrarFuncionario() {
   if (emailTrim == '') {
     checkboxError.textContent =
       "(Preencha o campo Email)";
-
+      exibirModalErro();
     finalizarAguardar();
     return false;
   } else {
@@ -164,7 +168,7 @@ function cadastrarFuncionario() {
   if (emailTamanho > 45) {
     checkboxError.textContent =
       "(O email não pode ter mais de 45 caracteres)";
-
+      exibirModalErro();
     finalizarAguardar();
     return false;
   } else {
@@ -180,6 +184,7 @@ function cadastrarFuncionario() {
 
   if (caracterEmail < 1) {
     checkboxError.textContent = "Email precisa ter um dominio";
+    exibirModalErro();
       finalizarAguardar();
       return false;
   } else {
@@ -193,7 +198,7 @@ function cadastrarFuncionario() {
   if (senhaTamanho < 3 || senhaTamanho > 45) {
     checkboxError.textContent =
       "Senha precisa ter no minimo 6 caracteres e no maximo 45";
-
+      exibirModalErro();
     finalizarAguardar();
     return false;
   } else {
@@ -222,6 +227,7 @@ function cadastrarFuncionario() {
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
+        exibirModalSucesso();
 
         setTimeout(() => {
           window.location = "configuracoesColaboradores.html";
@@ -229,15 +235,37 @@ function cadastrarFuncionario() {
 
         finalizarAguardar();
       } else {
+        exibirModalErro();
         throw new Error("Erro ao cadastrar funcionário.");
       }
     })
     .catch(function (resposta) {
+      exibirModalErro();
       console.log(`#ERRO: ${resposta}`);
       finalizarAguardar();
     });
 
   return false;
+}
+
+function exibirModalSucesso() {
+  const modalSucesso = document.querySelector("#successModal"); // Certifique-se do ID correto
+  if (modalSucesso) {
+      modalSucesso.style.display = "flex";
+      setTimeout(() => {
+          modalSucesso.style.display = "none";
+      }, 2000);
+  }
+}
+
+function exibirModalErro() {
+  const modal = document.querySelector("#errorModal"); // Certifique-se do ID correto
+  if (modal) {
+      modal.style.display = "flex";
+      setTimeout(() => {
+          modal.style.display = "none";
+      }, 1700);
+  }
 }
 
 function validarCampo(campoId) {

@@ -77,7 +77,7 @@ async function cadastrarEmpresa(event) {
 
             setTimeout(() => {
                 window.location = "cadastroFuncionario.html";
-            }, 2000);
+            }, 2100);
   
             finalizarAguardar();
           } else {
@@ -88,12 +88,13 @@ async function cadastrarEmpresa(event) {
             console.log(`#ERRO: ${resposta}`);
             exibirModalErro(); // Exibir o modal de erro
             finalizarAguardar();
+            return;
         });
         
 }
 
 function exibirModalSucesso() {
-    const modalSucesso = document.querySelector("#modalSucesso"); // Ajuste para o modal de sucesso que você já possui
+    const modalSucesso = document.querySelector("#successModal"); // Certifique-se do ID correto
     if (modalSucesso) {
         modalSucesso.style.display = "flex";
         setTimeout(() => {
@@ -103,12 +104,12 @@ function exibirModalSucesso() {
 }
 
 function exibirModalErro() {
-    const modal = document.querySelector("#errorModal"); // ID do modal de erro
+    const modal = document.querySelector("#errorModal"); // Certifique-se do ID correto
     if (modal) {
         modal.style.display = "flex";
         setTimeout(() => {
             modal.style.display = "none";
-        }, 2000);
+        }, 1700);
     }
 }
 

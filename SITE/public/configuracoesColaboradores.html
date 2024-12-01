@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/notificações.css">
     <link rel="stylesheet" href="./css/configuracoesColaboradores.css">
+    <link rel="stylesheet" href="./css/modalValidacao.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" type="imagex/png" href="./assets/img/ABA.ico">
 
@@ -230,6 +231,20 @@
                 </div> 
                 <button onclick="cadastrarFuncionario(event)" type="submit">CADASTRAR FUNCIONÁRIO</button>
             </form>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal"> <!-- Antes: modalSucesso -->
+        <div class="modal-content">
+            <img class="imgg" src="./assets/icon/confirmacao 1.png" alt="Confirmação">
+            <p class="pez">Cadastro realizado <br> com <span class="spanModal">sucesso</span>!</p>
+        </div>
+    </div>
+    
+    <div class="modal" id="errorModal"> <!-- Este está correto -->
+        <div class="modal-content">
+            <img class="imgg" src="./assets/icon/multiplicar 1.png" alt="Erro">
+            <p class="pez">Erro ao cadastrar funcionário <br> <span class="spanModal">Tente novamente</span>!</p>
         </div>
     </div>
 </html>

@@ -1,29 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
 
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    justify-content: center; /* Centralizar o conteúdo horizontalmente */
+    align-items: center; /* Centralizar o conteúdo verticalmente */
+    z-index: 1000; /* Certifique-se de que o modal fica acima de outros elementos */
+}
+
 .modal-content {
-    display: none;
     background-color: #245293;
     padding: 20px;
     border-radius: 8px;
     width: 350px;
-    height: auto;
+    max-width: 90%; /* Responsividade para telas menores */
     text-align: center;
-    position: fixed;
     font-family: "Paytone One", sans-serif;
     color: #FFF;
     font-size: 20px;
+    display: flex; /* Exibe o conteúdo do modal */
+    flex-direction: column; /* Alinha os itens verticalmente */
     align-items: center;
     justify-content: center;
     gap: 10px;
-    font-family: "Paytone One", sans-serif;
 }
 
-img {
+.pez {
+    color: #FFF;
+}
+
+.imgg {
     width: 40px;
     height: 40px;
 }
 
-span {
+.spanModal {
     color: #FF6700;
 }

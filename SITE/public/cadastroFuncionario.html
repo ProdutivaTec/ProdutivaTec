@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/cadastroFuncionario.css">
+    <link rel="stylesheet" href="./css/modalValidacao.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
     </style>
@@ -50,6 +51,20 @@
                 <input placeholder="Confirmação de senha" type="password" id="input_senhaConfirmar">
             </div>
             <button onclick="cadastrarFuncionarioRoot(event)">Cadastrar Funcionário</button>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal"> <!-- Antes: modalSucesso -->
+        <div class="modal-content">
+            <img class="imgg" src="./assets/icon/confirmacao 1.png" alt="Confirmação">
+            <p class="pez">Funcionário cadastrado <br> com <span class="spanModal">sucesso</span>!</p>
+        </div>
+    </div>
+    
+    <div class="modal" id="errorModal"> <!-- Este está correto -->
+        <div class="modal-content">
+            <img class="imgg" src="./assets/icon/multiplicar 1.png" alt="Erro">
+            <p class="pez">Erro ao cadastrar funcionário <br> <span class="spanModal">Tente novamente</span>!</p>
         </div>
     </div>
 </body>
