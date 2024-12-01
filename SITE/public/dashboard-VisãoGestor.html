@@ -30,10 +30,10 @@
                         Eventos
                     </div>
                 </a>
-                    <div class="menu-item" onclick="irParaConfiguracoes()">
-                        <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
-                        Configurações
-                    </div>
+                <div class="menu-item" onclick="irParaConfiguracoes()">
+                    <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
+                    Configurações
+                </div>
             </div>
             <div class="itemExit" onclick="limparSessao()">
                 <p class="pSidebar">Sair</p>
@@ -125,7 +125,7 @@
                             <div class="areaHR">
                                 <hr class="hrKPI">
                             </div>
-                            <Span class="textDados"> 75%</Span>
+                            <span class="textDados" id="porcentagem-remoto">0%</span>
                             <p class="pTextKPI3">Mais produtivos no <br> trabalho remoto </p>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                             <div class="areaHR">
                                 <hr class="hrKPI">
                             </div>
-                            <Span class="textDados"> 25%</Span>
+                            <span class="textDados" id="porcentagem-presencial">25%</span>
                             <p class="pTextKPI3"> Mais produtivos no <br> trabalho presencial </p>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                             <div class="areaHR">
                                 <hr class="hrKPI">
                             </div>
-                            <Span class="textDados"> 14%</Span>
+                            <span class="textDados" id="porcentagem-remoto-mulher">0%</span>
                             <p class="pTextKPI3">Mais produtivas no <br> trabalho remoto </p>
                         </div>
                     </div>
@@ -155,24 +155,24 @@
                         <div class="satisfacao">
                             <img class="imgSexo" src="./assets/icon/banheiro 2.png" alt="">
                             <div class="areaHR">
-                            <hr class="hrKPI">
-                        </div>
-                            <Span class="textDados"> 86%</Span>
+                                <hr class="hrKPI">
+                            </div>
+                            <span class="textDados" id="porcentagem-presencial-mulher">25%</span>
                             <p class="pTextKPI3"> Mais produtivas no <br> trabalho presencial </p>
                         </div>
                     </div>
                 </div>
                 <div class="KPI22">
                     <p class="pTextKPI2">A produtividade média de <br> equipe é de</p>
-                    <Span class="textDadosG">4.2</Span>
+                    <span class="textDados" id="media-produtividade-equipe">0%</span>
                     <div class="medidor-container">
-                        <input type="range" id="medidor" min="0" max="5" step="0.1" value="2" >
+                        <input type="range" id="medidor" min="0" max="5" step="0.1" value="2">
                         <div class="resultado">
                             <span id="resultadoTexto" class="bom">Bom</span>
-                            <span id="valorSlider" class="valor-slider"></span> 
+                            <span id="valorSlider" class="valor-slider"></span>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -224,80 +224,129 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
- 
+
 <script>
 
-const labels = [
-    'Oportunidades de socialização',
-    'Bem-estar mental',
-    'Satisfação no trabalho',
-    'Outros'
-];
+    // Requisição para obter a porcentagem de produtividade do trabalho remoto
+    fetch('/dashboardGestor/porcentagem-produtivo-remoto')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.porcentagemRemoto !== undefined) {
+                document.getElementById('porcentagem-remoto').textContent = data.porcentagemRemoto + '%';
+            }
+        })
+        .catch(error => console.error('Erro ao buscar a porcentagem do remoto:', error));
 
-const data = {
-    labels: labels,
-    datasets: [{
-        data: [56, 17.5, 11.9, 7.7 + 6.9], // Combinação dos dois menores aspectos
-        backgroundColor: [
-            '#007bff', // Azul - Oportunidades de socialização
-            '#0056b3', // Azul escuro - Bem-estar mental
-            '#6f42c1', // Roxo - Satisfação no trabalho
-            '#c71585'  // Rosa - Outros (Vida pessoal + Despesas diárias)
-        ],
-        borderColor: '#fff',
-        borderWidth: 2
-    }]
-};
+    // Requisição para obter a porcentagem de produtividade do trabalho presencial
+    fetch('/dashboardGestor/porcentagem-produtivo-presencial')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.porcentagemPresencial !== undefined) {
+                document.getElementById('porcentagem-presencial').textContent = data.porcentagemPresencial + '%';
+            }
+        })
+        .catch(error => console.error('Erro ao buscar a porcentagem do presencial:', error));
 
-const config = {
-    type: 'pie',
-    data: data,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: true,
-                position: 'top',
-                labels: {
-                    usePointStyle: false,
-                    boxWidth: 15,
-                    boxHeight: 15,
-                    padding: 10,
-                    generateLabels: (chart) => {
-                        return chart.data.labels.map((label, index) => {
-                            const text = label;  // Não é necessário alterar os textos dos rótulos
-                            return {
-                                text: text,
-                                fillStyle: chart.data.datasets[0].backgroundColor[index],
-                                strokeStyle: '#fff',
-                                lineWidth: 1,
-                                hidden: !chart.isDatasetVisible(0),
-                                index: index
-                            };
-                        });
+    // Requisição para obter a porcentagem de produtividade do trabalho remoto (Mulher)
+    fetch('/dashboardGestor/porcentagem-remoto-mulher')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.porcentagemRemoto !== undefined) {
+                document.getElementById('porcentagem-remoto-mulher').textContent = data.porcentagemRemoto + '%';
+            }
+        })
+        .catch(error => console.error('Erro ao buscar a porcentagem do remoto (Mulher):', error));
+
+    // Requisição para obter a porcentagem de produtividade do trabalho presencial (Mulher)
+    fetch('/dashboardGestor/porcentagem-presencial-mulher')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.porcentagemPresencial !== undefined) {
+                document.getElementById('porcentagem-presencial-mulher').textContent = data.porcentagemPresencial + '%';
+            }
+        })
+        .catch(error => console.error('Erro ao buscar a porcentagem do presencial (Mulher):', error));
+
+    fetch('/dashboardGestor/media-produtividade-equipe')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.mediaProdutividadeEquipe !== undefined) {
+                document.getElementById('media-produtividade-equipe').textContent = data.mediaProdutividadeEquipe;
+            }
+        })
+        .catch(error => console.error('Erro ao buscar a média de produtividade da equipe do remoto:', error));
+
+    const labels = [
+        'Oportunidades de socialização',
+        'Bem-estar mental',
+        'Satisfação no trabalho',
+        'Outros'
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            data: [56, 17.5, 11.9, 7.7 + 6.9], // Combinação dos dois menores aspectos
+            backgroundColor: [
+                '#007bff', // Azul - Oportunidades de socialização
+                '#0056b3', // Azul escuro - Bem-estar mental
+                '#6f42c1', // Roxo - Satisfação no trabalho
+                '#c71585'  // Rosa - Outros (Vida pessoal + Despesas diárias)
+            ],
+            borderColor: '#fff',
+            borderWidth: 2
+        }]
+    };
+
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        usePointStyle: false,
+                        boxWidth: 15,
+                        boxHeight: 15,
+                        padding: 10,
+                        generateLabels: (chart) => {
+                            return chart.data.labels.map((label, index) => {
+                                const text = label;  // Não é necessário alterar os textos dos rótulos
+                                return {
+                                    text: text,
+                                    fillStyle: chart.data.datasets[0].backgroundColor[index],
+                                    strokeStyle: '#fff',
+                                    lineWidth: 1,
+                                    hidden: !chart.isDatasetVisible(0),
+                                    index: index
+                                };
+                            });
+                        }
                     }
-                }
-            },
-            tooltip: {
-                enabled: true,
-                callbacks: {
-                    label: (tooltipItem) => {
-                        const dataset = tooltipItem.chart.data.datasets[0];
-                        const index = tooltipItem.dataIndex;
-                        const label = labels[index];
-                        const value = dataset.data[index];
-                        return `${label}: ${value}%`;
+                },
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: (tooltipItem) => {
+                            const dataset = tooltipItem.chart.data.datasets[0];
+                            const index = tooltipItem.dataIndex;
+                            const label = labels[index];
+                            const value = dataset.data[index];
+                            return `${label}: ${value}%`;
+                        }
                     }
                 }
             }
         }
-    }
-};
+    };
 
-document.addEventListener('DOMContentLoaded', function () {
-    const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
-    const myChart = new Chart(ctx, config);
-});
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('GraficoPiorAspecto').getContext('2d');
+        const myChart = new Chart(ctx, config);
+    });
 
 
 
@@ -371,111 +420,111 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-   // Gráfico de feedback por equipes
-const ctx3 = document.getElementById('feedbackEquipes').getContext('2d');
+    // Gráfico de feedback por equipes
+    const ctx3 = document.getElementById('feedbackEquipes').getContext('2d');
 
-const labelsFeedback = [
-    'Chief Executives',
-    'Education Professionals',
-    'Construction Trades',
-    'Hospitality',
-    'Outros'
-];
+    const labelsFeedback = [
+        'Chief Executives',
+        'Education Professionals',
+        'Construction Trades',
+        'Hospitality',
+        'Outros'
+    ];
 
-const dataFeedback = {
-    labels: labelsFeedback,
-    datasets: [{
-        label: 'Feedback Positivo',
-        data: [
-            16,  
-            20,   
-            12,   
-            17,   
-            3 + 8 
-        ],
-        backgroundColor: [
-            '#6f42c1', // Roxo - Chief Executives
-            '#c71585', // Rosa - Education Professionals
-            '#dc3545', // Vermelho - Construction Trades
-            '#0A82B0', // Azul Claro - Hospitality
-            '#007bff'  // Azul - Outros (Managers + Sales)
-        ],
-        borderColor: '#fff',
-        borderWidth: 2
-    }]
-};
+    const dataFeedback = {
+        labels: labelsFeedback,
+        datasets: [{
+            label: 'Feedback Positivo',
+            data: [
+                16,
+                20,
+                12,
+                17,
+                3 + 8
+            ],
+            backgroundColor: [
+                '#6f42c1', // Roxo - Chief Executives
+                '#c71585', // Rosa - Education Professionals
+                '#dc3545', // Vermelho - Construction Trades
+                '#0A82B0', // Azul Claro - Hospitality
+                '#007bff'  // Azul - Outros (Managers + Sales)
+            ],
+            borderColor: '#fff',
+            borderWidth: 2
+        }]
+    };
 
-const configFeedback = {
-    type: 'pie',
-    data: dataFeedback,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: true,
-                position: 'top',
-                labels: {
-                    usePointStyle: true,
-                    pointStyle: 'rect',
-                    padding: 10
-                }
-            },
-            tooltip: {
-                enabled: true,
-                callbacks: {
-                    label: (tooltipItem) => {
-                        const dataset = tooltipItem.chart.data.datasets[0];
-                        const index = tooltipItem.dataIndex;
-                        const label = labelsFeedback[index];
-                        const value = dataset.data[index];
-                        return `${label}: ${value}`;
+    const configFeedback = {
+        type: 'pie',
+        data: dataFeedback,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'rect',
+                        padding: 10
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: (tooltipItem) => {
+                            const dataset = tooltipItem.chart.data.datasets[0];
+                            const index = tooltipItem.dataIndex;
+                            const label = labelsFeedback[index];
+                            const value = dataset.data[index];
+                            return `${label}: ${value}`;
+                        }
                     }
                 }
             }
         }
-    }
-};
+    };
 
-const myFeedbackChart = new Chart(ctx3, configFeedback);
+    const myFeedbackChart = new Chart(ctx3, configFeedback);
 
 
 
 </script>
 
 <script>
- const slider = document.getElementById('medidor');
-const resultadoTexto = document.getElementById('resultadoTexto');
-const valorSlider = document.getElementById('valorSlider');
+    const slider = document.getElementById('medidor');
+    const resultadoTexto = document.getElementById('resultadoTexto');
+    const valorSlider = document.getElementById('valorSlider');
 
-// Definindo o valor inicial
-valorSlider.textContent = slider.value;
+    // Definindo o valor inicial
+    valorSlider.textContent = slider.value;
 
-// Função para ajustar a classificação de acordo com o valor
-function atualizarClassificacao() {
-    const valor = parseFloat(slider.value);
-    
-    if (valor < 2) {
-        resultadoTexto.textContent = 'Ruim';
-        resultadoTexto.style.color = 'red';
-    } else if (valor < 3.5) {
-        resultadoTexto.textContent = 'Regular';
-        resultadoTexto.style.color = 'orange';
-    } else if (valor < 4.5) {
-        resultadoTexto.textContent = 'Bom';
-        resultadoTexto.style.color = 'green';
-    } else {
-        resultadoTexto.textContent = 'Excelente';
-        resultadoTexto.style.color = 'darkgreen';
+    // Função para ajustar a classificação de acordo com o valor
+    function atualizarClassificacao() {
+        const valor = parseFloat(slider.value);
+
+        if (valor < 2) {
+            resultadoTexto.textContent = 'Ruim';
+            resultadoTexto.style.color = 'red';
+        } else if (valor < 3.5) {
+            resultadoTexto.textContent = 'Regular';
+            resultadoTexto.style.color = 'orange';
+        } else if (valor < 4.5) {
+            resultadoTexto.textContent = 'Bom';
+            resultadoTexto.style.color = 'green';
+        } else {
+            resultadoTexto.textContent = 'Excelente';
+            resultadoTexto.style.color = 'darkgreen';
+        }
     }
-}
 
-// Atualiza a classificação assim que a página carrega
-atualizarClassificacao();
+    // Atualiza a classificação assim que a página carrega
+    atualizarClassificacao();
 
-// Adiciona o evento de 'input' para atualizar a classificação em tempo real (caso o slider não esteja desabilitado)
-slider.addEventListener('input', function() {
-    valorSlider.textContent = slider.value; // Exibe o valor atual
-    atualizarClassificacao(); // Atualiza a classificação
-});
+    // Adiciona o evento de 'input' para atualizar a classificação em tempo real (caso o slider não esteja desabilitado)
+    slider.addEventListener('input', function () {
+        valorSlider.textContent = slider.value; // Exibe o valor atual
+        atualizarClassificacao(); // Atualiza a classificação
+    });
 
 </script>

@@ -1,7 +1,6 @@
 
 var ambiente_processo = 'producao'
 
-
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 require("dotenv").config({ path: caminho_env });
 
@@ -17,7 +16,8 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var dashboardRouter = require("./src/routes/dashboard");
-var calendarRoutes = require("./src/routes/calendar"); // Adicionei a importação de calendarRoutes, caso contrário, isso causará um erro
+var dashboardGestorRouter = require("./src/routes/dashboardGestor");
+var calendarRoutes = require("./src/routes/calendar"); 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +28,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/dashboardGestor", dashboardGestorRouter);
 app.use("/api", calendarRoutes);
 
 
