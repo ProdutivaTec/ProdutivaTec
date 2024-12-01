@@ -387,6 +387,74 @@
                 alert("Erro ao carregar os dados de comparação. Verifique o console para mais detalhes.");
             });
     }
+    document.addEventListener("DOMContentLoaded", function () {
+        const selectAspectos = document.querySelector(".selectAspectos");
+    
+        selectAspectos.addEventListener("change", function () {
+            const opcaoSelecionada = selectAspectos.value; 
+            carregarDadosPioresAspectos(opcaoSelecionada); 
+        });
+        carregarDadosPioresAspectos("remoto");
+    });
+
+    function carregarDadosPioresAspectos(tipo) {
+        fetch(`/dashboard/pioresAspectos/${tipo}`, { method: "GET" })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Erro ao carregar os dados.");
+                }
+                return response.json();
+            })
+            .then((dados) => {
+                console.log(`Dados de piores aspectos (${tipo}):`, dados);
+    
+                const top4 = dados.slice(0, 4);
+    
+                const labels = top4.map((item) => item.aspecto);
+                const data = top4.map((item) => item.quantidade);
+    
+                const ctx = document.getElementById("GraficoPiorAspecto").getContext("2d");
+    
+                if (window.graficoAtual) {
+                    window.graficoAtual.destroy(); 
+                }
+    
+                window.graficoAtual = new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: `Piores Aspectos do Trabalho (${tipo})`,
+                                data: data,
+                                backgroundColor: [
+                                     "#007bff", "#0056b3", "#6f42c1", "#c71585", "#17a2b8", "#28a745"
+                                ],
+                                borderColor: "#FFFFFF",
+                                borderWidth: 1,
+                            },
+                        ],
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: "bottom",
+                                labels: {
+                                    color: "#000", 
+                                    font: {
+                                        size: 12, 
+                                    },
+                                },
+                            },
+                        },
+                    },
+                });
+            })
+            .catch((erro) => {
+                console.error("Erro ao carregar os dados de piores aspectos:", erro);
+            });
+    }
     window.onload = function () {
         carregarDadosGenero();
         carregarTotalColaboradores();
@@ -396,4 +464,5 @@
         carregarDadosRecomendacao();
         atualizarGraficoFeedback();
         carregarComparacaoEquipes();
+        carregarDadosPioresAspectos();
     };
