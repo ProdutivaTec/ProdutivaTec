@@ -56,7 +56,7 @@ function calcularPorcentagemRespostas(req, res) {
             const totalRespostas = resultados[1][0].quantidade_respostas;
 
             if (totalColaboradores > 0) {
-                const porcentagem = (totalRespostas / totalColaboradores) * 100;    
+                const porcentagem = (totalRespostas / totalColaboradores) * 100;
                 res.status(200).json({ porcentagem_respostas: porcentagem });
             } else {
                 res.status(204).send("Nenhum colaborador encontrado!");
@@ -130,29 +130,15 @@ function produtividadePorEquipe(req, res) {
     dashboardModel.produtividadePorEquipe()
         .then(function (resultado) {
             if (resultado.length > 0) {
-                const equipes = [
-                    "Managers",
-                    "Sales",
-                    "Chief Executives",
-                    "Education Professionals",
-                    "Construction Trades",
-                    "Hospitality",
-                ];
+                const equipes = [...new Set(resultado.map(item => item.equipe))]; 
 
-                const produtividadeEquipes = equipes.map((equipe, index) => {
-                    const produtividadeEquipe = resultado.map((item) => ({
-                        equipe: equipe,
-                        categoria_produtividade: item.categoria_produtividade,
-                        quantidade: Math.floor(item.quantidade + equipes.length),
-                    }));
-
-                    if (index === equipes.length - 1) {
-                        produtividadeEquipe.forEach((item, i) => {
-                            const restante = resultado[i].quantidade / equipes.length;
-                            item.quantidade += restante;
-                        });
-                    }
-
+                const produtividadeEquipes = equipes.map((equipe) => {
+                    const produtividadeEquipe = resultado.filter((item) => item.equipe === equipe)
+                        .map((item) => ({
+                            equipe: equipe,
+                            categoria_produtividade: item.categoria_produtividade,
+                            quantidade: item.quantidade
+                        }));
                     return produtividadeEquipe;
                 });
 
@@ -166,33 +152,20 @@ function produtividadePorEquipe(req, res) {
             res.status(500).json(erro.sqlMessage);
         });
 }
+
 function satisfacaoPorEquipe(req, res) {
     dashboardModel.satisfacaoPorEquipe()
         .then(function (resultado) {
             if (resultado.length > 0) {
-                const equipes = [
-                    "Managers",
-                    "Sales",
-                    "Chief Executives",
-                    "Education Professionals",
-                    "Construction Trades",
-                    "Hospitality",
-                ];
+                const equipes = [...new Set(resultado.map(item => item.equipe))];
 
-                const satisfacaoEquipes = equipes.map((equipe, index) => {
-                    const satisfacaoEquipe = resultado.map((item) => ({
-                        equipe: equipe,
-                        categoria_satisfacao: item.categoria_satisfacao,
-                        quantidade: Math.floor(item.quantidade + equipes.length),
-                    }));
-
-                    if (index === equipes.length - 1) {
-                        satisfacaoEquipe.forEach((item, i) => {
-                            const restante = resultado[i].quantidade / equipes.length;
-                            item.quantidade += restante;
-                        });
-                    }
-
+                const satisfacaoEquipes = equipes.map((equipe) => {
+                    const satisfacaoEquipe = resultado.filter((item) => item.equipe === equipe)
+                        .map((item) => ({
+                            equipe: equipe,
+                            categoria_satisfacao: item.categoria_satisfacao,
+                            quantidade: item.quantidade
+                        }));
                     return satisfacaoEquipe;
                 });
 
@@ -206,6 +179,42 @@ function satisfacaoPorEquipe(req, res) {
             res.status(500).json(erro.sqlMessage);
         });
 }
+function comparacaoProdutividadeSatisfacao(req, res) {
+    Promise.all([
+        dashboardModel.produtividadePorEquipe(),
+        dashboardModel.satisfacaoPorEquipe()
+    ])
+    .then(([produtividadeResult, satisfacaoResult]) => {
+        if (produtividadeResult.length === 0 || satisfacaoResult.length === 0) {
+            res.status(204).send("Nenhum dado encontrado!");
+            return;
+        }
+
+        const comparacao = [];
+
+        const equipes = [...new Set([
+            ...produtividadeResult.map(item => item.equipe),
+            ...satisfacaoResult.map(item => item.equipe)
+        ])];
+
+        equipes.forEach(equipe => {
+            const produtividade = produtividadeResult.find(item => item.equipe === equipe)?.quantidade || 0;
+            const satisfacao = satisfacaoResult.find(item => item.equipe === equipe)?.quantidade || 0;
+
+            comparacao.push({
+                equipe,
+                produtividade,
+                satisfacao
+            });
+        });
+
+        res.status(200).json(comparacao);
+    })
+    .catch(erro => {
+        console.error("Erro ao buscar dados de comparação:", erro.sqlMessage || erro);
+        res.status(500).json(erro.sqlMessage || erro);
+    });
+}
 
 module.exports = {
     genero,
@@ -215,5 +224,6 @@ module.exports = {
     colaboradoresSatisfeitos,
     recomendacao,
     produtividadePorEquipe,
-    satisfacaoPorEquipe
+    satisfacaoPorEquipe,
+    comparacaoProdutividadeSatisfacao
 };

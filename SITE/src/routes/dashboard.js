@@ -29,4 +29,7 @@ router.post("/produtividade/equipes", function (req, res) {
 router.post("/satisfacao/equipes", function (req, res) {
     dashboardController.satisfacaoPorEquipe(req, res); 
 });
+router.post("/comparacao/equipes", function (req, res) {
+    dashboardController.comparacaoProdutividadeSatisfacao(req, res);
+});
 module.exports = router;
