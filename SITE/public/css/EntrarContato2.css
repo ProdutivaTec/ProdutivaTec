@@ -562,6 +562,54 @@ input[type="text"] {
   }
 
  
-
 }
+@media (max-width: 480px){
+  .containerContato {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .areaLinks {
+    flex-direction: column;
+    align-items: center;
+
+    margin-left: -20%;
+}
+
+.left-side .logoContato {
+  width: 150px;
+  height: 50px;
+  margin-left: -5%;
+}
+
+input[type="text"] {
+  width: 25.5%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Asap", sans-serif;
+}
+
+.inputET, textarea {
+  width: 57%;
+}
+
+
+.bntEntrarContato  {
+  text-align: center;
+  text-decoration: none;
+  width: 61.5%;
+  padding: 18px 25px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+
+ }
 

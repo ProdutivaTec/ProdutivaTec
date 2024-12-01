@@ -15,7 +15,8 @@ html {
     font-variation-settings: "wdth" 100;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -81,7 +82,8 @@ header {
     transition: 0.8s;
 }
 
-.imgMain, .areaImg {
+.imgMain,
+.areaImg {
     max-width: 100%;
     height: auto;
     margin: 0 auto;
@@ -213,8 +215,7 @@ header {
     }
 
     .entreSessoes {
-        display: flex
-;
+        display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
@@ -225,7 +226,7 @@ header {
         padding: 10px;
         margin-left: -30px;
     }
-    
+
     .boxMain {
         height: 430px;
         width: 310px;
@@ -234,12 +235,12 @@ header {
         justify-content: center;
         text-align: center;
         box-sizing: border-box;
-        margin: 0; 
+        margin: 0;
         overflow: hidden;
         position: relative;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 6px 20px rgba(0, 0, 0, 0.10);
     }
-    
+
 }
 
 @media (max-width: 992px) {
@@ -264,14 +265,14 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: nowrap; 
-        gap: 45px; 
+        flex-wrap: nowrap;
+        gap: 45px;
         margin-top: -70px;
         position: relative;
         z-index: 2;
         padding: 10px;
     }
-    
+
     .boxMain {
         height: 400px;
         width: 280px;
@@ -280,7 +281,7 @@ header {
         justify-content: center;
         text-align: center;
         box-sizing: border-box;
-        margin: 0; 
+        margin: 0;
         overflow: hidden;
         position: relative;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 6px 20px rgba(0, 0, 0, 0.10);
@@ -288,12 +289,12 @@ header {
 }
 
 @media (max-width: 768px) {
-        .textMain {
-            font-size: 35px;
-            width: 450px;
-            left: 70%;
-            margin-top: -550px;
-        }
+    .textMain {
+        font-size: 35px;
+        width: 450px;
+        left: 70%;
+        margin-top: -550px;
+    }
 
     .menu ul li a {
         font-size: 16px;
@@ -365,9 +366,31 @@ header {
     }
 
     .entreSessoes {
-        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        margin-top: -20px;
+        position: relative;
+        z-index: 2;
+        padding: 10px;
         align-items: center;
-        margin-top: 0;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-left: 0%;
+    }
+
+    .boxMain {
+        height: 200px;
+        flex-basis: 194px;
+        max-width: 150px;
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 6px 20px rgba(0, 0, 0, 0.10);
     }
 
     .textOverlay {
@@ -382,25 +405,128 @@ header {
     }
 
     .logo {
-        height: 60px;
-        width: 200px;
+        height: 50px;
+        width: 100px;
     }
 
     .imgLogoMain {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         bottom: 30px;
     }
 
     .menu ul {
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         gap: 10px;
-        margin-right: 0;
+        margin-top: -12%;
+        margin-left: 50%;
+        margin-right: auto;
+        width: 55%;
+        height: 4px;
+       
+    }
+
+    .menu ul li {
+        list-style: none;
     }
 
     .menu ul li a {
-        font-size: 16px;
+        font-size: 7px;
+        display: block;
+        padding: 5px;
+        text-align: center;
+        font-size: 9px;
+    }
+
+    .textMain {
+        font-size: 30px;
+        width: 300px;
+        left: 30%;
+    }
+}
+
+@media (max-width: 360px){
+    .boxMain {
+        height: 180px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .entreSessoes {
+        display: flex;
+        justify-content: center;
+        margin-top: -20px;
+        position: relative;
+        z-index: 2;
+        padding: 10px;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-left: 0%;
+    }
+
+    .boxMain {
+        height: 200px;
+        flex-basis: 194px;
+        max-width: 140px;
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 6px 20px rgba(0, 0, 0, 0.10);
+    }
+
+    .textOverlay {
+        font-size: 10px;
+        top: 60%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        height: 50px;
+        width: 100px;
+    }
+
+    .imgLogoMain {
+        width: 80px;
+        height: 80px;
+        bottom: 30px;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-top: -15%;
+        margin-left: 50%;
+        margin-right: auto;
+        width: 55%;
+        height: 4px;
+       
+    }
+
+    .menu ul li {
+        list-style: none;
+    }
+
+    .menu ul li a {
+        font-size: 7px;
+        display: block;
+        padding: 5px;
+        text-align: center;
+        font-size: 7px;
     }
 
     .textMain {

@@ -31,7 +31,7 @@ body {
     background-color: #245293;
     color: #FFFFFF;
     text-align: center;
-    padding: 20px; 
+    padding: 20px;
 }
 
 .footer-title {
@@ -70,22 +70,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px; 
-    flex-wrap: wrap; 
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .box {
     background-color: #245293;
     padding: 10px;
     text-align: center;
-    width: 100%; 
-    box-sizing: border-box; 
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: 20px;
 }
 
 .box h2 {
     margin: 0;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
 }
 
 .box p {
@@ -101,7 +101,7 @@ body {
 /* Responsividade */
 @media (min-width: 768px) {
     .footer-container {
-        flex-wrap: nowrap; 
+        flex-wrap: nowrap;
     }
 
     .box {
@@ -111,11 +111,21 @@ body {
 
 @media (max-width: 767px) {
     .box {
-        width: 100%; 
+        width: 100%;
     }
 
     .imgLogo {
-        width: 120px; 
-        height: auto; 
+        width: 120px;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-image {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        
+
     }
 }
