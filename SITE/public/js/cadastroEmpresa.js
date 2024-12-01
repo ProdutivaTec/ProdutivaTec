@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function cadastrarEmpresa(event) {
-    event.preventDefault()
+    event.preventDefault();
     aguardar();
 
     let erro = false;
@@ -25,6 +25,7 @@ async function cadastrarEmpresa(event) {
     if (!validarCampo('qtdFuncionarios', 1, 8)) erro = true;
 
     if (erro) {
+        exibirModalErro(); // Exibe o modal de erro
         finalizarAguardar();
         return;
     }
@@ -72,11 +73,11 @@ async function cadastrarEmpresa(event) {
           console.log("resposta: ", resposta);
   
           if (resposta.ok) {
-            alert("Empresa cadastrada com sucesso!");
+            exibirModalSucesso(); // Substituição do alert pelo modal
 
             setTimeout(() => {
-                window.location = "cadastroFuncionario.html";;
-            }, "2000");
+                window.location = "cadastroFuncionario.html";
+            }, 2000);
   
             finalizarAguardar();
           } else {
@@ -84,9 +85,31 @@ async function cadastrarEmpresa(event) {
           }
         })
         .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
+            console.log(`#ERRO: ${resposta}`);
+            exibirModalErro(); // Exibir o modal de erro
+            finalizarAguardar();
         });
+        
+}
+
+function exibirModalSucesso() {
+    const modalSucesso = document.querySelector("#modalSucesso"); // Ajuste para o modal de sucesso que você já possui
+    if (modalSucesso) {
+        modalSucesso.style.display = "flex";
+        setTimeout(() => {
+            modalSucesso.style.display = "none";
+        }, 2000);
+    }
+}
+
+function exibirModalErro() {
+    const modal = document.querySelector("#errorModal"); // ID do modal de erro
+    if (modal) {
+        modal.style.display = "flex";
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 2000);
+    }
 }
 
 function validarCampo(campo, minLength, maxLength) {

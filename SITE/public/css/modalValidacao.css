@@ -2,17 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
 
 .modal-content {
+    display: none;
     background-color: #245293;
     padding: 20px;
     border-radius: 8px;
-    width: 300px;
+    width: 350px;
     height: auto;
     text-align: center;
-    position: relative;
+    position: fixed;
     font-family: "Paytone One", sans-serif;
     color: #FFF;
     font-size: 20px;
-    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
