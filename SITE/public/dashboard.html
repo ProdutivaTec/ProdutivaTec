@@ -29,15 +29,13 @@
                         <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
                         Eventos
                     </div>
-                </a>
-                <a href="./configuracoesPerfil.html">
-                    <div class="menu-item">
+                </a>     
+                    <div class="menu-item" onclick="irParaConfiguracoes()">
                         <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
                         Configurações
                     </div>
-                </a>
             </div>
-            <div class="itemExit">
+            <div class="itemExit" onclick="limparSessao()">
                 <p class="pSidebar">Sair</p>
                 <img class="iconE" src="./assets/icon/Sair.png" alt="Sair Icon">
             </div>
@@ -204,6 +202,7 @@
 
 <script src="./js/dashboard.js"></script>
 <script src="./js/modal.js"></script>
+<script src="./js/sessao.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>

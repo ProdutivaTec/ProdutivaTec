@@ -23,23 +23,20 @@
                 <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
             </div>
             <br>
-            <a href="./dashboard.html">
-                <div class="divMenu">
-                    <div class="menu-item">
-                        <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
-                        Dashboard
-                    </div>
-            </a>
+        <div class="divMenu">
+            <div class="menu-item" onclick="irParaDashboard()">
+                <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
+                Dashboard
+            </div>
+            
             <div class="menu-itemAtivo">
                 <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Suporte - IA Icon">
                 Eventos
             </div>
-            <a href="./configuracoesPerfil.html">
-                <div class="menu-item">
+                <div class="menu-item" onclick="irParaConfiguracoes()">
                     <img class="icon" src="./assets/icon/Configurações.png" alt="Configurações Icon">
                     Configurações
                 </div>
-            </a>
             </div>
             <div class="itemExit" onclick="limparSessao()">
                 <p class="pSidebar">Sair</p>
@@ -162,7 +159,6 @@
     <script src="./js/modal.js"></script>
     <script src="./js/dashboard.js"></script>
     <script src="./js/sessao.js"></script>
-
 
 </body>
 

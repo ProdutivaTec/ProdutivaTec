@@ -33,21 +33,35 @@ function entrar() {
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
+                    sessionStorage.ID_FUNCIONARIO = json.idFuncionario;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_FUNCIONARIO = json.idFuncionario;
+                    sessionStorage.TELEFONE = json.felefone;
+                    sessionStorage.SENHA_USUARIO = json.senha;
+                    sessionStorage.FK_EMPRESA = json.fkEmpresa;
+                    sessionStorage.FK_TIPO_FUNCIONARIO = json.fkTipoFuncionario;
+
+                    var tipoFuncionario = sessionStorage.FK_TIPO_FUNCIONARIO = json.fkTipoFuncionario;
 
                     alert("Login realizado com sucesso");
     
-                    setTimeout(function () {
+                    if (tipoFuncionario == 1) {
+                        setTimeout(function () {
                         window.location = "dashboard.html";
                     }, 1000);
+                    } else {
+                        setTimeout(function () {
+                            window.location = "dashboard-VisãoGestor.html";
+                        }, 1000);
+                    }
+                    
     
                 })
     
             } else {
                 finalizarAguardar();
-                
+
+                alert("Houve um erro ao tentar realizar o login!");
                 console.log("Houve um erro ao tentar realizar o login!");
     
                 resposta.text().then(texto => {

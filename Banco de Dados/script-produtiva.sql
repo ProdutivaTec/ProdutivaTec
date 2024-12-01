@@ -1,3 +1,4 @@
+-- drop database produtiva;
 CREATE DATABASE produtiva;
 
 USE produtiva; 
@@ -20,13 +21,20 @@ CREATE TABLE tipoFuncionario (
     funcao VARCHAR(45) NOT NULL
 );
 
+insert into tipoFuncionario (funcao) values (
+'RH'
+);
+insert into tipoFuncionario (funcao) values (
+'Gestor'
+);
+
 CREATE TABLE funcionario (
     idFuncionario INT AUTO_INCREMENT PRIMARY KEY,
-    fkEmpresa INT NOT NULL,
     nome VARCHAR(90) NOT NULL,
-    senha VARCHAR(20) NOT NULL,
     email VARCHAR(45) NOT NULL,
     telefone VARCHAR(45),
+    senha VARCHAR(20) NOT NULL,
+    fkEmpresa INT NOT NULL,
     fkTipoFuncionario INT NOT NULL,
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
     FOREIGN KEY (fkTipoFuncionario) REFERENCES tipoFuncionario(idTipoFuncionario)
@@ -76,7 +84,6 @@ CREATE TABLE dadosDashboard (
 CREATE TABLE leads (
     idEmail INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(256) NOT NULL,
-    sobrenome VARCHAR(256),
     email VARCHAR(45) NOT NULL,
     telefone VARCHAR(45),
     mensagem VARCHAR(900)

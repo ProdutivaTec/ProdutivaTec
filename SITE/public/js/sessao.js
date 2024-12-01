@@ -30,3 +30,31 @@ function finalizarAguardar() {
 
 
 }
+
+function irParaDashboard() {
+    var tipoFuncionario = sessionStorage.FK_TIPO_FUNCIONARIO;
+    
+        if (tipoFuncionario == 1) {
+            setTimeout(function () {
+            window.location = "dashboard.html";
+        }, 500);
+        } else {
+            setTimeout(function () {
+            window.location = "dashboard-VisãoGestor.html";
+            }, 500);
+        }
+}
+
+function irParaConfiguracoes() {
+    var tipoFuncionario = sessionStorage.FK_TIPO_FUNCIONARIO;
+    
+        if (tipoFuncionario == 1) {
+            setTimeout(function () {
+            window.location = "configuracoesPerfil.html";
+        }, 500);
+        } else {
+            setTimeout(function () {
+            window.location = "configuracoesPerfil.html";
+            }, 500);
+        }
+}

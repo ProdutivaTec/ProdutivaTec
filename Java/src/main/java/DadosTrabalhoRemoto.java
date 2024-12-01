@@ -1,36 +1,30 @@
 public class DadosTrabalhoRemoto {
-    private Integer responseId;
+    private Integer idDados;
     private Integer anoNascimento;
     private String genero;
     private String setor;
     private String ocupacao;
-    private String tipoFamilia;
-    private String facilidadeColaboracaoPassado;
-    private String recomendacaoTrabalhoRemotoPassado;
-    private String facilidadeColaboracao3Meses;
-    private String recomendacaoTrabalhoRemoto3Meses;
-    private String preferenciaTempoRemoto;
+    private String tamanhoFamilia;
+    private String colaboracaoComColegasAnoAnterior;
+    private String recomendacao;
+    private String colaboracaoComColegas3Meses;
+    private String preferenciaTrabalhoRemoto;
     private String produtividade;
-    private Double horasTrabalhadas;
-    private String barreiraMaisSignificativa;
-    private String barreiraMenosSignificativa;
     private String piorAspectoTrabalhoRemoto;
-    private String melhorAspectoTrabalhoRemoto;
+    private String piorAspectoTrabalhoPresencial;
+    private Integer tempoDedicadoTrabalhoPresencial;
+    private Integer tempoDedicadoTarefasPresencial;
+    private Integer tempoDedicadoTrabalhoRemoto;
+    private Integer tempoDedicadoTarefasRemoto;
+    private String maiorBarreiraTrabalhoRemoto;
+    private String menorBarreiraTrabalhoRemoto;
 
-    public Integer getResponseId() {
-        return responseId;
+    public Integer getIdDados() {
+        return idDados;
     }
 
-    public void setResponseId(Integer responseId) {
-        this.responseId = responseId;
-    }
-
-    public Integer getAnoNascimento() {
-        return anoNascimento;
-    }
-
-    public void setAnoNascimento(Integer anoNascimento) {
-        this.anoNascimento = anoNascimento;
+    public void setIdDados(Integer idDados) {
+        this.idDados = idDados;
     }
 
     public String getGenero() {
@@ -41,12 +35,12 @@ public class DadosTrabalhoRemoto {
         this.genero = genero;
     }
 
-    public String getOcupacao() {
-        return ocupacao;
+    public Integer getAnoNascimento() {
+        return anoNascimento;
     }
 
-    public void setOcupacao(String ocupacao) {
-        this.ocupacao = ocupacao;
+    public void setAnoNascimento(Integer anoNascimento) {
+        this.anoNascimento = anoNascimento;
     }
 
     public String getSetor() {
@@ -57,52 +51,52 @@ public class DadosTrabalhoRemoto {
         this.setor = setor;
     }
 
-    public String getTipoFamilia() {
-        return tipoFamilia;
+    public String getOcupacao() {
+        return ocupacao;
     }
 
-    public void setTipoFamilia(String tipoFamilia) {
-        this.tipoFamilia = tipoFamilia;
+    public void setOcupacao(String ocupacao) {
+        this.ocupacao = ocupacao;
     }
 
-    public String getFacilidadeColaboracaoPassado() {
-        return facilidadeColaboracaoPassado;
+    public String getTamanhoFamilia() {
+        return tamanhoFamilia;
     }
 
-    public void setFacilidadeColaboracaoPassado(String facilidadeColaboracaoPassado) {
-        this.facilidadeColaboracaoPassado = facilidadeColaboracaoPassado;
+    public void setTamanhoFamilia(String tamanhoFamilia) {
+        this.tamanhoFamilia = tamanhoFamilia;
     }
 
-    public String getRecomendacaoTrabalhoRemotoPassado() {
-        return recomendacaoTrabalhoRemotoPassado;
+    public String getRecomendacao() {
+        return recomendacao;
     }
 
-    public void setRecomendacaoTrabalhoRemotoPassado(String recomendacaoTrabalhoRemotoPassado) {
-        this.recomendacaoTrabalhoRemotoPassado = recomendacaoTrabalhoRemotoPassado;
+    public void setRecomendacao(String recomendacao) {
+        this.recomendacao = recomendacao;
     }
 
-    public String getFacilidadeColaboracao3Meses() {
-        return facilidadeColaboracao3Meses;
+    public String getColaboracaoComColegasAnoAnterior() {
+        return colaboracaoComColegasAnoAnterior;
     }
 
-    public void setFacilidadeColaboracao3Meses(String facilidadeColaboracao3Meses) {
-        this.facilidadeColaboracao3Meses = facilidadeColaboracao3Meses;
+    public void setColaboracaoComColegasAnoAnterior(String colaboracaoComColegasAnoAnterior) {
+        this.colaboracaoComColegasAnoAnterior = colaboracaoComColegasAnoAnterior;
     }
 
-    public String getRecomendacaoTrabalhoRemoto3Meses() {
-        return recomendacaoTrabalhoRemoto3Meses;
+    public String getColaboracaoComColegas3Meses() {
+        return colaboracaoComColegas3Meses;
     }
 
-    public void setRecomendacaoTrabalhoRemoto3Meses(String recomendacaoTrabalhoRemoto3Meses) {
-        this.recomendacaoTrabalhoRemoto3Meses = recomendacaoTrabalhoRemoto3Meses;
+    public void setColaboracaoComColegas3Meses(String colaboracaoComColegas3Meses) {
+        this.colaboracaoComColegas3Meses = colaboracaoComColegas3Meses;
     }
 
-    public String getPreferenciaTempoRemoto() {
-        return preferenciaTempoRemoto;
+    public String getPreferenciaTrabalhoRemoto() {
+        return preferenciaTrabalhoRemoto;
     }
 
-    public void setPreferenciaTempoRemoto(String preferenciaTempoRemoto) {
-        this.preferenciaTempoRemoto = preferenciaTempoRemoto;
+    public void setPreferenciaTrabalhoRemoto(String preferenciaTrabalhoRemoto) {
+        this.preferenciaTrabalhoRemoto = preferenciaTrabalhoRemoto;
     }
 
     public String getProdutividade() {
@@ -113,30 +107,6 @@ public class DadosTrabalhoRemoto {
         this.produtividade = produtividade;
     }
 
-    public Double getHorasTrabalhadas() {
-        return horasTrabalhadas;
-    }
-
-    public void setHorasTrabalhadas(Double horasTrabalhadas) {
-        this.horasTrabalhadas = horasTrabalhadas;
-    }
-
-    public String getBarreiraMaisSignificativa() {
-        return barreiraMaisSignificativa;
-    }
-
-    public void setBarreiraMaisSignificativa(String barreiraMaisSignificativa) {
-        this.barreiraMaisSignificativa = barreiraMaisSignificativa;
-    }
-
-    public String getBarreiraMenosSignificativa() {
-        return barreiraMenosSignificativa;
-    }
-
-    public void setBarreiraMenosSignificativa(String barreiraMenosSignificativa) {
-        this.barreiraMenosSignificativa = barreiraMenosSignificativa;
-    }
-
     public String getPiorAspectoTrabalhoRemoto() {
         return piorAspectoTrabalhoRemoto;
     }
@@ -145,11 +115,59 @@ public class DadosTrabalhoRemoto {
         this.piorAspectoTrabalhoRemoto = piorAspectoTrabalhoRemoto;
     }
 
-    public String getMelhorAspectoTrabalhoRemoto() {
-        return melhorAspectoTrabalhoRemoto;
+    public String getPiorAspectoTrabalhoPresencial() {
+        return piorAspectoTrabalhoPresencial;
     }
 
-    public void setMelhorAspectoTrabalhoRemoto(String melhorAspectoTrabalhoRemoto) {
-        this.melhorAspectoTrabalhoRemoto = melhorAspectoTrabalhoRemoto;
+    public void setPiorAspectoTrabalhoPresencial(String piorAspectoTrabalhoPresencial) {
+        this.piorAspectoTrabalhoPresencial = piorAspectoTrabalhoPresencial;
+    }
+
+    public Integer getTempoDedicadoTrabalhoPresencial() {
+        return tempoDedicadoTrabalhoPresencial;
+    }
+
+    public void setTempoDedicadoTrabalhoPresencial(Integer tempoDedicadoTrabalhoPresencial) {
+        this.tempoDedicadoTrabalhoPresencial = tempoDedicadoTrabalhoPresencial;
+    }
+
+    public Integer getTempoDedicadoTarefasPresencial() {
+        return tempoDedicadoTarefasPresencial;
+    }
+
+    public void setTempoDedicadoTarefasPresencial(Integer tempoDedicadoTarefasPresencial) {
+        this.tempoDedicadoTarefasPresencial = tempoDedicadoTarefasPresencial;
+    }
+
+    public Integer getTempoDedicadoTrabalhoRemoto() {
+        return tempoDedicadoTrabalhoRemoto;
+    }
+
+    public void setTempoDedicadoTrabalhoRemoto(Integer tempoDedicadoTrabalhoRemoto) {
+        this.tempoDedicadoTrabalhoRemoto = tempoDedicadoTrabalhoRemoto;
+    }
+
+    public Integer getTempoDedicadoTarefasRemoto() {
+        return tempoDedicadoTarefasRemoto;
+    }
+
+    public void setTempoDedicadoTarefasRemoto(Integer tempoDedicadoTarefasRemoto) {
+        this.tempoDedicadoTarefasRemoto = tempoDedicadoTarefasRemoto;
+    }
+
+    public String getMaiorBarreiraTrabalhoRemoto() {
+        return maiorBarreiraTrabalhoRemoto;
+    }
+
+    public void setMaiorBarreiraTrabalhoRemoto(String maiorBarreiraTrabalhoRemoto) {
+        this.maiorBarreiraTrabalhoRemoto = maiorBarreiraTrabalhoRemoto;
+    }
+
+    public String getMenorBarreiraTrabalhoRemoto() {
+        return menorBarreiraTrabalhoRemoto;
+    }
+
+    public void setMenorBarreiraTrabalhoRemoto(String menorBarreiraTrabalhoRemoto) {
+        this.menorBarreiraTrabalhoRemoto = menorBarreiraTrabalhoRemoto;
     }
 }

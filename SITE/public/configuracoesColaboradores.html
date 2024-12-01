@@ -22,13 +22,11 @@
                     <img src="./assets/img/LOGO.png" id="theme-logo" alt="Logo">
                 </div>
                 <br>
-                <a href="./dashboard.html">
                 <div class="divMenu">
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="irParaDashboard()">
                         <img class="icon" src="./assets/icon/Dash.png" alt="Dashboards Icon">
                         Dashboard
-                    </div>
-                </a>
+                    </div>               
                     <a href="./calendario.html">
                         <div class="menu-item">
                             <img class="icon" src="./assets/icon/calendario (1) 1.png" alt="Eventos Icon">
@@ -220,14 +218,14 @@
                             <input class="inputCadastro" type="email" id="email_input">
                         </div>
                         <div>
-                            <span class="input-label">Função</span>
-                            <input class="inputCadastro" type="text" id="funcao_input">
-                        </div>
+                            <span class="input-label">Senha</span>
+                            <input class="inputCadastro" type="text" id="senha_input">
+                        </div> 
                     </div>
                 </fieldset>
                 <div class="access-typeCadastro">
-                    <label><input type="radio" name="acesso" value="total"> Acesso total</label>
-                    <label><input type="radio" name="acesso" value="limitado"> Acesso limitado</label>
+                    <label><input type="radio" name="acesso" value="total" id="acessoTotal_input"> Acesso total</label>
+                    <label><input type="radio" name="acesso" value="limitado" id="acessoLimitado_input"> Acesso limitado</label>
                     <span class="error" id="checkboxError"></span>
                 </div> 
                 <button onclick="cadastrarFuncionario(event)" type="submit">CADASTRAR FUNCIONÁRIO</button>

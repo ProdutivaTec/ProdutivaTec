@@ -11,10 +11,12 @@ function cadastrarFuncionarioRoot() {
     var nomeVar =  document.getElementById("input_nome").value;
     var emailVar = document.getElementById("input_email").value;
     var telefoneVar = document.getElementById("input_telefone").value;
-    var cargoVar = document.getElementById("input_cargo").value;
+    var cargoVar = '1';
     var senhaVar = document.getElementById("input_senha").value;
     var confirmacaoSenhaVar = document.getElementById("input_senhaConfirmar").value;
-//    var empresaVar = listaEmpresas.value
+    var empresaVar = document.getElementById("listaEmpresas").value;
+    console.log("Empresa selecionada:", empresaVar);
+
 
     if (
       nomeVar == "" ||
@@ -22,11 +24,10 @@ function cadastrarFuncionarioRoot() {
       telefoneVar == "" ||
       cargoVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
+      confirmacaoSenhaVar == "" ||
+      empresaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      console.log('erro ao enviar para o controller')
 
       finalizarAguardar();
       return false;
@@ -42,9 +43,9 @@ function cadastrarFuncionarioRoot() {
         nomeServer: nomeVar,
         emailServer: emailVar,
         telefoneServer: telefoneVar,
-        cargoServer: cargoVar,
-        senhaServer: senhaVar
-        //empresaServer: empresaVar
+        senhaServer: senhaVar,
+        empresaServer: empresaVar,
+        cargoServer: cargoVar
       }),
     })
       .then(function (resposta) {
@@ -59,7 +60,7 @@ function cadastrarFuncionarioRoot() {
         
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          throw "Houve um erro ao tentar realizar o cadastro! no featch";
         }
       })
       .catch(function (resposta) {
@@ -77,17 +78,16 @@ function cadastrarFuncionario() {
   var nome_input = document.getElementById("nome_input");
   var sobrenome_input = document.getElementById("sobrenome_input");
   var email_input = document.getElementById("email_input");
-  var funcao_input = document.getElementById("funcao_input");
+  var senha_input = document.getElementById("senha_input");
   const acessoTotal_input = document.getElementById("acessoTotal_input");
   const acessoLimitado_input = document.getElementById("acessoLimitado_input");
 
   let nivelAcessoVar = '';
     if (acessoTotal_input.checked) {
-        nivelAcessoVar = "RH";
+        nivelAcessoVar = 1;
     } else if (acessoLimitado_input.checked) {
-        nivelAcessoVar = "Gestor";
+        nivelAcessoVar = 2;
     } else {
-        // Exibe mensagem de erro se nenhum for selecionado
         const checkboxError = document.getElementById("checkboxError");
         checkboxError.textContent = "Por favor, selecione um nível de acesso.";
         return;
@@ -96,9 +96,8 @@ function cadastrarFuncionario() {
   var nomeVar = `${nome_input.value} ${sobrenome_input.value}`;
   var emailVar = email_input.value;
   var telefoneVar = '';
-  var cargoVar = funcao_input.value;
-  var senhaAleatoriaVar = Math.floor(Math.random() * 100_000_000);
-  //var empresaVar = listaEmpresas.value
+  var senhaVar = senha_input.value;
+  var empresaVar = sessionStorage.FK_EMPRESA;
       nivelAcessoVar;
 
   // COMEÇO DAS VALIDAÇÕES //
@@ -106,10 +105,9 @@ function cadastrarFuncionario() {
   if (
     nomeVar == "" ||
     emailVar == "" ||
-    senhaAleatoriaVar == "" ||
-    cargoVar == "" ||
-    nivelAcessoVar == ""
-  //  empresaVar == ""
+    senhaVar == "" ||
+    nivelAcessoVar == "" ||
+    empresaVar == ""
   ) {
     checkboxError.textContent =
       "(Mensagem de erro para todos os campos em branco)";
@@ -189,7 +187,7 @@ function cadastrarFuncionario() {
   }
 
   // VALIDAÇÕES SENHA 
-  let senhaTamanho = senhaAleatoriaVar.length;
+  let senhaTamanho = senhaVar.length;
 
   // SE O TAMANHO DA SENHA FOR MENOR QUE 6 OU MAIOR QUE 20, ELE NÃO PASSA
   if (senhaTamanho < 3 || senhaTamanho > 45) {
@@ -215,10 +213,9 @@ function cadastrarFuncionario() {
       nomeServer: nomeVar,
       emailServer: emailVar,
       telefoneServer: telefoneVar,
-      cargoServer: cargoVar,
-      senhaServer: senhaAleatoriaVar,
+      senhaServer: senhaVar,
+      empresaServer: empresaVar,
       nivelAcessoServer: nivelAcessoVar
-      //empresaServer: empresaVar
     }),
   })
     .then(function (resposta) {
@@ -285,3 +282,21 @@ function finalizarAguardar() {
     const loader = document.querySelector('#loader');
     if (loader) loader.style.display = 'none';
 }
+
+/* function listar() {
+  fetch("/usuarios/listarEmpresas", {
+    method: "GET",
+  })
+    .then(function (resposta) {
+      resposta.json().then((empresas) => {
+        empresas.forEach((empresa) => {
+          listaEmpresas.innerHTML += `<option value='${empresa.idEmpresa}'>${empresa.cnpj}</option>`;
+          document.getElementById("listaEmpresas").innerHTML += `<option value='${empresa.idEmpresa}'>${empresa.cnpj}</option>`;
+        });
+      });
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+}
+*/

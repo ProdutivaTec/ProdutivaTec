@@ -21,24 +21,25 @@ public class LeituraDadosTrabalhoRemoto extends DadosTrabalhoRemoto {
 
                 DadosTrabalhoRemoto dados = new DadosTrabalhoRemoto();
 
-                dados.setResponseId((int) getNumericCellValue(row.getCell(0)));
+                dados.setIdDados((int) getNumericCellValue(row.getCell(0)));
                 dados.setAnoNascimento((int) getNumericCellValue(row.getCell(1)));
                 dados.setGenero(getStringCellValue(row.getCell(2)));
                 dados.setSetor(getStringCellValue(row.getCell(3)));
                 dados.setOcupacao(getStringCellValue(row.getCell(4)));
-                dados.setTipoFamilia(getStringCellValue(row.getCell(5)));
-                dados.setFacilidadeColaboracaoPassado(getStringCellValue(row.getCell(6)));
-                dados.setRecomendacaoTrabalhoRemotoPassado(getStringCellValue(row.getCell(7)));
-                dados.setFacilidadeColaboracao3Meses(getStringCellValue(row.getCell(8)));
-                dados.setRecomendacaoTrabalhoRemoto3Meses(getStringCellValue(row.getCell(9)));
-                dados.setPreferenciaTempoRemoto(getStringCellValue(row.getCell(10)));
-                dados.setProdutividade(getStringCellValue(row.getCell(11)));
-                dados.setHorasTrabalhadas((double) getNumericCellValue(row.getCell(12)));
-                dados.setBarreiraMaisSignificativa(getStringCellValue(row.getCell(13)));
-                dados.setBarreiraMenosSignificativa(getStringCellValue(row.getCell(14)));
-                dados.setPiorAspectoTrabalhoRemoto(getStringCellValue(row.getCell(15)));
-                dados.setMelhorAspectoTrabalhoRemoto(getStringCellValue(row.getCell(16)));
-
+                dados.setTamanhoFamilia(getStringCellValue(row.getCell(5)));
+                dados.setColaboracaoComColegasAnoAnterior(getStringCellValue(row.getCell(6)));
+                dados.setRecomendacao(getStringCellValue(row.getCell(7)));
+                dados.setColaboracaoComColegas3Meses(getStringCellValue(row.getCell(8)));
+                dados.setPreferenciaTrabalhoRemoto(getStringCellValue(row.getCell(9)));
+                dados.setProdutividade(getStringCellValue(row.getCell(10)));
+                dados.setPiorAspectoTrabalhoRemoto(getStringCellValue(row.getCell(11)));
+                dados.setPiorAspectoTrabalhoPresencial(getStringCellValue(row.getCell(12)));
+                dados.setTempoDedicadoTrabalhoPresencial((int) getNumericCellValue(row.getCell(13)));
+                dados.setTempoDedicadoTarefasPresencial((int) getNumericCellValue(row.getCell(14)));
+                dados.setTempoDedicadoTrabalhoRemoto((int) getNumericCellValue(row.getCell(15)));
+                dados.setTempoDedicadoTarefasRemoto((int) getNumericCellValue(row.getCell(16)));
+                dados.setMaiorBarreiraTrabalhoRemoto(getStringCellValue(row.getCell(17)));
+                dados.setMenorBarreiraTrabalhoRemoto(getStringCellValue(row.getCell(18)));
                 listaDados.add(dados);
             }
         } catch (IOException e) {
@@ -59,7 +60,7 @@ public class LeituraDadosTrabalhoRemoto extends DadosTrabalhoRemoto {
     }
 
     private String formatarValorParaSQL(String valor) {
-        if (valor == null || valor.isEmpty()) return "NULL";
-        return "'" + valor.replace("'", "''") + "'";
+        if (valor == null || valor.isEmpty()) return null;
+        return valor.trim();
     }
 }
