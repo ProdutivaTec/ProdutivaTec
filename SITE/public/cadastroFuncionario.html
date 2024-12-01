@@ -37,13 +37,6 @@
             <div class="input-container">
                 <input placeholder="Telefone" type="number" id="input_telefone">
             </div>
-            <!--
-            <div class="parteEmpresa">
-                <div class="input-container">
-                    <input placeholder="Cargo" type="text" id="input_cargo">
-                </div>
-            </div>
-            -->
             <div class="input-container">
                 <input placeholder="Senha" type="password" id="input_senha">
             </div>
@@ -76,10 +69,8 @@
 
 <script>
 function listar() {
-    // Obtém o elemento do select
     const listaEmpresas = document.getElementById("listaEmpresas");
 
-    // Verifica se o elemento foi encontrado
     if (!listaEmpresas) {
         console.error("Elemento 'listaEmpresas' não encontrado!");
         return;

@@ -337,9 +337,7 @@ body {
     flex-direction: row;
     padding: 10px;
     box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
-margin-left: -3px;
     justify-content: start;
-align-items: center;
 }
 
 .KPI22 {
@@ -369,11 +367,13 @@ a {
     font-family: "Paytone One", sans-serif;
     color: #0A82B0;
     font-size: 20px;
-
+    
 }
 
 .selectAspectos {
     padding-inline-start: 10px;
+    width: 150px;
+    margin-left: 30px;
 }
 
 
@@ -478,8 +478,6 @@ a {
     margin-right: 3%;
     display: flex;
     flex-direction: column;
-    margin-left: -0.7%;
-    padding: 0;
     justify-content: center;
     align-items: center;
 }
@@ -596,8 +594,8 @@ a {
 .tituloKpi3 {
     display: flex;
     flex-direction: row;
-    gap: 15px;
-    margin-top: -10%;
+    width: 500px;
+    justify-content: space-evenly;
 }
 
 .subtittleEmpresaG1 {
@@ -698,6 +696,7 @@ body.dark-mode .itemExit:hover {
 .resultado {
     font-size: 18px;
     font-family: "Asap", sans-serif;
+
 }
 .bom {
     color: green;
@@ -1027,9 +1026,9 @@ body {
     flex-direction: row;
     padding: 10px;
     box-shadow: 0 2px 10px 0px rgb(172, 169, 169);
-margin-left: -3px;
+    margin-left: -3px;
     justify-content: start;
-align-items: center;
+    align-items: center;
 }
 
 .KPI22 {
@@ -1059,7 +1058,7 @@ a {
 .tittleEmpresaG3 {
     font-family: "Paytone One", sans-serif;
     color: #0A82B0;
-    font-size: 20px;
+    font-size: 25px;
 
 }
 
@@ -1151,7 +1150,7 @@ a {
 }
 
 .KPI4 {
-    width: 500px;
+    width: 700px;
     height: 400px;
     margin-right: 20px;
     display: flex;
@@ -1161,7 +1160,7 @@ a {
 
 .KPI5 {
     margin-left: 30px;
-    width: 340px;
+    width: 500px;
     height: 400px;
     margin-right: 3%;
     display: flex;
@@ -1171,7 +1170,6 @@ a {
     justify-content: center;
     align-items: center;
 }
-
 
 
 .KPI6 {
@@ -1283,8 +1281,7 @@ a {
 .tituloKpi3 {
     display: flex;
     flex-direction: row;
-    gap: 15px;
-    margin-top: -10%;
+    justify-content: space-around;
 }
 
 .subtittleEmpresaG1 {
@@ -1371,4 +1368,10 @@ body.dark-mode .itemExit:hover {
 #myChart {
     width: 300px;
     height: 450px;
+}
+
+.KPIbottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
