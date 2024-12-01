@@ -110,7 +110,34 @@ function satisfacaoPorEquipe() {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function pioresAspectosRemoto() {
+    const instrucaoSql = `
+    SELECT 
+        piorAspectoTrabalhoRemoto AS aspecto,
+        COUNT(*) AS quantidade
+    FROM 
+        dadosDashboard
+    GROUP BY 
+        piorAspectoTrabalhoRemoto
+    ORDER BY 
+        quantidade DESC;
+    `;
+    console.log("Executando a instrução SQL (remoto): \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
+function pioresAspectos(tipo) {
+    let coluna = tipo === "remoto" ? "piorAspectoTrabalhoRemoto" : "piorAspectoTrabalhoPresencial";
+    let instrucaoSql = `
+        SELECT ${coluna} AS aspecto, COUNT(*) AS quantidade
+        FROM dadosDashboard
+        WHERE ${coluna} IS NOT NULL
+        GROUP BY ${coluna}
+        ORDER BY quantidade DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 module.exports = {
     genero,
     totalColaboradores,
@@ -120,4 +147,5 @@ module.exports = {
     recomendacao,
     produtividadePorEquipe,
     satisfacaoPorEquipe,
+    pioresAspectos
 };

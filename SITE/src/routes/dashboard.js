@@ -32,4 +32,7 @@ router.post("/satisfacao/equipes", function (req, res) {
 router.post("/comparacao/equipes", function (req, res) {
     dashboardController.comparacaoProdutividadeSatisfacao(req, res);
 });
+router.get("/pioresAspectos/:tipo", function (req, res) {
+    dashboardController.pioresAspectos(req, res);
+});
 module.exports = router;
