@@ -175,6 +175,136 @@
                 console.error("Erro ao carregar os dados de recomendação:", erro);
             });
     }
+    document.addEventListener("DOMContentLoaded", function () {
+        const selectFiltro = document.getElementById("filtroSatisfacaoProdutividade");
+    
+        selectFiltro.addEventListener("change", function () {
+            const opcaoSelecionada = selectFiltro.value;
+    
+            if (opcaoSelecionada === "produtividade") {
+                carregarDadosProdutividadeEquipes();
+            } else if (opcaoSelecionada === "satisfacao") {
+                carregarDadosSatisfacaoEquipes();
+            }
+        });
+    
+        carregarDadosProdutividadeEquipes();
+    });
+    
+    function carregarDadosProdutividadeEquipes() {
+        fetch('/dashboard/produtividade/equipes', { method: 'POST' })
+            .then(function (resposta) {
+                if (resposta.status === 204) {
+                    throw new Error("Nenhum dado encontrado para produtividade.");
+                }
+                return resposta.json();
+            })
+            .then(function (dados) {
+                console.log('Dados de produtividade por equipe:', dados);
+    
+                const equipes = [];
+                const produtividades = [];
+    
+                dados.forEach(item => {
+                    if (!equipes.includes(item.equipe)) {
+                        equipes.push(item.equipe);
+                    }
+                    produtividades.push(item.quantidade); 
+                });
+    
+                atualizarGraficoFeedback(equipes, produtividades, 'Produtividade por Equipe');
+            })
+            .catch(function (erro) {
+                console.error("Erro ao carregar os dados de produtividade por equipe:", erro);
+                alert("Erro ao carregar os dados de produtividade por equipe. Verifique o console para mais detalhes.");
+            });
+    }
+    
+    function carregarDadosSatisfacaoEquipes() {
+        fetch('/dashboard/satisfacao/equipes', { method: 'POST' })
+            .then(function (resposta) {
+                if (resposta.status === 204) {
+                    throw new Error("Nenhum dado encontrado para satisfação.");
+                }
+                return resposta.json();
+            })
+            .then(function (dados) {
+                console.log('Dados de satisfação por equipe:', dados);
+    
+                const equipes = [];
+                const satisfacoes = [];
+    
+                dados.forEach(item => {
+                    if (!equipes.includes(item.equipe)) {
+                        equipes.push(item.equipe);
+                    }
+                    satisfacoes.push(item.quantidade); 
+                });
+    
+                atualizarGraficoFeedback(equipes, satisfacoes, 'Satisfação por Equipe');
+            })
+            .catch(function (erro) {
+                console.error("Erro ao carregar os dados de satisfação por equipe:", erro);
+                alert("Erro ao carregar os dados de satisfação por equipe. Verifique o console para mais detalhes.");
+            });
+    }
+    
+    function atualizarGraficoFeedback(labels, data, titulo) {
+        const ctx3 = document.getElementById('feedbackEquipes').getContext('2d');
+    
+        if (window.myFeedbackChart) {
+            window.myFeedbackChart.destroy();
+        }
+    
+        window.myFeedbackChart = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: labels, 
+                datasets: [{
+                    label: titulo,
+                    data: data,
+                    backgroundColor: [
+                        '#0A82B0', '#0A82B0', '#0A82B0', '#0A82B0', '#0A82B0', '#0A82B0'
+                    ],
+                    borderWidth: 1,
+                    borderRadius: 7,
+                    barPercentage: 1.3,
+                    categoryPercentage: 0.66
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y', 
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: titulo,
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            }
+        });
+    }
     
     window.onload = function () {
         carregarDadosGenero();
@@ -183,4 +313,5 @@
         carregarDadosSatisfeitos();
         carregarDadosInsatisfeitos();
         carregarDadosRecomendacao();
+        atualizarGraficoFeedback();
     };

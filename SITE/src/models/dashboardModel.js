@@ -78,6 +78,51 @@ function recomendacao() {
     return database.executar(instrucaoSql);
 }
 
+function produtividadePorEquipe() {
+    var instrucaoSql = `
+    SELECT 
+        produtividade AS categoria_produtividade,
+        COUNT(*) AS quantidade
+    FROM 
+        dadosDashboard
+    GROUP BY 
+        produtividade
+    ORDER BY 
+        quantidade DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function desempenhoPorEquipe() {
+    var instrucaoSql = `
+    SELECT 
+        produtividade AS categoria_produtividade,
+        COUNT(*) AS quantidade
+    FROM 
+        dadosDashboard
+    GROUP BY 
+        produtividade
+    ORDER BY 
+        quantidade DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function satisfacaoPorEquipe() {
+    var instrucaoSql = `
+    SELECT 
+        colaboracaoComColegas3meses AS categoria_satisfacao,
+        COUNT(*) AS quantidade
+    FROM 
+        dadosDashboard
+    GROUP BY 
+        colaboracaoComColegas3meses
+    ORDER BY 
+        quantidade DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 module.exports = {
     genero,
     totalColaboradores,
@@ -85,4 +130,6 @@ module.exports = {
     colaboradoresInsatisfeitos,
     colaboradoresSatisfeitos,
     recomendacao,
+    produtividadePorEquipe,
+    satisfacaoPorEquipe
 };

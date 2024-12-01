@@ -167,9 +167,9 @@
                 <div class="KPI6">
                     <div class="tituloKpi1">
                         <span class="tittleEmpresa"> Feedback </span>
-                        <select name="" id="">
-                            <option value="">Produtividade</option>
-                            <option value="">Desempenho</option>
+                        <select id="filtroSatisfacaoProdutividade">
+                            <option value="produtividade" selected>Produtividade</option>
+                            <option value="satisfacao">Satisfacao</option>
                         </select>
                     </div>
                     <p class="subtittleEmpresaG1">por equipe</p>
@@ -350,59 +350,59 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Gráfico de feedback por equipes
-    const ctx3 = document.getElementById('feedbackEquipes').getContext('2d');
-    const myFeedbackChart = new Chart(ctx3, {
-        type: 'bar',
-        data: {
-            labels: [
-                'Managers',
-                'Sales',
-                'Chief Executives',
-                'Education Professionals',
-                'Construction Trades',
-                'Hospitality'
-            ],
-            datasets: [{
-                label: 'Feedback Positivo',
-                data: [3, 8, 16, 20, 12, 17],
-                backgroundColor: '#0A82B0',
-                borderWidth: 1,
-                borderRadius: 7,
-                barPercentage: 1.3,
-                categoryPercentage: 0.66
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            indexAxis: 'y', // Muda o eixo para horizontal
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    grid: {
-                        display: false // Remove as linhas de grade verticais
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        display: false // Remove as linhas de grade horizontais
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false // Remove a legenda
-                },
-                title: {
-                    display: true,
-                    font: {
-                        size: 20
-                    }
-                }
-            }
-        }
-    });
+    // // Gráfico de feedback por equipes
+    // const ctx3 = document.getElementById('feedbackEquipes').getContext('2d');
+    // const myFeedbackChart = new Chart(ctx3, {
+    //     type: 'bar',
+    //     data: {
+    //         labels: [
+    //             'Managers',
+    //             'Sales',
+    //             'Chief Executives',
+    //             'Education Professionals',
+    //             'Construction Trades',
+    //             'Hospitality'
+    //         ],
+    //         datasets: [{
+    //             label: 'Feedback Positivo',
+    //             data: [3, 8, 16, 20, 12, 17],
+    //             backgroundColor: '#0A82B0',
+    //             borderWidth: 1,
+    //             borderRadius: 7,
+    //             barPercentage: 1.3,
+    //             categoryPercentage: 0.66
+    //         }]
+    //     },
+    //     options: {
+    //         responsive: true,
+    //         maintainAspectRatio: false,
+    //         indexAxis: 'y', // Muda o eixo para horizontal
+    //         scales: {
+    //             x: {
+    //                 beginAtZero: true,
+    //                 grid: {
+    //                     display: false // Remove as linhas de grade verticais
+    //                 }
+    //             },
+    //             y: {
+    //                 beginAtZero: true,
+    //                 grid: {
+    //                     display: false // Remove as linhas de grade horizontais
+    //                 }
+    //             }
+    //         },
+    //         plugins: {
+    //             legend: {
+    //                 display: false // Remove a legenda
+    //             },
+    //             title: {
+    //                 display: true,
+    //                 font: {
+    //                     size: 20
+    //                 }
+    //             }
+    //         }
+    //     }
+    // });
 
 </script>
