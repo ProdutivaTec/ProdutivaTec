@@ -23,4 +23,10 @@ router.post("/insatisfeitos", function (req, res) {
 router.post("/recomendacao", function (req, res) {
     dashboardController.recomendacao(req, res);
 });
+router.post("/produtividade/equipes", function (req, res) {
+    dashboardController.produtividadePorEquipe(req, res);
+});
+router.post("/satisfacao/equipes", function (req, res) {
+    dashboardController.satisfacaoPorEquipe(req, res); 
+});
 module.exports = router;

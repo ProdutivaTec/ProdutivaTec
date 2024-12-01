@@ -126,7 +126,86 @@ function recomendacao(req, res) {
         });
 }
 
+function produtividadePorEquipe(req, res) {
+    dashboardModel.produtividadePorEquipe()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                const equipes = [
+                    "Managers",
+                    "Sales",
+                    "Chief Executives",
+                    "Education Professionals",
+                    "Construction Trades",
+                    "Hospitality",
+                ];
 
+                const produtividadeEquipes = equipes.map((equipe, index) => {
+                    const produtividadeEquipe = resultado.map((item) => ({
+                        equipe: equipe,
+                        categoria_produtividade: item.categoria_produtividade,
+                        quantidade: Math.floor(item.quantidade + equipes.length),
+                    }));
+
+                    if (index === equipes.length - 1) {
+                        produtividadeEquipe.forEach((item, i) => {
+                            const restante = resultado[i].quantidade / equipes.length;
+                            item.quantidade += restante;
+                        });
+                    }
+
+                    return produtividadeEquipe;
+                });
+
+                res.status(200).json(produtividadeEquipes.flat());
+            } else {
+                res.status(204).send("Nenhum dado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar dados de produtividade por equipe:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+function satisfacaoPorEquipe(req, res) {
+    dashboardModel.satisfacaoPorEquipe()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                const equipes = [
+                    "Managers",
+                    "Sales",
+                    "Chief Executives",
+                    "Education Professionals",
+                    "Construction Trades",
+                    "Hospitality",
+                ];
+
+                const satisfacaoEquipes = equipes.map((equipe, index) => {
+                    const satisfacaoEquipe = resultado.map((item) => ({
+                        equipe: equipe,
+                        categoria_satisfacao: item.categoria_satisfacao,
+                        quantidade: Math.floor(item.quantidade + equipes.length),
+                    }));
+
+                    if (index === equipes.length - 1) {
+                        satisfacaoEquipe.forEach((item, i) => {
+                            const restante = resultado[i].quantidade / equipes.length;
+                            item.quantidade += restante;
+                        });
+                    }
+
+                    return satisfacaoEquipe;
+                });
+
+                res.status(200).json(satisfacaoEquipes.flat());
+            } else {
+                res.status(204).send("Nenhum dado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar dados de satisfação por equipe:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 
 module.exports = {
     genero,
@@ -134,5 +213,7 @@ module.exports = {
     calcularPorcentagemRespostas,
     colaboradoresInsatisfeitos,
     colaboradoresSatisfeitos,
-    recomendacao
+    recomendacao,
+    produtividadePorEquipe,
+    satisfacaoPorEquipe
 };
