@@ -23,6 +23,7 @@ router.post("/insatisfeitos", function (req, res) {
 router.post("/recomendacao", function (req, res) {
     dashboardController.recomendacao(req, res);
 });
+
 router.post("/produtividade/equipes", function (req, res) {
     dashboardController.produtividadePorEquipe(req, res);
 });
@@ -35,4 +36,9 @@ router.post("/comparacao/equipes", function (req, res) {
 router.get("/pioresAspectos/:tipo", function (req, res) {
     dashboardController.pioresAspectos(req, res);
 });
+
+router.post("/graficoRecursos", function (req, res) {
+    dashboardController.graficoRecursos(req, res);
+});
+
 module.exports = router;
