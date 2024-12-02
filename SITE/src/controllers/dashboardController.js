@@ -154,36 +154,6 @@ function produtividadePorEquipe(req, res) {
         });
 }
 
-function graficoRecursos(req, res) {
-    console.log("Recebendo requisição para '/graficoRecursos'");
-    dashboardModel.graficoRecursos()
-        .then(function (resultado) {
-            console.log("Dados recebidos do model:", resultado); // Log para ver o que o model retorna
-            if (resultado && resultado.length > 0) {
-                const remoto = resultado.find(r => r.TipoTrabalho === 'Trabalho Remoto') || {};
-                const presencial = resultado.find(r => r.TipoTrabalho === 'Trabalho Presencial') || {};
-
-                res.status(200).json({
-                    remoto: {
-                        tempoFamilia: parseFloat(remoto.MediaTempoFamilia) || 0,
-                        tempoTrabalho: parseFloat(remoto.MediaTempoTrabalho) || 0,
-                    },
-                    presencial: {
-                        tempoFamilia: parseFloat(presencial.MediaTempoFamilia) || 0,
-                        tempoTrabalho: parseFloat(presencial.MediaTempoTrabalho) || 0,
-                    }
-                });
-            } else {
-                console.log("Nenhum resultado encontrado");
-                res.status(204).send("Nenhum resultado encontrado!");
-            }
-        })
-        .catch(function (erro) {
-            console.error("Erro no controller:", erro);
-            res.status(500).json({ erro: erro.message });
-        });
-}
-
 function satisfacaoPorEquipe(req, res) {
     dashboardModel.satisfacaoPorEquipe()
         .then(function (resultado) {
@@ -271,6 +241,5 @@ module.exports = {
     produtividadePorEquipe,
     satisfacaoPorEquipe,
     comparacaoProdutividadeSatisfacao,
-    pioresAspectos,
-    graficoRecursos
+    pioresAspectos
 };

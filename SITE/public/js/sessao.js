@@ -40,7 +40,7 @@ function irParaDashboard() {
         }, 500);
         } else {
             setTimeout(function () {
-            window.location = "dashboard-VisãoGestor.html";
+            window.location = "dashboardGestor.html";
             }, 500);
         }
 }

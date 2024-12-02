@@ -207,57 +207,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
  
 <script>
-
-    // Requisição para obter a porcentagem de produtividade do trabalho remoto
-    fetch('/dashboardGestor/porcentagem-produtivo-remoto')
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.porcentagemRemoto !== undefined) {
-                document.getElementById('porcentagem-remoto').textContent = data.porcentagemRemoto + '%';
-            }
-        })
-        .catch(error => console.error('Erro ao buscar a porcentagem do remoto:', error));
-
-    // Requisição para obter a porcentagem de produtividade do trabalho presencial
-    fetch('/dashboardGestor/porcentagem-produtivo-presencial')
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.porcentagemPresencial !== undefined) {
-                document.getElementById('porcentagem-presencial').textContent = data.porcentagemPresencial + '%';
-            }
-        })
-        .catch(error => console.error('Erro ao buscar a porcentagem do presencial:', error));
-
-    // Requisição para obter a porcentagem de produtividade do trabalho remoto (Mulher)
-    fetch('/dashboardGestor/porcentagem-remoto-mulher')
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.porcentagemRemoto !== undefined) {
-                document.getElementById('porcentagem-remoto-mulher').textContent = data.porcentagemRemoto + '%';
-            }
-        })
-        .catch(error => console.error('Erro ao buscar a porcentagem do remoto (Mulher):', error));
-
-    // Requisição para obter a porcentagem de produtividade do trabalho presencial (Mulher)
-    fetch('/dashboardGestor/porcentagem-presencial-mulher')
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.porcentagemPresencial !== undefined) {
-                document.getElementById('porcentagem-presencial-mulher').textContent = data.porcentagemPresencial + '%';
-            }
-        })
-        .catch(error => console.error('Erro ao buscar a porcentagem do presencial (Mulher):', error));
-
-    fetch('/dashboardGestor/media-produtividade-equipe')
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.mediaProdutividadeEquipe !== undefined) {
-                document.getElementById('media-produtividade-equipe').textContent = data.mediaProdutividadeEquipe;
-            }
-        })
-        .catch(error => console.error('Erro ao buscar a média de produtividade da equipe do remoto:', error));
-
-
     // Gráfico de utilização de recuros
     const ctx2 = document.getElementById('graficoRecursos').getContext('2d');
     

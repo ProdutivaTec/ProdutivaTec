@@ -37,8 +37,4 @@ router.get("/pioresAspectos/:tipo", function (req, res) {
     dashboardController.pioresAspectos(req, res);
 });
 
-router.post("/graficoRecursos", function (req, res) {
-    dashboardController.graficoRecursos(req, res);
-});
-
 module.exports = router;

@@ -55,7 +55,7 @@ function entrar() {
                         exibirModalSucesso();
 
                         setTimeout(function () {
-                            window.location = "dashboard-VisãoGestor.html";
+                            window.location = "dashboardGestor.html";
                         }, 2000);
                     }
                     

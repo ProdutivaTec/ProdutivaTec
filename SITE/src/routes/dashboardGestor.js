@@ -26,4 +26,9 @@ router.get('/media-produtividade-equipe', function (req, res) {
 router.get("/pioresAspectos/:tipo", function (req, res) {
     dashboardGestorController.pioresAspectosPorOcupacao(req, res);
 });
+
+router.post("/graficoRecursos", function (req, res) {
+    dashboardGestorController.graficoRecursos(req, res);
+});
+
 module.exports = router;
