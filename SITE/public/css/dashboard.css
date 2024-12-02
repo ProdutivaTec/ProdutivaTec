@@ -100,7 +100,11 @@ body {
     transform: scale(1.05);
 }
 
-
+.funcionalidadesHeader .fotoUsuario{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 
 .itemExit {
     position: absolute;
@@ -142,7 +146,7 @@ body {
     padding: 0 10px;
     position: fixed;
     top: 0;
-    left: 78%;
+    left: 85%;
     z-index: 1000;
 }
 

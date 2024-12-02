@@ -51,6 +51,12 @@ button {
   font-family: "Paytone One", sans-serif;
 }
 
+.funcionalidadesHeader .fotoUsuario{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
 #header {
   padding: 10px;
   color: var(--header-color);
@@ -315,17 +321,16 @@ a {
 }
 
 
-.headerDash {
-  width: calc(100% - 250px);
-  /* Desconta a largura da sidebar */
+.headerDash{
+  width: calc(100% - 250px); /* Desconta a largura da sidebar */
   height: 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
-  padding: 0 20px;
+  padding: 0 10px;
   position: fixed;
   top: 0;
-  left: 78%;
+  left: 85%;
   z-index: 1000;
 }
 

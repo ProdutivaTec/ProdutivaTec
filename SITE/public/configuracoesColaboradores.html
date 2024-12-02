@@ -47,22 +47,20 @@
                 </div>
             </aside>
 
-            <!-- Header -->
             <header class="headerDash">
                 <div class="headerRight">
                     <div class="funcionalidadesHeader" id="theme-toggle">
                         <img src="./assets/icon/sun.png" alt="Tema Claro" id="theme-icon">
                     </div>
                     <div class="vertical"></div>
-                    <div class="funcionalidadesHeader" id="theme-header1">
-                        <img src="./assets/icon/notification (1).png" id="theme-noti" alt="">
-                    </div>
+                    <a href="./configuracoesPerfil.html">
                     <div class="funcionalidadesHeader" id="theme-header2">
                         <img src="./assets/icon/setting (3).png" id="theme-confg" alt="">
                     </div>
+                </a>
                     <div class="vertical"></div>
                     <div class="funcionalidadesHeader" id="theme-header2">
-                        <img class="imgPeople" src="./assets/img/image 56.png" id="theme-confg" alt="">
+                        <img class="fotoUsuario" id="theme-confg" src="" alt="">
                     </div>
                 </div>
             </header>
@@ -260,6 +258,7 @@
 <script src="./js/dashboard.js"></script>
 <script src="./js/search.js"></script>
 <script src="./js/cadastroFuncionario.js"></script>
+<script src="./js/atualizarImg-Perfil.js"></script>
 
 <script>
     const btnCadastro = document.getElementById("btnCadastro");
@@ -305,4 +304,49 @@ window.onclick = function (event) {
 };
 
 
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const dashButton = document.getElementById('theme-dash');
+        const themelogo = document.getElementById('theme-logo');
+        const themenoti = document.getElementById('theme-noti');
+        const themeconfg = document.getElementById('theme-confg');
+
+        const body = document.body;
+
+        // Verifica o tema atual ao carregar a página
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeIcon.src = './assets/icon/Moon.png';
+            themelogo.src = './assets/img/LOGO-Dark.png';
+            themenoti.src = './assets/icon/icons8-sino-50.png';
+            themeconfg.src = './assets/icon/icons8-configuração-50.png';
+        }
+
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.src = './assets/icon/Moon.png';
+                themelogo.src = './assets/img/LOGO-Dark.png';
+                themenoti.src = './assets/icon/icons8-sino-50.png';
+                themeconfg.src = './assets/icon/icons8-configuração-50.png';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.src = './assets/icon/sun.png';
+                themelogo.src = './assets/img/LOGO.png';
+                themenoti.src = './assets/icon/notification (1).png';
+                themeconfg.src = './assets/icon/setting (3).png';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+
+        toggleButton.addEventListener('click', toggleTheme);
+
+        dashButton.addEventListener('click', toggleTheme);
+    });
 </script>
