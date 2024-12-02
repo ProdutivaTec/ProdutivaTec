@@ -100,35 +100,38 @@ function pioresAspectos(tipo) {
     return database.executar(instrucaoSql);
 }
 
-function graficoRecursos() {
-    const instrucaoSql = `
-        SELECT 
-            'Trabalho Remoto' AS TipoTrabalho,
-            AVG(tempoDedicadoTarefasRemoto) AS MediaTempoFamilia,
-            AVG(tempoDedicadoTrabalhoRemoto) AS MediaTempoTrabalho
-        FROM dadosDashboard
-        WHERE preferenciaTrabalhoRemoto = 'Remoto'
-        UNION ALL
-        SELECT 
-            'Trabalho Presencial' AS TipoTrabalho,
-            AVG(tempoDedicadoTarefasPresencial) AS MediaTempoFamilia,
-            AVG(tempoDedicadoTrabalhoPresencial) AS MediaTempoTrabalho
-        FROM dadosDashboard
-        WHERE preferenciaTrabalhoRemoto = 'Presencial';
+async function buscarDadosRecursos(ocupacao) {
+    const query = `
+         SELECT 
+        'Remoto' AS tipo_atividade,
+        SUM(tempoDedicadoTarefasRemoto) AS tempo_pessoal,
+        SUM(tempoDedicadoTrabalhoRemoto) AS trabalho
+    FROM 
+        dadosDashboard
+    WHERE 
+        ocupacao = 'Gestores'
+
+    UNION ALL
+
+    SELECT 
+        'Presencial' AS tipo_atividade,
+        SUM(tempoDedicadoTarefasPresencial) AS tempo_pessoal,
+        SUM(tempoDedicadoTrabalhoPresencial) AS trabalho
+    FROM 
+        dadosDashboard
+    WHERE 
+    ocupacao = 'Gestores';
     `;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql) // Deve retornar uma Promise
-        .then(resultado => {
-            console.log("Resultado da execução SQL:", resultado);
-            return resultado; // Retorna o resultado para o controller
-        })
-        .catch(erro => {
-            console.error("Erro na execução SQL:", erro);
-            throw erro; // Garante que o erro seja tratado no controller
-        });
+    console.log("Executando a query SQL com ocupação:", ocupacao);
+    try {
+        const resultados = await database.executar(query, [ocupacao, ocupacao]);
+        return resultados;
+    } catch (erro) {
+        console.error("Erro ao executar a query no modelo:", erro);
+        throw erro;
+    }
 }
-
 module.exports = {
     porcentagemProdutivoPresencial,
     porcentagemProdutivoRemoto,
@@ -136,6 +139,6 @@ module.exports = {
     porcentagemProdutivoPresencialMulher,
     mediaProdutividadeEquipe,
     pioresAspectos,
-    graficoRecursos,
+    buscarDadosRecursos,
 }
 

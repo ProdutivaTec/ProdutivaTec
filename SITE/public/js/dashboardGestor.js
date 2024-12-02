@@ -1,5 +1,3 @@
-const { graficoRecursos } = require("../../src/models/dashboardGestorModel");
-
 document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
@@ -113,44 +111,100 @@ function carregarDadosPioresAspectos(tipo) {
         });
 }
 
-function graficoRecursos() {
-    console.log("Iniciando requisição para 'dashboard/graficoRecursos'");
-    fetch('/dashboardGestor/graficoRecursos', { method: 'POST' })
-        .then(resposta => {
-            console.log("Resposta recebida:", resposta);
-            if (!resposta.ok) {
-                throw new Error('Erro na resposta da API: ' + resposta.status);
+function carregarGraficoRecursos() {
+    fetch("/dashboardGestor/graficoRecursos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ocupacao: "Gestores" })
+    })
+        .then((response) => {
+            if (!response.ok) {
+                return response.json().then((erro) => {
+                    throw new Error(erro.mensagem || "Erro desconhecido no backend");
+                });
             }
-            return resposta.json();
+            return response.json();
         })
-        .then(resultado => {
-            console.log('Dados recursos:', resultado);
+        .then((dados) => {
+            console.log("Dados recebidos para o gráfico:", dados);
 
-            // Verifica se o resultado contém os dados necessários
-            if (!resultado.remoto || !resultado.presencial) {
-                console.error("Dados ausentes na resposta:", resultado);
-                return;
-            }
+            const aspectos = dados.map(dado => dado.tipo_atividade); 
+            const tempoPessoal = dados.map(dado => dado.tempo_pessoal); 
+            const trabalho = dados.map(dado => dado.trabalho); 
 
-            // Atualiza os datasets do gráfico com os dados recebidos
-            resourceUsageChart.data.datasets[0].data = [
-                resultado.remoto.tempoFamilia || 0,
-                resultado.presencial.tempoFamilia || 0
-            ];
-
-            resourceUsageChart.data.datasets[1].data = [
-                resultado.remoto.tempoTrabalho || 0,
-                resultado.presencial.tempoTrabalho || 0
-            ];
-
-            // Atualiza o gráfico
-            resourceUsageChart.update();
+            // Atualizar o gráfico com os dados processados
+            atualizarGraficoRecursos(aspectos, tempoPessoal, trabalho);
         })
-        .catch(erro => {
-            console.error("Erro ao carregar os dados de recursos:", erro);
+        .catch((erro) => {
+            console.error("Erro ao carregar o gráfico de recursos:", erro);
+            alert("Erro: " + erro.message); 
         });
 }
 
+function atualizarGraficoRecursos(aspectos, tempoPessoal, trabalho) {
+    const ctx = document.getElementById('graficoRecursos').getContext('2d');
+
+    if (window.resourceUsageChart) {
+        window.resourceUsageChart.destroy();
+    }
+    window.resourceUsageChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: aspectos,
+            datasets: [
+                {
+                    label: 'Tempo Pessoal',
+                    data: tempoPessoal,
+                    backgroundColor: '#00264d', 
+                    borderRadius: 5
+                },
+                {
+                    label: 'Trabalho',
+                    data: trabalho,
+                    backgroundColor: '#0074cc',
+                    borderRadius: 5
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Utilização de Recursos (em horas)',
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#e0e0e0'
+                    },
+                    ticks: {
+                        stepSize: 50, 
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
 function mediaProdutividadeEquipe() {
     fetch('/dashboardGestor/media-produtividade-equipe')
         .then(response => response.json())
@@ -208,7 +262,7 @@ function porcentagemProdutivoRemoto() {
 
 window.onload = function () {
     carregarDadosPioresAspectos();
-    graficoRecursos();
+    carregarGraficoRecursos();
     mediaProdutividadeEquipe();
     porcentagemPresencialMulher();
     porcentagemRemotoMulher();

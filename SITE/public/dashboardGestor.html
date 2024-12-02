@@ -183,8 +183,8 @@
                     <div class="tituloKpi3">
                         <span class="tittleEmpresaG3"> Piores aspectos <br> do trabalho </span>
                         <select class="selectAspectos" name="" id="">
-                            <option value="remoto">Remoto</option>
-                            <option value="presencial">Presencial</option>
+                            <option value="presencial">presencial</option>
+                            <option value="remoto">remoto</option>
                         </select>
                     </div>
                     <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
@@ -206,80 +206,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
  
-<script>
-    // Gráfico de utilização de recuros
-    const ctx2 = document.getElementById('graficoRecursos').getContext('2d');
-    
-    const resourceUsageChart = new Chart(ctx2, {
-        type: 'bar', // Tipo de gráfico: barras
-        data: {
-            labels: ['Remoto', 'Presencial'], // Labels de categoria
-            datasets: [
-                {
-                    label: 'Tempo Pessoal',
-                    data: [0, 0], // Dados para "Tempo Pessoal"
-                    backgroundColor: '#0A2F5C', // Azul escuro
-                    borderRadius: 5
-                },
-                {
-                    label: 'Trabalho',
-                    data: [0, 0], // Dados para "Tempo de Trabalho"
-                    backgroundColor: '#0A82B0', // Azul claro
-                    borderRadius: 5
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top',
-                    labels: {
-                        color: '#333',
-                        font: {
-                            size: 14
-                        }
-                    }
-                },
-                title: {
-                    display: false
-                }
-            },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    grid: {
-                        display: false
-                    },
-                    ticks: {
-                        color: '#333',
-                        font: {
-                            size: 14
-                        }
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    max: 10,
-                    grid: {
-                        color: '#e0e0e0'
-                    },
-                    ticks: {
-                        stepSize: 2,
-                        color: '#333',
-                        font: {
-                            size: 14
-                        }
-                    }
-                }
-            }
-        }
-    });
-
-    
-</script>
 
 <script>
     const slider = document.getElementById('medidor');

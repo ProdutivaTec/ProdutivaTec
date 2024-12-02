@@ -79,13 +79,12 @@ function mediaProdutividadeEquipe(req, res) {
     dashboardGestorModel.mediaProdutividadeEquipe()
         .then(function (resultado) {
             if (resultado.length > 0) {
-                // Verifica se a coluna retornada está com o nome correto
                 const mediaProdutividadeEquipe = resultado[0].media_produtividade_equipe;
                 console.log("Média de produtividade da equipe (remoto):", mediaProdutividadeEquipe);
                 res.status(200).json({ mediaProdutividadeEquipe });
             } else {
                 console.log("Nenhum resultado encontrado (produtividade equipe).");
-                res.status(204).send(); // Retorna sem conteúdo
+                res.status(204).send(); 
             }
         })
         .catch(function (erro) {
@@ -109,34 +108,21 @@ function pioresAspectosPorOcupacao(req, res) {
         });
 }
 
-function graficoRecursos(req, res) {
-    console.log("Recebendo requisição para '/graficoRecursos'");
-    dashboardGestorModel.graficoRecursos()
-        .then(function (resultado) {
-            console.log("Dados recebidos do model:", resultado); // Log para ver o que o model retorna
-            if (resultado && resultado.length > 0) {
-                const remoto = resultado.find(r => r.TipoTrabalho === 'Trabalho Remoto') || {};
-                const presencial = resultado.find(r => r.TipoTrabalho === 'Trabalho Presencial') || {};
+async function graficoRecursos(req, res) {
+    const ocupacao = req.body.ocupacao || 'Gestores'; 
 
-                res.status(200).json({
-                    remoto: {
-                        tempoFamilia: parseFloat(remoto.MediaTempoFamilia) || 0,
-                        tempoTrabalho: parseFloat(remoto.MediaTempoTrabalho) || 0,
-                    },
-                    presencial: {
-                        tempoFamilia: parseFloat(presencial.MediaTempoFamilia) || 0,
-                        tempoTrabalho: parseFloat(presencial.MediaTempoTrabalho) || 0,
-                    }
-                });
-            } else {
-                console.log("Nenhum resultado encontrado");
-                res.status(204).send("Nenhum resultado encontrado!");
-            }
-        })
-        .catch(function (erro) {
-            console.error("Erro no controller:", erro);
-            res.status(500).json({ erro: erro.message });
-        });
+    try {
+        const resultados = await dashboardGestorModel.buscarDadosRecursos(ocupacao);
+
+        if (resultados.length > 0) {
+            res.status(200).json(resultados);
+        } else {
+            res.status(204).json({ mensagem: "Nenhum dado encontrado para o gráfico de recursos." });
+        }
+    } catch (erro) {
+        console.error("Erro no controller ao buscar dados do gráfico de recursos:", erro);
+        res.status(500).json({ mensagem: "Erro interno ao buscar dados do gráfico." }); 
+    }
 }
 
 module.exports = {
