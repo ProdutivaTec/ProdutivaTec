@@ -36,7 +36,7 @@ document.getElementById('searchBtn').addEventListener('click', function () {
           </div>
             <br>
          <div class="areaBotaoTela">
-  <a href="./dashboard-VisãoGestor.html">  <button class="bntOutraTela">Tela</button> </a>
+  <a href="./dashboardGestor.html">  <button class="bntOutraTela">Tela</button> </a>
       </div>
 
           <br>

@@ -327,7 +327,7 @@
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: '',
+                            label: 'Produtividade',
                             data: produtividade,
                             backgroundColor: '#0A82B0', 
                             borderWidth: 1,

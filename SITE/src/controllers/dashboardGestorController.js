@@ -124,7 +124,20 @@ async function graficoRecursos(req, res) {
         res.status(500).json({ mensagem: "Erro interno ao buscar dados do gráfico." }); 
     }
 }
-
+function totalColaboradores(req, res) {
+    dashboardGestorModel.totalColaboradores()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ quantidade_colaboradores: resultado[0].quantidade_colaboradores });
+            } else {
+                res.status(204).send("Nenhum colaborador encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar a quantidade de colaboradores:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 module.exports = {
     porcentagemProdutivoPresencial,
     porcentagemProdutivoRemoto,
@@ -132,5 +145,6 @@ module.exports = {
     porcentagemProdutivoPresencialMulher,
     mediaProdutividadeEquipe,
     pioresAspectosPorOcupacao,
-    graficoRecursos
+    graficoRecursos,
+    totalColaboradores
 };

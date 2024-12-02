@@ -132,6 +132,14 @@ async function buscarDadosRecursos(ocupacao) {
         throw erro;
     }
 }
+function totalColaboradores() {
+    var instrucaoSql = `
+        SELECT COUNT(*) AS quantidade_colaboradores
+        FROM dadosDashboard WHERE ocupacao = 'Gestores';
+    `;
+    console.log("Executando a instrução SQL para contar os colaboradores: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 module.exports = {
     porcentagemProdutivoPresencial,
     porcentagemProdutivoRemoto,
@@ -140,5 +148,6 @@ module.exports = {
     mediaProdutividadeEquipe,
     pioresAspectos,
     buscarDadosRecursos,
+    totalColaboradores
 }
 

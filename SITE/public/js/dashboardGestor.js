@@ -259,7 +259,19 @@ function porcentagemProdutivoRemoto() {
         })
         .catch(error => console.error('Erro ao buscar a porcentagem do remoto:', error));
 }
-
+function carregarTotalColaboradores() {
+    fetch('dashboardGestor/totalColaboradores', { method: 'POST' })
+        .then(function (resposta) {
+            return resposta.json();
+        })
+        .then(function (resultado) {
+            console.log('Total de colaboradores:', resultado);
+            document.getElementById("quantidade-colaboradores").textContent = resultado.quantidade_colaboradores || 0;
+        })
+        .catch(function (erro) {
+            console.error("Erro ao carregar o total de colaboradores:", erro);
+        });
+}
 window.onload = function () {
     carregarDadosPioresAspectos();
     carregarGraficoRecursos();
@@ -268,4 +280,5 @@ window.onload = function () {
     porcentagemRemotoMulher();
     porcentagemProdutivoPresencial();
     porcentagemProdutivoRemoto();
+    carregarTotalColaboradores();
 };

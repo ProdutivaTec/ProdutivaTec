@@ -1,4 +1,3 @@
--- drop database produtiva;
 CREATE DATABASE produtiva;
 
 USE produtiva; 
@@ -20,7 +19,6 @@ CREATE TABLE tipoFuncionario (
     idTipoFuncionario INT AUTO_INCREMENT PRIMARY KEY,
     funcao VARCHAR(45) NOT NULL
 );
-
 insert into tipoFuncionario (funcao) values (
 'RH'
 );
@@ -62,14 +60,14 @@ CREATE TABLE participantes_evento (
 CREATE TABLE dadosDashboard (
     idDados INT AUTO_INCREMENT PRIMARY KEY,
     anoNascimento YEAR NOT NULL,
-    genero VARCHAR(45),
-    setor VARCHAR(45),
-    ocupacao VARCHAR(45),
-    tamanhoFamilia VARCHAR(45),
+    genero VARCHAR(255),
+    setor VARCHAR(255),
+    ocupacao VARCHAR(255),
+    tamanhoFamilia VARCHAR(255),
     colaboracaoComColegasAnoAnterior VARCHAR(100),
-    recomendacao VARCHAR(45),
+    recomendacao VARCHAR(255),
     colaboracaoComColegas3meses VARCHAR(100),
-    preferenciaTrabalhoRemoto VARCHAR(45),
+    preferenciaTrabalhoRemoto VARCHAR(255),
     produtividade VARCHAR(100),
     piorAspectoTrabalhoRemoto VARCHAR(100),
     piorAspectoTrabalhoPresencial VARCHAR(150),
@@ -77,13 +75,14 @@ CREATE TABLE dadosDashboard (
     tempoDedicadoTarefasPresencial INT,
     tempoDedicadoTrabalhoRemoto INT,
     tempoDedicadoTarefasRemoto INT,
-    maiorBarreiraTrabalhoRemoto VARCHAR(45),
-    menorBarreiraTrabalhoRemoto VARCHAR(45)
+    maiorBarreiraTrabalhoRemoto VARCHAR(145),
+    menorBarreiraTrabalhoRemoto VARCHAR(145)
 );
 
 CREATE TABLE leads (
     idEmail INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(256) NOT NULL,
+    sobrenome VARCHAR(256),
     email VARCHAR(45) NOT NULL,
     telefone VARCHAR(45),
     mensagem VARCHAR(900)
@@ -94,3 +93,8 @@ CREATE TABLE eventos (
     date VARCHAR(10) NOT NULL,
     title VARCHAR(200) NOT NULL
 );
+
+select * from dadosDashboard;
+truncate table dadosDashboard;
+SELECT * FROM tipoFuncionario;
+

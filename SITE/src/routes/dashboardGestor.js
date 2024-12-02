@@ -30,5 +30,7 @@ router.get("/pioresAspectos/:tipo", function (req, res) {
 router.post("/graficoRecursos", function (req, res) {
     dashboardGestorController.graficoRecursos(req, res);
 });
-
+router.post("/totalColaboradores", function (req, res) {
+    dashboardGestorController.totalColaboradores(req, res);
+});
 module.exports = router;
