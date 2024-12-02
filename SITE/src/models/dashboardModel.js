@@ -138,6 +138,36 @@ function pioresAspectos(tipo) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+function graficoRecursos() {
+    const instrucaoSql = `
+        SELECT 
+            'Trabalho Remoto' AS TipoTrabalho,
+            AVG(tempoDedicadoTarefasRemoto) AS MediaTempoFamilia,
+            AVG(tempoDedicadoTrabalhoRemoto) AS MediaTempoTrabalho
+        FROM dadosDashboard
+        WHERE preferenciaTrabalhoRemoto = 'Remoto'
+        UNION ALL
+        SELECT 
+            'Trabalho Presencial' AS TipoTrabalho,
+            AVG(tempoDedicadoTarefasPresencial) AS MediaTempoFamilia,
+            AVG(tempoDedicadoTrabalhoPresencial) AS MediaTempoTrabalho
+        FROM dadosDashboard
+        WHERE preferenciaTrabalhoRemoto = 'Presencial';
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql) // Deve retornar uma Promise
+        .then(resultado => {
+            console.log("Resultado da execução SQL:", resultado);
+            return resultado; // Retorna o resultado para o controller
+        })
+        .catch(erro => {
+            console.error("Erro na execução SQL:", erro);
+            throw erro; // Garante que o erro seja tratado no controller
+        });
+} 
+
 module.exports = {
     genero,
     totalColaboradores,
@@ -147,5 +177,6 @@ module.exports = {
     recomendacao,
     produtividadePorEquipe,
     satisfacaoPorEquipe,
-    pioresAspectos
+    pioresAspectos,
+    graficoRecursos
 };

@@ -115,7 +115,7 @@
         <section class="graficosDash">
             <div class="textEmpresa">
                 <Span class="tittleEmpresa">Financeiro</Span>
-                <p class="subtittleEmpresa">100 colaboradores</p>
+                <p class="subtittleEmpresa" id="qtdColaboradores"> colaboradores</p>
             </div>
             <div class="dashTop">
                 <div class="area2Kpis">
@@ -175,26 +175,25 @@
 
                 </div>
             </div>
-                <div class="KPIbottom">
-                    <div class="KPI4">
-                        <span class="tittleEmpresa"> Utilização de Recursos</span>
-                        <p class="pTextKPI2"> Em horas </p>
-                        <canvas id="comparacaoEquipes"></canvas>
-                    </div>
-    
-                    <div class="KPI5">
-                        <div class="tituloKpi3">
-                            <span class="tittleEmpresaG3"> Piores aspectos <br> do trabalho </span>
-                            <select class="selectAspectos" name="" id="">
-                                <option value="">Remoto</option>
-                                <option value="">Presencial</option>
-                            </select>
-                        </div>
-                        <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
-    
-                    </div>
+            <div class="KPIbottom">
+                <div class="KPI4">
+                    <span class="tittleEmpresa"> Utilização de Recursos</span>
+                    <p class="pTextKPI2"> Em horas </p>
+                    <canvas id="graficoRecursos"></canvas>
                 </div>
-                
+
+                <div class="KPI5">
+                    <div class="tituloKpi3">
+                        <span class="tittleEmpresaG3"> Piores aspectos <br> do trabalho </span>
+                        <select class="selectAspectos" name="" id="">
+                            <option value="">Remoto</option>
+                            <option value="">Presencial</option>
+                        </select>
+                    </div>
+                    <canvas id="GraficoPiorAspecto" width="400" height="300"></canvas>
+
+                </div>
+            </div>
             </div>
         </section>
     </section>
@@ -209,11 +208,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
+ 
 <script>
 
     // Requisição para obter a porcentagem de produtividade do trabalho remoto
@@ -337,24 +332,23 @@
         const myChart = new Chart(ctx, config);
     });
 
-
-
-    // Gráfico de comparação por equipes
-    const ctx = document.getElementById('comparacaoEquipes').getContext('2d');
-    const resourceUsageChart = new Chart(ctx, {
-        type: 'bar',
+    // Gráfico de utilização de recuros
+    const ctx2 = document.getElementById('graficoRecursos').getContext('2d');
+    
+    const resourceUsageChart = new Chart(ctx2, {
+        type: 'bar', // Tipo de gráfico: barras
         data: {
-            labels: ['Remoto', 'Presencial'],
+            labels: ['Remoto', 'Presencial'], // Labels de categoria
             datasets: [
                 {
-                    label: 'Tempo pessoal e em família',
-                    data: [8, 3],
+                    label: 'Tempo Pessoal',
+                    data: [0, 0], // Dados para "Tempo Pessoal"
                     backgroundColor: '#0A2F5C', // Azul escuro
                     borderRadius: 5
                 },
                 {
                     label: 'Trabalho',
-                    data: [6, 10],
+                    data: [0, 0], // Dados para "Tempo de Trabalho"
                     backgroundColor: '#0A82B0', // Azul claro
                     borderRadius: 5
                 }
@@ -475,9 +469,6 @@
     };
 
     const myFeedbackChart = new Chart(ctx3, configFeedback);
-
-
-
 </script>
 
 <script>

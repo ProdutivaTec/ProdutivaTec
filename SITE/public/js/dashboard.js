@@ -1,4 +1,3 @@
-
     document.addEventListener('DOMContentLoaded', function () {
         const toggleButton = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
@@ -41,8 +40,6 @@
 
         dashButton.addEventListener('click', toggleTheme);
     });
-
-
 
     function carregarDadosGenero() {
         fetch('dashboard/genero', { method: 'POST' })
@@ -177,7 +174,6 @@
     }
     document.addEventListener("DOMContentLoaded", function () {
         const selectFiltro = document.getElementById("filtroSatisfacaoProdutividade");
-    
         selectFiltro.addEventListener("change", function () {
             const opcaoSelecionada = selectFiltro.value;
     
@@ -189,7 +185,45 @@
         });
     
         carregarDadosProdutividadeEquipes();
-    });
+    });    
+
+    function carregarGraficoRecursos() {
+        console.log("Iniciando requisição para 'dashboard/graficoRecursos'");
+        fetch('dashboard/graficoRecursos', { method: 'POST' })
+            .then(resposta => {
+                console.log("Resposta recebida:", resposta);
+                if (!resposta.ok) {
+                    throw new Error('Erro na resposta da API: ' + resposta.status);
+                }
+                return resposta.json();
+            })
+            .then(resultado => {
+                console.log('Dados recursos:', resultado);
+    
+                // Verifica se o resultado contém os dados necessários
+                if (!resultado.remoto || !resultado.presencial) {
+                    console.error("Dados ausentes na resposta:", resultado);
+                    return;
+                }
+    
+                // Atualiza os datasets do gráfico com os dados recebidos
+                resourceUsageChart.data.datasets[0].data = [
+                    resultado.remoto.tempoFamilia || 0,
+                    resultado.presencial.tempoFamilia || 0
+                ];
+    
+                resourceUsageChart.data.datasets[1].data = [
+                    resultado.remoto.tempoTrabalho || 0,
+                    resultado.presencial.tempoTrabalho || 0
+                ];
+    
+                // Atualiza o gráfico
+                resourceUsageChart.update();
+            })
+            .catch(erro => {
+                console.error("Erro ao carregar os dados de recursos:", erro);
+            });
+    }
     
     function carregarDadosProdutividadeEquipes() {
         fetch('/dashboard/produtividade/equipes', { method: 'POST' })
@@ -465,4 +499,5 @@
         atualizarGraficoFeedback();
         carregarComparacaoEquipes();
         carregarDadosPioresAspectos();
+        carregarGraficoRecursos();
     };
