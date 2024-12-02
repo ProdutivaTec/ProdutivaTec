@@ -37,4 +37,8 @@ router.get("/pioresAspectos/:tipo", function (req, res) {
     dashboardController.pioresAspectos(req, res);
 });
 
+router.post("/nomeEmpresa", function (req, res) {
+    dashboardController.nomeEmpresa(req, res);
+});
+
 module.exports = router;

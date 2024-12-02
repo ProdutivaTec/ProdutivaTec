@@ -124,6 +124,13 @@ function pioresAspectos(tipo) {
     return database.executar(instrucaoSql);
 } 
 
+function nomeEmpresa(fkEmpresa) {
+    var instrucaoSql = `
+        SELECT nome FROM empresa WHERE idEmpresa = '${fkEmpresa}';
+    `;
+    console.log("Executando a instrução SQL para contar os colaboradores: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     genero,
@@ -135,4 +142,5 @@ module.exports = {
     produtividadePorEquipe,
     satisfacaoPorEquipe,
     pioresAspectos,
+    nomeEmpresa
 };

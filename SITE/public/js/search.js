@@ -30,7 +30,7 @@ document.getElementById('searchBtn').addEventListener('click', function () {
   
               <div class="inputGroup">
                   <label>Função</label>
-                  <div class="inputNome" id="funcao"><p>Diretor de Operações</p></div>
+                  <div class="inputNome" id="funcao"><p>Gestor</p></div>
               </div>
   
           </div>

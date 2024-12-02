@@ -44,7 +44,7 @@ function enviarLeads() {
           if (resposta.ok) {
     
             setTimeout(() => {
-              window.location = "configuracoesColaboradores.html";
+              window.location = "index.html";
             }, "2000");
     
             finalizarAguardar();
