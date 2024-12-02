@@ -231,6 +231,24 @@ function pioresAspectos(req, res) {
             res.status(500).json(erro.sqlMessage);
         });
 }
+
+function nomeEmpresa(req, res) {
+    var fkEmpresa = req.body.fkEmpresaServer;
+
+    dashboardModel.nomeEmpresa(fkEmpresa)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ "nomeEmpresa": resultado[0].nome });
+            } else {
+                res.status(204).send("Nenhum colaborador encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar a quantidade de colaboradores:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     genero,
     totalColaboradores,
@@ -241,5 +259,6 @@ module.exports = {
     produtividadePorEquipe,
     satisfacaoPorEquipe,
     comparacaoProdutividadeSatisfacao,
-    pioresAspectos
+    pioresAspectos,
+    nomeEmpresa
 };

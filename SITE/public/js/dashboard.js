@@ -451,6 +451,32 @@
                 console.error("Erro ao carregar os dados de piores aspectos:", erro);
             });
     }
+
+    function carregarNomeEmpresa() {
+        let fkEmpresa = sessionStorage.FK_EMPRESA;
+    
+        fetch("/dashboard/nomeEmpresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fkEmpresaServer: fkEmpresa,
+            }),
+        })
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (resultado) {
+                console.log("Nome Empresa:", resultado); 
+                document.getElementById("nomeEmpresa").textContent = resultado.nomeEmpresa || "Nome não encontrado";
+            })
+            .catch(function (erro) {
+                console.error("Erro ao carregar o nome da Empresa:", erro);
+            });
+    }
+    
+
     window.onload = function () {
         carregarDadosGenero();
         carregarTotalColaboradores();
@@ -461,4 +487,5 @@
         atualizarGraficoFeedback();
         carregarComparacaoEquipes();
         carregarDadosPioresAspectos();
+        carregarNomeEmpresa();
     };
