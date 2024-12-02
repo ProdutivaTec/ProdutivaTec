@@ -86,12 +86,25 @@ function mediaProdutividadeEquipe() {
     console.log("Executando a instrução SQL para média de produtividade da equipe do remoto: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
+function pioresAspectos(tipo) {
+    let coluna = tipo === "remoto" ? "piorAspectoTrabalhoRemoto" : "piorAspectoTrabalhoPresencial";
+    let instrucaoSql = `
+        SELECT ${coluna} AS aspecto, COUNT(*) AS quantidade
+        FROM dadosDashboard
+        WHERE ${coluna} IS NOT NULL
+        AND ocupacao = 'Gestores'  
+        GROUP BY ${coluna}
+        ORDER BY quantidade DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 module.exports = {
     porcentagemProdutivoPresencial,
     porcentagemProdutivoRemoto,
     porcentagemProdutivoRemotoMulher,
     porcentagemProdutivoPresencialMulher,
-    mediaProdutividadeEquipe
+    mediaProdutividadeEquipe,
+    pioresAspectos
 }
 

@@ -246,25 +246,6 @@ function comparacaoProdutividadeSatisfacao(req, res) {
         res.status(500).json(erro.sqlMessage || erro);
     });
 }
-function pioresAspectosRemoto(req, res) {
-    dashboardModel.pioresAspectosRemoto()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                const aspectos = resultado.map(item => ({
-                    aspecto: item.aspecto,
-                    quantidade: item.quantidade
-                }));
-                res.status(200).json(aspectos);
-            } else {
-                res.status(204).send("Nenhum dado encontrado!");
-            }
-        })
-        .catch(function (erro) {
-            console.error("Erro ao buscar piores aspectos do trabalho remoto:", erro.sqlMessage);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
-
 function pioresAspectos(req, res) {
     const tipo = req.params.tipo; 
     dashboardModel.pioresAspectos(tipo)
