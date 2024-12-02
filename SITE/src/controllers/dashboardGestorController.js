@@ -93,12 +93,27 @@ function mediaProdutividadeEquipe(req, res) {
             res.status(500).json({ error: erro.sqlMessage }); // Retorna erro interno do servidor
         });
 }
-
+function pioresAspectosPorOcupacao(req, res) {
+    const tipo = req.params.tipo; 
+    dashboardGestorModel.pioresAspectos(tipo)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum dado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar piores aspectos:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 
 module.exports = {
     porcentagemProdutivoPresencial,
     porcentagemProdutivoRemoto,
     porcentagemProdutivoRemotoMulher,
     porcentagemProdutivoPresencialMulher,
-    mediaProdutividadeEquipe
+    mediaProdutividadeEquipe,
+    pioresAspectosPorOcupacao
 };

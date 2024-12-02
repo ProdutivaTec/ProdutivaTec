@@ -23,5 +23,7 @@ router.get('/media-produtividade-equipe', function (req, res) {
     dashboardGestorController.mediaProdutividadeEquipe(req, res);
 });
 
-
+router.get("/pioresAspectos/:tipo", function (req, res) {
+    dashboardGestorController.pioresAspectosPorOcupacao(req, res);
+});
 module.exports = router;
